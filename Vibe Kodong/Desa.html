@@ -1,0 +1,117 @@
+<!-- Gameplay Membangun Jalan Desa -->
+
+<!-- 
+
+Pemain harus memilih opsi pola berikutnya untuk membangun desa
+Akan ada 5 soal di stage ini
+Setiap soal punya pola berbeda
+Ada pola angka, huruf dan bentuk
+Polanya bergantian, bertambah atau berulang
+Setiap jenis pola ada 50 soal dan selalu di acak
+Jadi setiap permainan tidak akan memunculkan soal yang sama
+Buat database soal dan kunci jawaban menggunakan json
+
+Gambar polanya menggunakan semantik <img>, letaknya ada dikomentar di bawah
+Buat animasi hover menarik
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="width: 1440px; height: 1024px; position: relative; background: white; overflow: hidden">
+        <img style="width: 1440px; height: 1024px; left: 0px; top: 0px; position: absolute"
+            src="Assets/BG_Desa.jpg" />
+        <div
+            style="width: 1040px; left: 200px; top: 96px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: center; gap: 60px; display: inline-flex">
+            <div
+                style="padding-left: 40px; padding-right: 40px; padding-top: 20px; padding-bottom: 20px; background: rgba(0, 0, 0, 0.70); justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                <div
+                    style="color: white; font-size: 48px; font-family: Pixelhands; font-weight: 500; word-wrap: break-word">
+                    Desa: Membangun Jalan</div>
+            </div>
+
+            <!-- Disini adalah letak gambar soal pola
+            Jadi tambahkan slot <img> untuk meletakkan gambar
+            Nama gambarnya pakai pola.png saja-->
+            <div
+                style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 40px; display: inline-flex">
+                <!-- 5 kebawah ini pola soal -->
+                <div style="width: 140px; height: 140px; background: rgba(0, 0, 0, 0.80); border: 5px white solid">
+                </div>
+                <div style="width: 140px; height: 140px; background: rgba(0, 0, 0, 0.80); border: 5px white solid">
+                </div>
+                <div style="width: 140px; height: 140px; background: rgba(0, 0, 0, 0.80); border: 5px white solid">
+                </div>
+                <div style="width: 140px; height: 140px; background: rgba(0, 0, 0, 0.80); border: 5px white solid">
+                </div>
+                <div style="width: 140px; height: 140px; background: rgba(0, 0, 0, 0.80); border: 5px white solid">
+                </div>
+                <!-- Disni letak dimana jawabannya
+                Pakai <img> juga -->
+                <div style="width: 140px; height: 140px; background: rgba(0, 0, 0, 0.80); border: 5px white solid">
+                </div>
+            </div>
+            <div
+                style="width: 500px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 20px; display: flex">
+                <div
+                    style="padding-left: 40px; padding-right: 40px; padding-top: 20px; padding-bottom: 20px; background: rgba(0, 0, 0, 0.70); justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                    <div
+                        style="color: white; font-size: 36px; font-family: Pixelhands; font-weight: 500; word-wrap: break-word">
+                        Pilihan selanjutnya:</div>
+                </div>
+                <div
+                    style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 40px; display: inline-flex">
+                    <!-- Disini letak pilihan jawabannya
+                    Pakai <img> juga -->
+                    <div style="width: 140px; height: 140px; background: rgba(0, 0, 0, 0.80); border: 5px white solid">
+                    </div>
+                    <div style="width: 140px; height: 140px; background: rgba(0, 0, 0, 0.80); border: 5px white solid">
+                    </div>
+                    <div style="width: 140px; height: 140px; background: rgba(0, 0, 0, 0.80); border: 5px white solid">
+                    </div>
+                </div>
+            </div>
+            <div
+                style="width: 680px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 20px; display: flex">
+                <div
+                    style="padding-left: 40px; padding-right: 40px; padding-top: 20px; padding-bottom: 20px; background: rgba(0, 0, 0, 0.70); justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                    <div
+                        style="color: white; font-size: 36px; font-family: Pixelhands; font-weight: 500; word-wrap: break-word">
+                        Apa aturan polanya</div>
+                </div>
+                <div
+                    style="align-self: stretch; justify-content: center; align-items: center; gap: 40px; display: inline-flex">
+                    <!-- Dibawah ini ada button opsi jawaban, kasih animasi hover -->
+                    <div
+                        style="width: 200px; padding-left: 80px; padding-right: 80px; padding-top: 20px; padding-bottom: 20px; background: black; outline: 10px white solid; outline-offset: -10px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                        <div
+                            style="color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; word-wrap: break-word">
+                            BERGANTIAN</div>
+                    </div>
+                    <div
+                        style="width: 200px; padding-left: 80px; padding-right: 80px; padding-top: 20px; padding-bottom: 20px; background: black; outline: 10px white solid; outline-offset: -10px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                        <div
+                            style="color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; word-wrap: break-word">
+                            BERTAMBAH</div>
+                    </div>
+                    <div
+                        style="width: 200px; padding-left: 80px; padding-right: 80px; padding-top: 20px; padding-bottom: 20px; background: black; outline: 10px white solid; outline-offset: -10px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                        <div
+                            style="color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; word-wrap: break-word">
+                            BERULANG</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!-- Gameplay Gunung Mencari Jalan -->
+
+<!-- 
+
+Pemain harus mencari jalan di gunung dengan menemukan informasi yang penting
+Ada banyak gambar di jalur dan pemain harus memilah mana yang penting dan mana yang tidak penting
+Pemain harus drag and drop informasi ke kotak Informasi penting dan Informasi tidak penting di kanan
+
+Informasi yang penting:
+jalan
+
+informasi tidak penting:
+semak
+gelondong kayu
+bunga
+kelinci
+sapi
+burung
+
+Akan ada 4 kali pengulangan di stage ini, jadi posisi akan di acak
+yang terpenting jalan tidak boleh berdekatan dengan jalan (pikirkan logikanya)
+Apabila informasi sudah didrag ke kotak informasi, maka gambarnya akan pindah
+Baru muncul lagi di perulangan setelahnya
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="width: 1440px; height: 1024px; position: relative; background: white; overflow: hidden">
+        <img style="width: 1440px; height: 1024px; left: 0px; top: 0px; position: absolute"
+            src="Assets/BG_Gunung.jpg" />
+        <div
+            style="padding-left: 40px; padding-right: 40px; padding-top: 20px; padding-bottom: 20px; left: 347px; top: 63px; position: absolute; background: rgba(0, 0, 0, 0.70); justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+            <div
+                style="color: white; font-size: 48px; font-family: Pixelhands; font-weight: 500; word-wrap: break-word">
+                Gunung: Mencari Jalan Utama</div>
+        </div>
+        <div
+            style="width: 997px; height: 817px; left: 37px; top: 177px; position: absolute; background: rgba(0, 0, 0, 0.70)">
+        </div>
+        <div
+            style="width: 314px; left: 1072px; top: 225px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 60px; display: inline-flex">
+            <div
+                style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: flex">
+                <div
+                    style="align-self: stretch; padding-left: 40px; padding-right: 40px; padding-top: 20px; padding-bottom: 20px; background: rgba(0, 0, 0, 0.70); outline: 5px white solid; outline-offset: -5px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                    <div
+                        style="width: 168px; color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; word-wrap: break-word">
+                        Informasi Penting</div>
+                </div>
+                <div
+                    style="align-self: stretch; height: 249px; background: rgba(0, 0, 0, 0.70); border: 5px white solid">
+                </div>
+            </div>
+            <div
+                style="flex-direction: column; justify-content: flex-start; align-items: center; gap: 10px; display: flex">
+                <div
+                    style="align-self: stretch; padding-left: 40px; padding-right: 40px; padding-top: 20px; padding-bottom: 20px; background: rgba(0, 0, 0, 0.70); outline: 5px white solid; outline-offset: -5px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                    <div
+                        style="width: 224px; color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; word-wrap: break-word">
+                        Informasi Tidak Penting</div>
+                </div>
+                <div
+                    style="align-self: stretch; height: 249px; background: rgba(0, 0, 0, 0.70); border: 5px white solid">
+                </div>
+            </div>
+        </div>
+        <!-- Tambahkan text kecil tepat pada bawah gambar
+        Misal Semak.png => dibawah gambar kastil ada tulisan Semak
+        Supaya pemain tidak kebingungan
+        Lakukan di semua gambar dibawah ini kecuali Character.png dan Kastil.png 
+        
+        Tambahkan juga animasi hover agar menarik
+        -->
+        <img style="width: 117px; height: 157px; left: 73px; top: 268px; position: absolute"
+            src="Assets/Character.png" />
+        <img style="width: 155px; height: 155px; left: 795px; top: 745px; position: absolute"
+            src="Assets/Kastil.png" />
+        <img style="width: 95px; height: 90px; left: 253px; top: 265px; position: absolute"
+            src="Assets/Semak.png" />
+        <img style="width: 95px; height: 90px; left: 357px; top: 535px; position: absolute"
+            src="Assets/Semak.png" />
+        <img style="width: 110px; height: 91px; left: 414px; top: 361px; position: absolute"
+            src="Assets/Gelondong kayu.png" />
+        <img style="width: 110px; height: 91px; left: 655px; top: 809px; position: absolute"
+            src="Assets/Gelondong kayu.png" />
+        <img style="width: 116px; height: 83px; left: 563px; top: 265px; position: absolute"
+            src="Assets/Jalan.png" />
+        <img style="width: 116px; height: 83px; left: 747px; top: 580px; position: absolute"
+            src="Assets/Jalan.png" />
+        <img style="width: 116px; height: 83px; left: 347px; top: 810px; position: absolute"
+            src="Assets/Jalan.png" />
+        <img style="width: 85px; height: 92px; left: 158px; top: 523px; position: absolute"
+            src="Assets/Burung.png" />
+        <img style="width: 109px; height: 91px; left: 524px; top: 594px; position: absolute"
+            src="Assets/Sapi.png" />
+        <img style="width: 72px; height: 92px; left: 817px; top: 452px; position: absolute"
+            src="Assets/Kelinci.png" />
+        <img style="width: 95px; height: 97px; left: 201px; top: 810px; position: absolute"
+            src="Assets/Bunga.png" />
+        <img style="width: 95px; height: 97px; left: 805px; top: 280px; position: absolute"
+            src="Assets/Bunga.png" />
+    </div>
+</body>
+
+</html>

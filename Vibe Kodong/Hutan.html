@@ -1,0 +1,108 @@
+<!-- Gameplay Hutan Membangun Rumah -->
+
+<!-- 
+
+Pemain harus drag and drop material ke komponen rumah
+Dibawah rumah ada indikator jumlah material yang diperlukan untuk membuat komponen rumah
+Komponen rumah pada awalnya akan berwarna hitam putih menandakan komponen belum selesai dibuat
+Sebagai default gambar Misal Assets/Dinding.png warnanya adalah hitam putih
+Setelah komponen rumah selesai dibuat (Material yang dikumpulkan cukup 
+=> asset komponen rumah menjadi berwarna)
+Buat logikanya di JS
+Buat juga animasi hover
+Buat juga animasi hover dan animasi yang lebih menarik saat drag and drop material di komponen
+
+Tambahan
+Saat menyelesaikan stage ini jadikan stage_selesai = true
+Agar di Peta bisa dibuka
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="width: 1440px; height: 1024px; position: relative; background: white; overflow: hidden">
+        <img style="width: 1440px; height: 1024px; left: 0px; top: 0px; position: absolute"
+            src="Assets/BG_Hutan.jpg" />
+        <div
+            style="left: 68px; top: 217px; position: absolute; justify-content: flex-start; align-items: center; gap: 20px; display: inline-flex">
+            <div
+                style="width: 652.03px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 20px; display: inline-flex">
+                <img style="width: 447.61px; height: 303.98px" src="Assets/Dinding.png" />
+                <img style="width: 652.03px; height: 269.78px" src="Assets/Genteng.png" />
+                <img style="width: 145.91px; height: 202.90px" src="Assets/Pintu.png" />
+                <img style="width: 120.07px; height: 133.75px" src="Assets/Jendela.png" />
+                <img style="width: 120.83px; height: 143.63px" src="Assets/Lampu.png" />
+                <div
+                    style="padding-left: 80px; padding-right: 80px; padding-top: 20px; padding-bottom: 20px; background: rgba(0, 0, 0, 0.70); outline: 5px white solid; outline-offset: -5px; justify-content: flex-start; align-items: center; gap: 50px; display: inline-flex">
+                    <div
+                        style="justify-content: center; display: flex; flex-direction: column; color: white; font-size: 24px; font-family: Pixelhands; font-weight: 500; line-height: 40px; word-wrap: break-word">
+                        Dinding<br />Atap<br />Pintu<br />Jendela<br />Lampu</div>
+                    <div
+                        style="justify-content: center; display: flex; flex-direction: column; color: white; font-size: 24px; font-family: Pixelhands; font-weight: 500; line-height: 40px; word-wrap: break-word">
+                        0/1<br />0/2<br />0/1<br />0/2<br />0/1</div>
+                </div>
+            </div>
+            <div
+                style="width: 632px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 20px; display: inline-flex">
+                <div
+                    style="padding: 40px; background: rgba(0, 0, 0, 0.70); outline: 10px white solid; outline-offset: -10px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                    <img style="width: 100px; height: 95px" src="Assets/Bunga.png" />
+                    <img style="width: 100px; height: 64px" src="Assets/Air.png" />
+                    <img style="width: 100px; height: 83px" src="Assets/Kayu.png" />
+                    <img style="width: 100px; height: 104px" src="Assets/Batu.png" />
+                    <img style="width: 100px; height: 126px" src="Assets/Kaca.png" />
+                    <img style="width: 100px; height: 98px" src="Assets/Genteng.png" />
+                    <img style="width: 100px; height: 71px" src="Assets/Rumput.png" />
+                    <img style="width: 100px; height: 119px" src="Assets/Lampu.png" />
+                    <div
+                        style="align-self: stretch; text-align: center; justify-content: center; display: flex; flex-direction: column; color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; line-height: 60px; word-wrap: break-word">
+                        Kaca</div>
+                    <div
+                        style="align-self: stretch; text-align: center; justify-content: center; display: flex; flex-direction: column; color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; line-height: 60px; word-wrap: break-word">
+                        Genteng</div>
+                    <div
+                        style="align-self: stretch; text-align: center; justify-content: center; display: flex; flex-direction: column; color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; line-height: 60px; word-wrap: break-word">
+                        Rumput</div>
+                    <div
+                        style="align-self: stretch; text-align: center; justify-content: center; display: flex; flex-direction: column; color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; line-height: 60px; word-wrap: break-word">
+                        Lampu</div>
+                    <div
+                        style="align-self: stretch; text-align: center; justify-content: center; display: flex; flex-direction: column; color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; line-height: 60px; word-wrap: break-word">
+                        Bunga</div>
+                    <div
+                        style="align-self: stretch; text-align: center; justify-content: center; display: flex; flex-direction: column; color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; line-height: 60px; word-wrap: break-word">
+                        Air</div>
+                    <div
+                        style="align-self: stretch; text-align: center; justify-content: center; display: flex; flex-direction: column; color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; line-height: 60px; word-wrap: break-word">
+                        Kayu</div>
+                    <div
+                        style="align-self: stretch; text-align: center; justify-content: center; display: flex; flex-direction: column; color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; line-height: 60px; word-wrap: break-word">
+                        Batu</div>
+                </div>
+                <div
+                    style="align-self: stretch; padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; background: rgba(0, 0, 0, 0.70); justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                    <div
+                        style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: white; font-size: 20px; font-family: Pixelhands; font-weight: 500; line-height: 60px; word-wrap: break-word">
+                        Bangun rumah menggunakan benda benda ini.<br />Kamu harus membangun mulai dari komponenya
+                        terlebih dahulu.<br />Selamat membangun !!</div>
+                </div>
+            </div>
+        </div>
+        <div
+            style="padding-left: 120px; padding-right: 120px; padding-top: 60px; padding-bottom: 60px; left: 317px; top: 45px; position: absolute; background: rgba(0, 0, 0, 0.70); justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+            <div
+                style="color: white; font-size: 48px; font-family: Pixelhands; font-weight: 500; word-wrap: break-word">
+                Hutan: Membangun rumah</div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+/* Import Font */
+@font-face {
+    font-family: 'Pixelhands';
+    src: url('../Assets/fonts/Pixelhands.ttf') format('truetype');
+}
+
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Mencegah pemain menyeleksi teks */
+}
+
+body {
+    background-color: #1a1a1a;
+    /* Warna latar luar game */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Pixelhands', sans-serif;
+}
+
+/* Wadah Game sesuai ukuran Figma */
+#game-container {
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+    background: white;
+    overflow: hidden;
+    /* Transformasi scale bisa ditambahkan via JS nanti agar responsif ke layar kecil */
+}
+
+/* Logic SPA: Menyembunyikan layar */
+.screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+    /* Animasi fade halus saat ganti layar */
+}
+
+.hidden {
+    display: none !important;
+    opacity: 0;
+}
+
+/* Utilitas Global untuk Tombol */
+.btn {
+    cursor: pointer;
+    transition: transform 0.1s ease, outline-color 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    /* Efek membesar sedikit */
+    outline-color: #FFD700 !important;
+    /* Outline kuning saat di-hover */
+}
+
+/* Custom Input Nama */
+.game-input {
+    padding: 30px 80px;
+    background: rgba(0, 0, 0, 0.40);
+    outline: 5px white solid;
+    outline-offset: -5px;
+    border: none;
+    color: white;
+    font-size: 48px;
+    font-family: 'Pixelhands', sans-serif;
+    text-align: center;
+    width: 600px;
+}
+
+.game-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.game-input:focus {
+    outline-color: #00FFFB;
+    background: rgba(0, 0, 0, 0.80);
+}
+
+/* Stage Terkunci di Peta */
+.locked {
+    filter: grayscale(100%) brightness(40%);
+    pointer-events: none;
+    /* Tidak bisa diklik */
+    opacity: 0.8;
+}
+
+/* Stage Hutan */
+/* Drag and Drop Styling */
+.grayscale {
+    filter: grayscale(100%) opacity(50%);
+    transition: filter 0.5s ease;
+}
+
+.draggable {
+    cursor: grab;
+    transition: transform 0.2s ease;
+}
+
+.draggable:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.draggable:active {
+    cursor: grabbing;
+    transform: scale(0.9);
+}
+
+.dropzone {
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Efek saat kursor berada di atas area drop */
+.drag-over {
+    transform: scale(1.05);
+    filter: grayscale(100%) brightness(1.5);
+}
+
+/* Stage Desa */
+/* Styling Kotak Pola Desa */
+.pola-box {
+    width: 140px;
+    height: 140px;
+    background: rgba(0, 0, 0, 0.80);
+    border: 5px white solid;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+/* State terpilih untuk jawaban dan aturan */
+.opsi-selected {
+    border-color: #FFD700 !important;
+    /* Outline Kuning */
+    transform: scale(1.1);
+}
+
+.aturan-selected {
+    outline-color: #FFD700 !important;
+    background: rgba(255, 215, 0, 0.2) !important;
+}

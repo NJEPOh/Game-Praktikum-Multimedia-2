@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Pulau Logika</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: #f0fdf4;
+            color: #334155;
+            user-select: none;
+        }
+
+        .screen {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .screen.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .grid-cell {
+            width: 100%;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border-radius: 0.5rem;
+            background-color: #e2e8f0;
+            border: 2px solid #cbd5e1;
+        }
+
+        .grid-cell.wall {
+            background-color: #94a3b8;
+            border-color: #64748b;
+        }
+
+        .grid-cell.start {
+            background-color: #bfdbfe;
+        }
+
+        .grid-cell.goal {
+            background-color: #fef08a;
+        }
+
+        .progress-bar-bg {
+            background-color: #e2e8f0;
+            border-radius: 999px;
+            overflow: hidden;
+            height: 1.5rem;
+            width: 100%;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            transition: width 0.5s ease-out;
+        }
+
+        .item-card {
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .item-card.selected {
+            border-color: #3b82f6;
+            background-color: #dbeafe;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-center p-4 sm:p-8">
+
+    <div id="app-container"
+        class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden min-h-[600px] flex flex-col relative">
+
+        <!-- HEADER -->
+        <div class="bg-emerald-500 text-white text-center py-4 font-bold text-xl tracking-wide hidden" id="top-header">
+            🏝️ Misi Pulau Logika
+        </div>
+
+        <!-- 1. MAIN MENU -->
+        <div id="screen-menu"
+            class="screen active flex-col items-center justify-center p-8 flex-1 text-center bg-gradient-to-b from-emerald-100 to-white">
+            <h1 class="text-4xl sm:text-5xl font-bold text-emerald-600 mb-4">Misi Pulau Logika</h1>
+            <p class="text-lg text-emerald-800 mb-8">Latih kemampuan berpikirmu melalui berbagai misi!</p>
+            <input type="text" id="player-name" placeholder="Siapa namamu?"
+                class="text-center w-64 p-3 border-4 border-emerald-200 rounded-xl mb-6 text-xl focus:outline-none focus:border-emerald-400">
+            <button onclick="startGame()"
+                class="btn bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-full shadow-lg text-xl w-64 mb-4">MULAI
+                PERMAINAN</button>
+            <button onclick="showScreen('screen-instructions')"
+                class="btn bg-amber-400 hover:bg-amber-500 text-amber-900 font-bold py-3 px-8 rounded-full shadow-lg text-xl w-64">PETUNJUK</button>
+        </div>
+
+        <!-- 2. INSTRUCTIONS -->
+        <div id="screen-instructions" class="screen flex-col p-8 flex-1">
+            <h2 class="text-3xl font-bold text-center mb-6 text-amber-500">📜 Petunjuk Permainan</h2>
+            <div class="space-y-4 text-lg bg-amber-50 p-6 rounded-2xl border-2 border-amber-200 flex-1 overflow-y-auto">
+                <p>Di dalam permainan ini terdapat 4 misi penting:</p>
+                <div class="flex items-start gap-3"><span class="text-2xl">🧩</span>
+                    <div><strong>Dekomposisi:</strong> Memecah masalah menjadi bagian kecil.</div>
+                </div>
+                <div class="flex items-start gap-3"><span class="text-2xl">🔍</span>
+                    <div><strong>Pengenalan Pola:</strong> Menemukan kesamaan atau aturan.</div>
+                </div>
+                <div class="flex items-start gap-3"><span class="text-2xl">🎯</span>
+                    <div><strong>Abstraksi:</strong> Memilih informasi yang penting.</div>
+                </div>
+                <div class="flex items-start gap-3"><span class="text-2xl">⚙️</span>
+                    <div><strong>Algoritma:</strong> Menyusun langkah berurutan.</div>
+                </div>
+            </div>
+            <div class="flex justify-center gap-4 mt-6">
+                <button onclick="showScreen('screen-menu')"
+                    class="btn bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-3 px-8 rounded-full">KEMBALI</button>
+                <button onclick="goToMap()" id="btn-mengerti"
+                    class="btn bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-full hidden">MENGERTI</button>
+            </div>
+        </div>
+
+        <!-- 3. MAP -->
+        <div id="screen-map" class="screen flex-col p-6 flex-1">
+            <h2 class="text-3xl font-bold text-center mb-6 text-emerald-600">🗺️ Peta Pulau</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
+                <button id="btn-misi-1" onclick="startMission(1)"
+                    class="btn p-6 rounded-2xl border-4 text-left flex flex-col items-center justify-center">
+                    <span class="text-5xl mb-2">🌲</span>
+                    <span class="font-bold text-xl">Hutan</span>
+                    <span class="text-sm">Dekomposisi</span>
+                    <span class="status-badge mt-2 px-3 py-1 bg-white rounded-full text-xs font-bold"></span>
+                </button>
+                <button id="btn-misi-2" onclick="startMission(2)"
+                    class="btn p-6 rounded-2xl border-4 text-left flex flex-col items-center justify-center" disabled>
+                    <span class="text-5xl mb-2">🏠</span>
+                    <span class="font-bold text-xl">Desa</span>
+                    <span class="text-sm">Pengenalan Pola</span>
+                    <span class="status-badge mt-2 px-3 py-1 bg-white rounded-full text-xs font-bold"></span>
+                </button>
+                <button id="btn-misi-3" onclick="startMission(3)"
+                    class="btn p-6 rounded-2xl border-4 text-left flex flex-col items-center justify-center" disabled>
+                    <span class="text-5xl mb-2">⛰️</span>
+                    <span class="font-bold text-xl">Gunung</span>
+                    <span class="text-sm">Abstraksi</span>
+                    <span class="status-badge mt-2 px-3 py-1 bg-white rounded-full text-xs font-bold"></span>
+                </button>
+                <button id="btn-misi-4" onclick="startMission(4)"
+                    class="btn p-6 rounded-2xl border-4 text-left flex flex-col items-center justify-center" disabled>
+                    <span class="text-5xl mb-2">🏰</span>
+                    <span class="font-bold text-xl">Kastil</span>
+                    <span class="text-sm">Algoritma</span>
+                    <span class="status-badge mt-2 px-3 py-1 bg-white rounded-full text-xs font-bold"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 4. MISI 1: DECOMPOSITION -->
+        <div id="screen-misi-1" class="screen flex-col p-6 flex-1">
+            <h2 class="text-2xl font-bold text-emerald-600 mb-2">🌲 Hutan - Dekomposisi</h2>
+            <div class="bg-blue-50 p-4 rounded-xl mb-4 border border-blue-200 text-center">
+                <p class="font-bold">Misi: Membangun Rumah</p>
+                <p class="text-sm">Pilih komponen-komponen yang diperlukan untuk membangun struktur rumah, dan abaikan
+                    yang tidak relevan!</p>
+            </div>
+            <div class="grid grid-cols-3 gap-3 flex-1 overflow-y-auto" id="decomp-items-container">
+                <!-- Items generated via JS -->
+            </div>
+            <button onclick="submitMisi1()"
+                class="btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full mt-4 w-full">SELESAIKAN
+                MISI</button>
+        </div>
+
+        <!-- 5. MISI 2: PATTERN RECOGNITION -->
+        <div id="screen-misi-2" class="screen flex-col p-6 flex-1">
+            <h2 class="text-2xl font-bold text-emerald-600 mb-2">🏠 Desa - Pengenalan Pola</h2>
+            <div class="bg-purple-50 p-4 rounded-xl mb-4 border border-purple-200">
+                <p class="font-bold text-center" id="pattern-progress">Soal 1 dari 5</p>
+            </div>
+
+            <div class="flex-1 flex flex-col items-center justify-center" id="pattern-question-area">
+                <div class="text-4xl sm:text-5xl tracking-widest mb-8 text-center w-full bg-white p-4 rounded-xl shadow-inner border"
+                    id="pattern-sequence">
+                    <!-- Sequence -->
+                </div>
+
+                <h3 class="font-bold mb-4 text-xl">Pilih kelanjutannya:</h3>
+                <div class="flex gap-4 justify-center mb-8" id="pattern-options">
+                    <!-- Options -->
+                </div>
+
+                <div id="pattern-rule-area" class="hidden w-full text-center">
+                    <h3 class="font-bold mb-4 text-xl text-purple-700">Apa aturan polanya?</h3>
+                    <div class="grid grid-cols-2 gap-2 w-full max-w-sm mx-auto" id="pattern-rules">
+                        <!-- Rules -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. MISI 3: ABSTRACTION -->
+        <div id="screen-misi-3" class="screen flex-col p-6 flex-1">
+            <h2 class="text-2xl font-bold text-emerald-600 mb-2">⛰️ Gunung - Abstraksi</h2>
+            <div class="bg-orange-50 p-4 rounded-xl mb-4 border border-orange-200 text-center">
+                <p class="font-bold">Misi: Memilih Informasi Penting</p>
+                <p class="text-sm">Centang informasi yang <strong>benar-benar kamu butuhkan</strong> untuk mencari jalan
+                    menuju kastil, abaikan yang tidak penting.</p>
+            </div>
+            <div class="flex-1 overflow-y-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="abs-items-container">
+                    <!-- Checkboxes generated via JS -->
+                </div>
+            </div>
+            <button onclick="submitMisi3()"
+                class="btn bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full mt-4 w-full">KONFIRMASI
+                PILIHAN</button>
+        </div>
+
+        <!-- 7. MISI 4: ALGORITHM -->
+        <div id="screen-misi-4" class="screen flex-col p-6 flex-1">
+            <h2 class="text-2xl font-bold text-emerald-600 mb-2">🏰 Kastil - Algoritma</h2>
+            <div class="bg-red-50 p-3 rounded-xl mb-2 border border-red-200 text-center text-sm">
+                <p>Arahkan Pemain (😎) ke Kastil (🏰) tanpa menabrak Penghalang (🪨).</p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 flex-1">
+                <!-- Grid Area -->
+                <div class="flex-1 flex items-center justify-center">
+                    <div class="grid grid-cols-4 gap-1 w-full max-w-[240px]" id="algo-grid">
+                        <!-- Cells -->
+                    </div>
+                </div>
+
+                <!-- Command Area -->
+                <div class="flex-1 flex flex-col bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <p class="font-bold mb-2 text-center">Kontrol</p>
+                    <div class="grid grid-cols-3 gap-2 mb-4 mx-auto w-fit">
+                        <div></div>
+                        <button onclick="addCommand('UP')"
+                            class="btn bg-slate-200 p-3 rounded-lg font-bold text-xl">⬆️</button>
+                        <div></div>
+                        <button onclick="addCommand('LEFT')"
+                            class="btn bg-slate-200 p-3 rounded-lg font-bold text-xl">⬅️</button>
+                        <button onclick="addCommand('DOWN')"
+                            class="btn bg-slate-200 p-3 rounded-lg font-bold text-xl">⬇️</button>
+                        <button onclick="addCommand('RIGHT')"
+                            class="btn bg-slate-200 p-3 rounded-lg font-bold text-xl">➡️</button>
+                    </div>
+
+                    <p class="font-bold mb-1 text-xs text-slate-500">Urutan Langkah:</p>
+                    <div id="algo-commands"
+                        class="flex flex-wrap gap-1 bg-white p-2 rounded min-h-[40px] border items-start content-start mb-4">
+                        <!-- Commands sequence -->
+                    </div>
+
+                    <div class="mt-auto flex gap-2">
+                        <button onclick="clearCommands()"
+                            class="btn bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded flex-1">HAPUS</button>
+                        <button onclick="runAlgorithm()" id="btn-run-algo"
+                            class="btn bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded flex-1">JALANKAN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. RESULTS OVERVIEW -->
+        <div id="screen-result" class="screen flex-col p-6 flex-1 bg-emerald-50">
+            <h2 class="text-3xl font-bold text-center mb-2 text-emerald-700">🏆 Hasil Petualanganmu</h2>
+            <h3 class="text-center font-bold text-lg mb-6" id="result-player-name"></h3>
+
+            <div class="space-y-4 flex-1 overflow-y-auto" id="result-bars-container">
+                <!-- Bars injected here -->
+            </div>
+
+            <div
+                class="text-center mt-4 p-4 bg-emerald-100 rounded-xl font-bold text-xl text-emerald-800 shadow-sm border border-emerald-200">
+                Skor Total: <span id="overall-score">0</span>
+            </div>
+
+            <div class="flex gap-4 mt-6">
+                <button onclick="showScreen('screen-detail')"
+                    class="btn bg-slate-600 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-full flex-1">LIHAT
+                    DETAIL</button>
+                <button onclick="resetGame()"
+                    class="btn bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-full flex-1">MAIN
+                    LAGI</button>
+            </div>
+        </div>
+
+        <!-- 9. RESULTS DETAIL -->
+        <div id="screen-detail" class="screen flex-col p-6 flex-1 bg-slate-50">
+            <h2 class="text-2xl font-bold text-center mb-6 text-slate-700">📊 Detail Kemampuan</h2>
+            <div class="flex-1 overflow-y-auto space-y-4" id="detail-container">
+                <!-- Details injected here -->
+            </div>
+            <button onclick="showScreen('screen-result')"
+                class="btn bg-slate-600 hover:bg-slate-700 text-white font-bold py-3 px-8 rounded-full mt-6 w-full">KEMBALI
+                KE RINGKASAN</button>
+        </div>
+
+        <!-- OVERLAY MODAL -->
+        <div id="modal-overlay"
+            class="absolute inset-0 bg-black bg-opacity-50 hidden flex-col items-center justify-center z-50 p-4">
+            <div class="bg-white p-6 rounded-2xl shadow-2xl text-center max-w-sm w-full">
+                <h3 class="text-2xl font-bold mb-2" id="modal-title">Info</h3>
+                <p class="text-lg mb-6" id="modal-text">Message</p>
+                <button onclick="closeModal()"
+                    class="btn bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-8 rounded-full w-full">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- STATE MANAGEMENT ---
+        const gameState = {
+            currentScreen: 'menu',
+            playerName: '',
+            unlockedMission: 1, // 1 to 4, 5 = done
+
+            decomposition: {
+                raw: { idScore: 0, completenessScore: 0, groupingScore: 0, errorScore: 0 },
+                score: 0, completed: false
+            },
+            pattern: {
+                raw: { answerScore: 0, ruleScore: 0, consistencyScore: 0 },
+                score: 0, completed: false, currentQ: 0, correctAnswers: 0, correctRules: 0
+            },
+            abstraction: {
+                raw: { importantScore: 0, irrelevantScore: 0, coreScore: 0 },
+                score: 0, completed: false
+            },
+            algorithm: {
+                raw: { successScore: 0, sequenceScore: 0, efficiencyScore: 0, errorScore: 0 },
+                score: 0, completed: false, attempts: 0
+            }
+        };
+
+        // --- NAVIGATION & UTILS ---
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            gameState.currentScreen = screenId;
+
+            const header = document.getElementById('top-header');
+            if (screenId === 'screen-menu') {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+        }
+
+        function showModal(title, text, onClose = null) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-text').innerText = text;
+            const overlay = document.getElementById('modal-overlay');
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+
+            // Custom close handler
+            const btn = overlay.querySelector('button');
+            btn.onclick = () => {
+                closeModal();
+                if (onClose) onClose();
+            };
+        }
+
+        function closeModal() {
+            const overlay = document.getElementById('modal-overlay');
+            overlay.classList.add('hidden');
+            overlay.classList.remove('flex');
+        }
+
+        function startGame() {
+            const nameInput = document.getElementById('player-name').value.trim();
+            if (nameInput.length < 2) {
+                showModal('Oops!', 'Nama harus diisi minimal 2 karakter ya!');
+                return;
+            }
+            gameState.playerName = nameInput;
+            document.getElementById('btn-mengerti').classList.remove('hidden');
+            showScreen('screen-instructions');
+        }
+
+        function goToMap() {
+            updateMapUI();
+            showScreen('screen-map');
+        }
+
+        function updateMapUI() {
+            const missions = [
+                { id: 1, btn: 'btn-misi-1', color: 'border-blue-400 bg-blue-50 text-blue-800' },
+                { id: 2, btn: 'btn-misi-2', color: 'border-purple-400 bg-purple-50 text-purple-800' },
+                { id: 3, btn: 'btn-misi-3', color: 'border-orange-400 bg-orange-50 text-orange-800' },
+                { id: 4, btn: 'btn-misi-4', color: 'border-red-400 bg-red-50 text-red-800' }
+            ];
+
+            missions.forEach(m => {
+                const btn = document.getElementById(m.btn);
+                const badge = btn.querySelector('.status-badge');
+
+                btn.className = `btn p-6 rounded-2xl border-4 text-left flex flex-col items-center justify-center relative ${gameState.unlockedMission >= m.id ? (gameState.unlockedMission > m.id ? 'border-emerald-500 bg-emerald-50 text-emerald-800' : m.color) : 'border-slate-200 bg-slate-100 text-slate-400'
+                    }`;
+
+                if (gameState.unlockedMission > m.id) {
+                    btn.disabled = false;
+                    badge.innerText = '✓ SELESAI';
+                    badge.className = 'status-badge mt-2 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-bold';
+                } else if (gameState.unlockedMission === m.id) {
+                    btn.disabled = false;
+                    badge.innerText = 'AKTIF';
+                    badge.className = 'status-badge mt-2 px-3 py-1 bg-yellow-300 text-yellow-900 rounded-full text-xs font-bold shadow-sm';
+                } else {
+                    btn.disabled = true;
+                    badge.innerText = '🔒 TERKUNCI';
+                    badge.className = 'status-badge mt-2 px-3 py-1 bg-slate-200 text-slate-500 rounded-full text-xs font-bold';
+                }
+            });
+
+            if (gameState.unlockedMission > 4) {
+                setTimeout(() => showScreen('screen-result'), 500);
+                calculateResults();
+            }
+        }
+
+        function startMission(id) {
+            if (id === 1) initMisi1();
+            if (id === 2) initMisi2();
+            if (id === 3) initMisi3();
+            if (id === 4) initMisi4();
+            showScreen(`screen-misi-${id}`);
+        }
+
+        // --- MISI 1: DECOMPOSITION ---
+        const decompData = [
+            { id: 'dinding', label: 'Dinding', emoji: '🧱', correct: true },
+            { id: 'pintu', label: 'Pintu', emoji: '🚪', correct: true },
+            { id: 'jendela', label: 'Jendela', emoji: '🪟', correct: true },
+            { id: 'atap', label: 'Atap', emoji: '🏠', correct: true },
+            { id: 'lampu', label: 'Lampu', emoji: '💡', correct: true },
+            { id: 'pasir', label: 'Pasir', emoji: '🏜️', correct: false },
+            { id: 'air', label: 'Air', emoji: '💧', correct: false },
+            { id: 'bunga', label: 'Bunga', emoji: '🌻', correct: false },
+            { id: 'rumput', label: 'Rumput', emoji: '🌿', correct: false }
+        ];
+        let decompSelected = [];
+
+        function initMisi1() {
+            decompSelected = [];
+            const container = document.getElementById('decomp-items-container');
+            container.innerHTML = '';
+
+            // Shuffle
+            const shuffled = [...decompData].sort(() => Math.random() - 0.5);
+
+            shuffled.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'item-card bg-white p-3 rounded-xl shadow-sm text-center flex flex-col items-center';
+                div.innerHTML = `<span class="text-4xl mb-2">${item.emoji}</span><span class="font-bold text-sm">${item.label}</span>`;
+                div.onclick = () => toggleDecompItem(div, item.id);
+                container.appendChild(div);
+            });
+        }
+
+        function toggleDecompItem(element, id) {
+            if (decompSelected.includes(id)) {
+                decompSelected = decompSelected.filter(i => i !== id);
+                element.classList.remove('selected');
+            } else {
+                decompSelected.push(id);
+                element.classList.add('selected');
+            }
+        }
+
+        function submitMisi1() {
+            const correctNeeded = decompData.filter(d => d.correct).map(d => d.id);
+            let correctSelected = 0;
+            let wrongSelected = 0;
+
+            decompSelected.forEach(id => {
+                if (correctNeeded.includes(id)) correctSelected++;
+                else wrongSelected++;
+            });
+
+            const idScore = (correctSelected / correctNeeded.length) * 100;
+            const completenessScore = (correctSelected / correctNeeded.length) * 100; // Simplified for prototype
+            const errorScore = Math.max(0, 100 - (wrongSelected * 20));
+            // Assuming selection IS grouping for this phase to simplify UI
+            const groupingScore = (correctSelected > 0 && wrongSelected === 0) ? 100 : (correctSelected / correctNeeded.length * 80);
+
+            const finalScore = Math.min(100, Math.round(
+                (idScore * 0.4) + (completenessScore * 0.3) + (groupingScore * 0.2) + (errorScore * 0.1)
+            ));
+
+            gameState.decomposition.raw = { idScore, completenessScore, groupingScore, errorScore };
+            gameState.decomposition.score = finalScore;
+            gameState.decomposition.completed = true;
+
+            showModal('Misi Selesai!', `Kamu berhasil memecah masalah struktur rumah!\nSkor Dekomposisi: ${finalScore}`, () => {
+                gameState.unlockedMission = 2;
+                goToMap();
+            });
+        }
+
+        // --- MISI 2: PATTERN RECOGNITION ---
+        const patternQuestions = [
+            { seq: "🔴 🔵 🔴 🔵 🔴 ?", opts: ["🔴", "🔵", "🟡"], ans: "🔵", rules: ["Bergantian", "Bertambah", "Konstan"], ruleAns: "Bergantian" },
+            { seq: "▲ ● ▲ ● ▲ ?", opts: ["▲", "●", "■"], ans: "●", rules: ["Berulang", "Bergantian", "Kombinasi"], ruleAns: "Bergantian" },
+            { seq: "2 4 6 8 ?", opts: ["9", "10", "12"], ans: "10", rules: ["Bertambah", "Berkurang", "Berulang"], ruleAns: "Bertambah" },
+            { seq: "🌸 🌸 🌼 🌸 🌸 ?", opts: ["🌸", "🌼", "🌻"], ans: "🌼", rules: ["Kombinasi", "Bertambah", "Berulang"], ruleAns: "Berulang" },
+            { seq: "1 2 3 1 2 ?", opts: ["1", "2", "3"], ans: "3", rules: ["Bergantian", "Berulang", "Bertambah"], ruleAns: "Berulang" }
+        ];
+
+        let patCurrentAnswer = "";
+
+        function initMisi2() {
+            gameState.pattern.currentQ = 0;
+            gameState.pattern.correctAnswers = 0;
+            gameState.pattern.correctRules = 0;
+            loadPatternQuestion();
+        }
+
+        function loadPatternQuestion() {
+            const qIndex = gameState.pattern.currentQ;
+            const q = patternQuestions[qIndex];
+
+            document.getElementById('pattern-progress').innerText = `Soal ${qIndex + 1} dari 5`;
+            document.getElementById('pattern-sequence').innerText = q.seq;
+
+            const optContainer = document.getElementById('pattern-options');
+            optContainer.innerHTML = '';
+            document.getElementById('pattern-rule-area').classList.add('hidden');
+
+            q.opts.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'btn bg-white border-2 border-purple-200 text-3xl p-4 rounded-xl shadow-sm hover:bg-purple-50';
+                btn.innerText = opt;
+                btn.onclick = () => selectPatternAnswer(opt, btn);
+                optContainer.appendChild(btn);
+            });
+        }
+
+        function selectPatternAnswer(ans, btnElement) {
+            patCurrentAnswer = ans;
+
+            // Highlight selected
+            Array.from(document.getElementById('pattern-options').children).forEach(c => {
+                c.classList.remove('bg-purple-200', 'border-purple-500');
+            });
+            btnElement.classList.add('bg-purple-200', 'border-purple-500');
+
+            // Show rule selection
+            const q = patternQuestions[gameState.pattern.currentQ];
+            const ruleContainer = document.getElementById('pattern-rules');
+            ruleContainer.innerHTML = '';
+
+            q.rules.forEach(rule => {
+                const rBtn = document.createElement('button');
+                rBtn.className = 'btn bg-white border-2 border-purple-200 p-2 rounded-lg text-sm font-bold shadow-sm hover:bg-purple-50';
+                rBtn.innerText = rule;
+                rBtn.onclick = () => submitPattern(rule);
+                ruleContainer.appendChild(rBtn);
+            });
+
+            document.getElementById('pattern-rule-area').classList.remove('hidden');
+        }
+
+        function submitPattern(selectedRule) {
+            const q = patternQuestions[gameState.pattern.currentQ];
+
+            if (patCurrentAnswer === q.ans) gameState.pattern.correctAnswers++;
+            if (selectedRule === q.ruleAns) gameState.pattern.correctRules++;
+
+            gameState.pattern.currentQ++;
+
+            if (gameState.pattern.currentQ < patternQuestions.length) {
+                loadPatternQuestion();
+            } else {
+                finishPatternMission();
+            }
+        }
+
+        function finishPatternMission() {
+            const totalQ = patternQuestions.length;
+            const ansScore = (gameState.pattern.correctAnswers / totalQ) * 100;
+            const ruleScore = (gameState.pattern.correctRules / totalQ) * 100;
+            const consistencyScore = ansScore; // Simplified consistency
+
+            const finalScore = Math.min(100, Math.round(
+                (ansScore * 0.6) + (ruleScore * 0.25) + (consistencyScore * 0.15)
+            ));
+
+            gameState.pattern.raw = { answerScore: ansScore, ruleScore, consistencyScore };
+            gameState.pattern.score = finalScore;
+            gameState.pattern.completed = true;
+
+            showModal('Misi Selesai!', `Kamu berhasil menganalisis pola!\nSkor Pengenalan Pola: ${finalScore}`, () => {
+                gameState.unlockedMission = 3;
+                goToMap();
+            });
+        }
+
+        // --- MISI 3: ABSTRACTION ---
+        const absData = [
+            { id: 'posisi', label: 'Posisi Pemain', important: true },
+            { id: 'tujuan', label: 'Posisi Kastil (Tujuan)', important: true },
+            { id: 'jalan', label: 'Jalur / Jalan', important: true },
+            { id: 'halang', label: 'Penghalang Jalan', important: true },
+            { id: 'burung', label: 'Burung Terbang', important: false },
+            { id: 'bunga', label: 'Bunga di pinggir jalan', important: false },
+            { id: 'sapi', label: 'Sapi makan rumput', important: false },
+            { id: 'kelinci', label: 'Kelinci melompat', important: false }
+        ];
+        let absSelected = [];
+
+        function initMisi3() {
+            absSelected = [];
+            const container = document.getElementById('abs-items-container');
+            container.innerHTML = '';
+
+            const shuffled = [...absData].sort(() => Math.random() - 0.5);
+
+            shuffled.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'item-card bg-white p-4 rounded-xl shadow-sm flex items-center gap-3';
+                div.innerHTML = `
+                    <div class="w-6 h-6 rounded border-2 border-orange-300 flex items-center justify-center check-box bg-white"></div>
+                    <span class="font-bold text-sm">${item.label}</span>
+                `;
+                div.onclick = () => toggleAbsItem(div, item.id);
+                container.appendChild(div);
+            });
+        }
+
+        function toggleAbsItem(element, id) {
+            const cb = element.querySelector('.check-box');
+            if (absSelected.includes(id)) {
+                absSelected = absSelected.filter(i => i !== id);
+                element.classList.remove('selected', 'border-orange-500');
+                cb.innerHTML = '';
+            } else {
+                absSelected.push(id);
+                element.classList.add('selected', 'border-orange-500');
+                cb.innerHTML = '<span class="text-orange-500 font-bold">✓</span>';
+            }
+        }
+
+        function submitMisi3() {
+            const importantItems = absData.filter(d => d.important).map(d => d.id);
+            const irrelevantItems = absData.filter(d => !d.important).map(d => d.id);
+
+            let correctImportant = 0;
+            let correctlyIgnored = 0;
+
+            absSelected.forEach(id => {
+                if (importantItems.includes(id)) correctImportant++;
+            });
+
+            irrelevantItems.forEach(id => {
+                if (!absSelected.includes(id)) correctlyIgnored++;
+            });
+
+            const impScore = (correctImportant / importantItems.length) * 100;
+            const irrScore = (correctlyIgnored / irrelevantItems.length) * 100;
+            const coreScore = impScore; // Simplified for prototype Phase 2 equivalence
+
+            const finalScore = Math.min(100, Math.round(
+                (impScore * 0.5) + (irrScore * 0.3) + (coreScore * 0.2)
+            ));
+
+            gameState.abstraction.raw = { importantScore: impScore, irrelevantScore: irrScore, coreScore };
+            gameState.abstraction.score = finalScore;
+            gameState.abstraction.completed = true;
+
+            showModal('Misi Selesai!', `Kamu telah menyaring informasi penting!\nSkor Abstraksi: ${finalScore}`, () => {
+                gameState.unlockedMission = 4;
+                goToMap();
+            });
+        }
+
+        // --- MISI 4: ALGORITHM ---
+        let algoCommands = [];
+        let playerPos = { x: 0, y: 0 };
+        const goalPos = { x: 3, y: 3 };
+        const obstacles = [{ x: 1, y: 1 }, { x: 2, y: 1 }, { x: 1, y: 3 }]; // y=row, x=col
+        let isRunningAlgo = false;
+
+        function initMisi4() {
+            algoCommands = [];
+            gameState.algorithm.attempts = 0;
+            resetAlgoGrid();
+            renderAlgoCommands();
+        }
+
+        function resetAlgoGrid() {
+            playerPos = { x: 0, y: 0 };
+            renderAlgoGrid();
+        }
+
+        function renderAlgoGrid() {
+            const grid = document.getElementById('algo-grid');
+            grid.innerHTML = '';
+
+            for (let y = 0; y < 4; y++) {
+                for (let x = 0; x < 4; x++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'grid-cell shadow-sm relative';
+
+                    if (x === playerPos.x && y === playerPos.y) {
+                        cell.innerHTML = '😎';
+                        cell.classList.add('start');
+                    } else if (x === goalPos.x && y === goalPos.y) {
+                        cell.innerHTML = '🏰';
+                        cell.classList.add('goal');
+                    } else if (obstacles.some(o => o.x === x && o.y === y)) {
+                        cell.innerHTML = '🪨';
+                        cell.classList.add('wall');
+                    }
+
+                    grid.appendChild(cell);
+                }
+            }
+        }
+
+        function addCommand(cmd) {
+            if (isRunningAlgo) return;
+            const arrows = { 'UP': '⬆️', 'DOWN': '⬇️', 'LEFT': '⬅️', 'RIGHT': '➡️' };
+            algoCommands.push({ cmd, icon: arrows[cmd] });
+            renderAlgoCommands();
+        }
+
+        function clearCommands() {
+            if (isRunningAlgo) return;
+            algoCommands = [];
+            renderAlgoCommands();
+            resetAlgoGrid();
+        }
+
+        function renderAlgoCommands() {
+            const container = document.getElementById('algo-commands');
+            container.innerHTML = '';
+            algoCommands.forEach(c => {
+                const el = document.createElement('div');
+                el.className = 'bg-slate-100 border border-slate-300 p-1 rounded text-sm';
+                el.innerText = c.icon;
+                container.appendChild(el);
+            });
+        }
+
+        function runAlgorithm() {
+            if (isRunningAlgo || algoCommands.length === 0) return;
+            isRunningAlgo = true;
+            gameState.algorithm.attempts++;
+
+            resetAlgoGrid();
+            let step = 0;
+            let crashed = false;
+
+            const btnRun = document.getElementById('btn-run-algo');
+            btnRun.disabled = true;
+
+            const interval = setInterval(() => {
+                if (step >= algoCommands.length || crashed || (playerPos.x === goalPos.x && playerPos.y === goalPos.y)) {
+                    clearInterval(interval);
+                    finishAlgorithmRun(crashed, playerPos.x === goalPos.x && playerPos.y === goalPos.y);
+                    return;
+                }
+
+                const cmd = algoCommands[step].cmd;
+                let nx = playerPos.x;
+                let ny = playerPos.y;
+
+                if (cmd === 'UP') ny--;
+                if (cmd === 'DOWN') ny++;
+                if (cmd === 'LEFT') nx--;
+                if (cmd === 'RIGHT') nx++;
+
+                // Check bounds
+                if (nx < 0 || nx > 3 || ny < 0 || ny > 3) {
+                    crashed = true;
+                }
+                // Check obstacles
+                else if (obstacles.some(o => o.x === nx && o.y === ny)) {
+                    crashed = true;
+                } else {
+                    playerPos.x = nx;
+                    playerPos.y = ny;
+                }
+
+                renderAlgoGrid();
+
+                if (crashed) {
+                    showModal('Oops!', 'Kamu menabrak atau keluar jalur! Coba susun ulang perintahnya.');
+                }
+
+                step++;
+            }, 400);
+        }
+
+        function finishAlgorithmRun(crashed, reachedGoal) {
+            isRunningAlgo = false;
+            document.getElementById('btn-run-algo').disabled = false;
+
+            if (reachedGoal) {
+                // Calculate Score
+                const optimalSteps = 6; // e.g., R,R,R,D,D,D
+                const playerSteps = algoCommands.length;
+
+                const successScore = 100;
+                const sequenceScore = 100; // Simplified
+                const efficiencyScore = Math.min(100, (optimalSteps / playerSteps) * 100);
+                const errorScore = Math.max(0, 100 - ((gameState.algorithm.attempts - 1) * 20));
+
+                const finalScore = Math.min(100, Math.round(
+                    (successScore * 0.5) + (sequenceScore * 0.25) + (efficiencyScore * 0.15) + (errorScore * 0.1)
+                ));
+
+                gameState.algorithm.raw = { successScore, sequenceScore, efficiencyScore, errorScore };
+                gameState.algorithm.score = finalScore;
+                gameState.algorithm.completed = true;
+
+                showModal('Hebat!', `Kamu berhasil mencapai kastil!\nSkor Algoritma: ${finalScore}`, () => {
+                    gameState.unlockedMission = 5;
+                    goToMap();
+                });
+            } else if (!crashed && !reachedGoal) {
+                showModal('Belum Sampai', 'Langkahmu habis tapi belum sampai kastil. Tambah perintah lagi ya!');
+            }
+        }
+
+        // --- RESULTS CALCULATION & RENDERING ---
+        function calculateResults() {
+            document.getElementById('result-player-name').innerText = `Penjelajah: ${gameState.playerName}`;
+
+            const scores = [
+                { key: 'Dekomposisi', score: gameState.decomposition.score, icon: '🧩', color: 'bg-blue-500' },
+                { key: 'Pengenalan Pola', score: gameState.pattern.score, icon: '🔍', color: 'bg-purple-500' },
+                { key: 'Abstraksi', score: gameState.abstraction.score, icon: '🎯', color: 'bg-orange-500' },
+                { key: 'Algoritma', score: gameState.algorithm.score, icon: '⚙️', color: 'bg-red-500' }
+            ];
+
+            const container = document.getElementById('result-bars-container');
+            container.innerHTML = '';
+
+            let total = 0;
+
+            scores.forEach(s => {
+                total += s.score;
+
+                // Get Category text
+                let cat = '';
+                if (s.score < 40) cat = 'Perlu Latihan';
+                else if (s.score < 60) cat = 'Mulai Berkembang';
+                else if (s.score < 80) cat = 'Berkembang';
+                else cat = 'Sangat Baik';
+
+                const el = document.createElement('div');
+                el.className = 'bg-white p-4 rounded-xl shadow-sm border border-emerald-100';
+                el.innerHTML = `
+                    <div class="flex justify-between items-end mb-2">
+                        <span class="font-bold text-slate-700">${s.icon} ${s.key}</span>
+                        <div class="text-right">
+                            <span class="font-bold text-xl">${s.score}</span>
+                            <div class="text-[10px] text-slate-500 uppercase">${cat}</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill ${s.color}" style="width: 0%"></div>
+                    </div>
+                `;
+                container.appendChild(el);
+
+                // Animate bar
+                setTimeout(() => {
+                    el.querySelector('.progress-bar-fill').style.width = `${s.score}%`;
+                }, 100);
+            });
+
+            document.getElementById('overall-score').innerText = (total / 4).toFixed(1);
+
+            renderDetails();
+        }
+
+        function renderDetails() {
+            const container = document.getElementById('detail-container');
+            container.innerHTML = '';
+
+            const renderSection = (title, data) => {
+                let html = `<div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 mb-4">
+                    <h3 class="font-bold text-lg text-slate-800 mb-3 border-b pb-2">${title}</h3>
+                    <div class="space-y-2 text-sm text-slate-600">`;
+
+                for (const [key, value] of Object.entries(data)) {
+                    html += `<div class="flex justify-between">
+                        <span class="capitalize">${key.replace(/([A-Z])/g, ' $1').trim()}</span>
+                        <span class="font-bold text-slate-800">${Math.round(value)}</span>
+                    </div>`;
+                }
+                html += `</div></div>`;
+                container.innerHTML += html;
+            };
+
+            renderSection('🌲 Dekomposisi', gameState.decomposition.raw);
+            renderSection('🏠 Pengenalan Pola', gameState.pattern.raw);
+            renderSection('⛰️ Abstraksi', gameState.abstraction.raw);
+            renderSection('🏰 Algoritma', gameState.algorithm.raw);
+        }
+
+        function resetGame() {
+            // Reset state
+            gameState.currentScreen = 'menu';
+            gameState.playerName = '';
+            gameState.unlockedMission = 1;
+            gameState.decomposition = { raw: {}, score: 0, completed: false };
+            gameState.pattern = { raw: {}, score: 0, completed: false, currentQ: 0, correctAnswers: 0, correctRules: 0 };
+            gameState.abstraction = { raw: {}, score: 0, completed: false };
+            gameState.algorithm = { raw: {}, score: 0, completed: false, attempts: 0 };
+
+            document.getElementById('player-name').value = '';
+            document.getElementById('btn-mengerti').classList.add('hidden');
+            showScreen('screen-menu');
+        }
+
+    </script>
+</body>
+
+</html>
