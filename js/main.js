@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Tombol Screen 3 (Petunjuk)
     document.getElementById('btn-kembali-home').addEventListener('click', () => navigateTo('screen-1'));
-    document.getElementById('btn-mengerti').addEventListener('click', () => navigateTo('screen-4'));
+    document.getElementById('btn-mengerti').addEventListener('click', () => navigateTo('screen-2'));
 
     // Tombol Screen 4 (Peta) - Sementara hanya Hutan yang aktif
     document.getElementById('btn-hutan').addEventListener('click', () => {
