@@ -16,23 +16,53 @@ fetch('js/data.json')
             "desa": [
                 {
                     "id": 1,
-                    "pattern": ["pola_a.png", "pola_b.png", "pola_a.png", "pola_b.png", "pola_a.png"],
-                    "options": ["pola_b.png", "pola_c.png", "pola_a.png"],
-                    "correctAnswer": "pola_b.png",
+                    "pattern": [
+                        "Assets/Pola/pola_a.png",
+                        "Assets/Pola/pola_b.png",
+                        "Assets/Pola/pola_a.png",
+                        "Assets/Pola/pola_b.png",
+                        "Assets/Pola/pola_a.png"
+                    ],
+                    "options": [
+                        "Assets/Pola/pola_b.png",
+                        "Assets/Pola/pola_c.png",
+                        "Assets/Pola/pola_a.png"
+                    ],
+                    "correctAnswer": "Assets/Pola/pola_b.png",
                     "rule": "BERGANTIAN"
                 },
                 {
                     "id": 2,
-                    "pattern": ["pola_1.png", "pola_2.png", "pola_3.png", "pola_4.png", "pola_5.png"],
-                    "options": ["pola_2.png", "pola_4.png", "pola_6.png"],
-                    "correctAnswer": "pola_6.png",
+                    "pattern": [
+                        "Assets/Pola/pola_1.png",
+                        "Assets/Pola/pola_2.png",
+                        "Assets/Pola/pola_3.png",
+                        "Assets/Pola/pola_4.png",
+                        "Assets/Pola/pola_5.png"
+                    ],
+                    "options": [
+                        "Assets/Pola/pola_2.png",
+                        "Assets/Pola/pola_4.png",
+                        "Assets/Pola/pola_6.png"
+                    ],
+                    "correctAnswer": "Assets/Pola/pola_6.png",
                     "rule": "BERTAMBAH"
                 },
                 {
                     "id": 3,
-                    "pattern": ["pola_merah.png", "pola_merah.png", "pola_biru.png", "pola_merah.png", "pola_merah.png"],
-                    "options": ["pola_kuning.png", "pola_biru.png", "pola_merah.png"],
-                    "correctAnswer": "pola_biru.png",
+                    "pattern": [
+                        "Assets/Pola/pola_merah.png",
+                        "Assets/Pola/pola_merah.png",
+                        "Assets/Pola/pola_biru.png",
+                        "Assets/Pola/pola_merah.png",
+                        "Assets/Pola/pola_merah.png"
+                    ],
+                    "options": [
+                        "Assets/Pola/pola_kuning.png",
+                        "Assets/Pola/pola_biru.png",
+                        "Assets/Pola/pola_merah.png"
+                    ],
+                    "correctAnswer": "Assets/Pola/pola_biru.png",
                     "rule": "BERULANG"
                 }
             ]
