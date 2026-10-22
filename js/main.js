@@ -17,52 +17,52 @@ fetch('js/data.json')
                 {
                     "id": 1,
                     "pattern": [
-                        "Assets/Pola/pola_a.png",
-                        "Assets/Pola/pola_b.png",
-                        "Assets/Pola/pola_a.png",
-                        "Assets/Pola/pola_b.png",
-                        "Assets/Pola/pola_a.png"
+                        "Assets/pola_a.png",
+                        "Assets/pola_b.png",
+                        "Assets/pola_a.png",
+                        "Assets/pola_b.png",
+                        "Assets/pola_a.png"
                     ],
                     "options": [
-                        "Assets/Pola/pola_b.png",
-                        "Assets/Pola/pola_c.png",
-                        "Assets/Pola/pola_a.png"
+                        "Assets/pola_b.png",
+                        "Assets/pola_c.png",
+                        "Assets/pola_a.png"
                     ],
-                    "correctAnswer": "Assets/Pola/pola_b.png",
+                    "correctAnswer": "Assets/pola_b.png",
                     "rule": "BERGANTIAN"
                 },
                 {
                     "id": 2,
                     "pattern": [
-                        "Assets/Pola/pola_1.png",
-                        "Assets/Pola/pola_2.png",
-                        "Assets/Pola/pola_3.png",
-                        "Assets/Pola/pola_4.png",
-                        "Assets/Pola/pola_5.png"
+                        "Assets/pola_1.png",
+                        "Assets/pola_2.png",
+                        "Assets/pola_3.png",
+                        "Assets/pola_4.png",
+                        "Assets/pola_5.png"
                     ],
                     "options": [
-                        "Assets/Pola/pola_2.png",
-                        "Assets/Pola/pola_4.png",
-                        "Assets/Pola/pola_6.png"
+                        "Assets/pola_2.png",
+                        "Assets/pola_4.png",
+                        "Assets/pola_6.png"
                     ],
-                    "correctAnswer": "Assets/Pola/pola_6.png",
+                    "correctAnswer": "Assets/pola_6.png",
                     "rule": "BERTAMBAH"
                 },
                 {
                     "id": 3,
                     "pattern": [
-                        "Assets/Pola/pola_merah.png",
-                        "Assets/Pola/pola_merah.png",
-                        "Assets/Pola/pola_biru.png",
-                        "Assets/Pola/pola_merah.png",
-                        "Assets/Pola/pola_merah.png"
+                        "Assets/pola_merah.png",
+                        "Assets/pola_merah.png",
+                        "Assets/pola_biru.png",
+                        "Assets/pola_merah.png",
+                        "Assets/pola_merah.png"
                     ],
                     "options": [
-                        "Assets/Pola/pola_kuning.png",
-                        "Assets/Pola/pola_biru.png",
-                        "Assets/Pola/pola_merah.png"
+                        "Assets/pola_kuning.png",
+                        "Assets/pola_biru.png",
+                        "Assets/pola_merah.png"
                     ],
-                    "correctAnswer": "Assets/Pola/pola_biru.png",
+                    "correctAnswer": "Assets/pola_biru.png",
                     "rule": "BERULANG"
                 }
             ]
