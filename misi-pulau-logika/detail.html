@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Pulau Logika - Detail Kemampuan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hasil.css">
+</head>
+<!--
+    Daftar Aset Gambar pada detail.html:
+    - Gambar 7: background-9.png | Lokasi: assets/images/backgrounds/background-9.png | Ukuran disarankan: 1920x1080 px | Fungsi: Latar belakang halaman detail kemampuan (melalui css/hasil.css)
+    - Gambar 8: karakter_pemain.png | Lokasi: assets/images/characters/karakter_pemain.png | Ukuran tampilan: 64x80 px | Fungsi: Karakter penjelajah pemain
+    - Gambar 12: ikon_hutan.png | Lokasi: assets/images/icons/ikon_hutan.png | Ukuran tampilan: 64x64 px | Fungsi: Ikon pilar Dekomposisi
+    - Gambar 13: ikon_desa.png | Lokasi: assets/images/icons/ikon_desa.png | Ukuran tampilan: 64x64 px | Fungsi: Ikon pilar Pengenalan Pola
+    - Gambar 14: ikon_gunung.png | Lokasi: assets/images/icons/ikon_gunung.png | Ukuran tampilan: 64x64 px | Fungsi: Ikon pilar Abstraksi
+    - Gambar 15: ikon_kastil.png | Lokasi: assets/images/icons/ikon_kastil.png | Ukuran tampilan: 64x64 px | Fungsi: Ikon pilar Algoritma
+-->
+<body class="latar-hasil" data-bgm="music-background-9.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">Rincian Kemampuan</span>
+            <span class="info-pemain-header">Evaluasi 4 Pilar Computational Thinking</span>
+        </div>
+        <div class="aksi-header">
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game" aria-labelledby="judul-detail">
+            <h1 id="judul-detail" class="judul-halaman">Detail Kemampuan Computational Thinking</h1>
+            <p class="subjudul-halaman">
+                Rincian skor dan evaluasi penguasaan setiap pilar berdasarkan petualanganmu di Pulau Logika.
+            </p>
+
+            <div class="baris-status-misi">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <!-- Gambar 8: karakter_pemain.png | Ukuran tampilan: 64x80 px | Aset: assets/images/characters/karakter_pemain.png -->
+                    <img
+                        src="assets/images/characters/karakter_pemain.png"
+                        alt="Karakter pemain penjelajah"
+                        width="64"
+                        height="80"
+                    >
+                    <div class="item-status-misi">
+                        Nama Penjelajah: <span id="nama-pemain-detail">Penjelajah</span>
+                    </div>
+                </div>
+                <div class="item-status-misi">
+                    Persentase Rata-rata: <span id="total-persen-detail">0%</span>
+                </div>
+            </div>
+
+            <div class="daftar-detail-pilar">
+                <!-- 1. Dekomposisi -->
+                <article class="kartu-detail-kemampuan">
+                    <!-- Gambar 12: ikon_hutan.png | Ukuran tampilan: 64x64 px | Aset: assets/images/icons/ikon_hutan.png -->
+                    <img
+                        src="assets/images/icons/ikon_hutan.png"
+                        alt="Ikon Dekomposisi Hutan"
+                        width="64"
+                        height="64"
+                    >
+                    <div>
+                        <h2 class="judul-pilar-skor">
+                            1. Dekomposisi (Wilayah Hutan)
+                            <span id="detail-level-dekomposisi" class="lencana-level-kemampuan level-berkembang">Berkembang</span>
+                        </h2>
+                        <div class="batang-progres-luar" style="margin-top: 8px;">
+                            <div id="detail-batang-dekomposisi" class="batang-progres-dalam" style="width: 0%;"></div>
+                        </div>
+                        <p id="detail-deskripsi-dekomposisi" class="deskripsi-capaian-detail"></p>
+                    </div>
+                    <div class="kotak-nilai-detail">
+                        <div id="detail-skor-dekomposisi" class="nilai-besar-detail">0%</div>
+                        <div id="detail-persen-dekomposisi" class="sub-total-poin">0 / 100 Poin</div>
+                    </div>
+                </article>
+
+                <!-- 2. Pengenalan Pola -->
+                <article class="kartu-detail-kemampuan">
+                    <!-- Gambar 13: ikon_desa.png | Ukuran tampilan: 64x64 px | Aset: assets/images/icons/ikon_desa.png -->
+                    <img
+                        src="assets/images/icons/ikon_desa.png"
+                        alt="Ikon Pengenalan Pola Desa"
+                        width="64"
+                        height="64"
+                    >
+                    <div>
+                        <h2 class="judul-pilar-skor">
+                            2. Pengenalan Pola (Wilayah Desa)
+                            <span id="detail-level-pola" class="lencana-level-kemampuan level-berkembang">Berkembang</span>
+                        </h2>
+                        <div class="batang-progres-luar" style="margin-top: 8px;">
+                            <div id="detail-batang-pola" class="batang-progres-dalam" style="width: 0%;"></div>
+                        </div>
+                        <p id="detail-deskripsi-pola" class="deskripsi-capaian-detail"></p>
+                    </div>
+                    <div class="kotak-nilai-detail">
+                        <div id="detail-skor-pola" class="nilai-besar-detail">0%</div>
+                        <div id="detail-persen-pola" class="sub-total-poin">0 / 100 Poin</div>
+                    </div>
+                </article>
+
+                <!-- 3. Abstraksi -->
+                <article class="kartu-detail-kemampuan">
+                    <!-- Gambar 14: ikon_gunung.png | Ukuran tampilan: 64x64 px | Aset: assets/images/icons/ikon_gunung.png -->
+                    <img
+                        src="assets/images/icons/ikon_gunung.png"
+                        alt="Ikon Abstraksi Gunung"
+                        width="64"
+                        height="64"
+                    >
+                    <div>
+                        <h2 class="judul-pilar-skor">
+                            3. Abstraksi (Wilayah Gunung)
+                            <span id="detail-level-abstraksi" class="lencana-level-kemampuan level-berkembang">Berkembang</span>
+                        </h2>
+                        <div class="batang-progres-luar" style="margin-top: 8px;">
+                            <div id="detail-batang-abstraksi" class="batang-progres-dalam" style="width: 0%;"></div>
+                        </div>
+                        <p id="detail-deskripsi-abstraksi" class="deskripsi-capaian-detail"></p>
+                    </div>
+                    <div class="kotak-nilai-detail">
+                        <div id="detail-skor-abstraksi" class="nilai-besar-detail">0%</div>
+                        <div id="detail-persen-abstraksi" class="sub-total-poin">0 / 100 Poin</div>
+                    </div>
+                </article>
+
+                <!-- 4. Algoritma -->
+                <article class="kartu-detail-kemampuan">
+                    <!-- Gambar 15: ikon_kastil.png | Ukuran tampilan: 64x64 px | Aset: assets/images/icons/ikon_kastil.png -->
+                    <img
+                        src="assets/images/icons/ikon_kastil.png"
+                        alt="Ikon Algoritma Kastil"
+                        width="64"
+                        height="64"
+                    >
+                    <div>
+                        <h2 class="judul-pilar-skor">
+                            4. Algoritma (Wilayah Kastil)
+                            <span id="detail-level-algoritma" class="lencana-level-kemampuan level-berkembang">Berkembang</span>
+                        </h2>
+                        <div class="batang-progres-luar" style="margin-top: 8px;">
+                            <div id="detail-batang-algoritma" class="batang-progres-dalam" style="width: 0%;"></div>
+                        </div>
+                        <p id="detail-deskripsi-algoritma" class="deskripsi-capaian-detail"></p>
+                    </div>
+                    <div class="kotak-nilai-detail">
+                        <div id="detail-skor-algoritma" class="nilai-besar-detail">0%</div>
+                        <div id="detail-persen-algoritma" class="sub-total-poin">0 / 100 Poin</div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="baris-tombol">
+                <button
+                    type="button"
+                    id="tombol-kembali-ringkasan"
+                    class="tombol tombol-utama"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Kembali ke Ringkasan
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/detail.js"></script>
+</body>
+</html>

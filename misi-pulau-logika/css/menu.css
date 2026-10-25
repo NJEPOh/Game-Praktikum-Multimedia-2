@@ -1,0 +1,341 @@
+/**
+ * File: css/menu.css
+ * Deskripsi: Gaya tampilan untuk Halaman Awal (index.html), Narasi (narasi.html),
+ * Petunjuk (petunjuk.html), dan Peta Pulau (peta.html).
+ */
+
+/* Gambar 1: background-1.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-1.png */
+body.latar-awal {
+    background-color: #134e4a;
+    background-image: url("../assets/images/backgrounds/background-1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Gambar 2: background-2.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-2.png */
+body.latar-pulau {
+    background-color: #1e3a5f;
+    background-image: url("../assets/images/backgrounds/background-2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Halaman Awal (index.html) */
+.panel-awal {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.bungkus-logo-awal {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.bungkus-karakter-awal {
+    display: flex;
+    justify-content: center;
+    margin: 14px 0;
+}
+
+.formulir-pemain {
+    max-width: 420px;
+    margin: 18px auto;
+    text-align: left;
+}
+
+.label-input {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--warna-utama-gelap);
+}
+
+.input-nama {
+    width: 100%;
+    padding: 13px 16px;
+    font-size: 1.05rem;
+    border: 2px solid #94a3b8;
+    border-radius: var(--radius-sedang);
+    background-color: #ffffff;
+    color: #0f172a;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-nama:focus {
+    border-color: var(--warna-utama);
+    box-shadow: 0 0 0 3px rgba(30, 111, 92, 0.22);
+}
+
+/* Halaman Narasi (narasi.html) */
+.panggung-narasi {
+    display: grid;
+    grid-template-columns: 160px 1fr 160px;
+    gap: 20px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.kartu-karakter-narasi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background: #f8fafc;
+    border: 2px solid #cbd5e1;
+    border-radius: var(--radius-sedang);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.kartu-karakter-narasi.pembicara-aktif {
+    border-color: var(--warna-aksen);
+    background: #fffbeb;
+    transform: translateY(-4px);
+}
+
+.nama-karakter-narasi {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--warna-utama-gelap);
+    text-align: center;
+}
+
+.kotak-dialog-narasi {
+    background: #ffffff;
+    border: 3px solid var(--warna-utama);
+    border-radius: var(--radius-besar);
+    padding: 24px;
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.label-bagian-narasi {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+     align-self: flex-start;
+}
+
+.nama-pembicara-dialog {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--warna-utama-gelap);
+    margin-bottom: 8px;
+}
+
+.teks-dialog-narasi {
+    font-size: 1.08rem;
+    color: #1e293b;
+    line-height: 1.65;
+}
+
+.indikator-titik-narasi {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.titik-narasi {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #cbd5e1;
+}
+
+.titik-narasi.aktif {
+    background: var(--warna-utama);
+    transform: scale(1.2);
+}
+
+/* Halaman Petunjuk (petunjuk.html) */
+.kepala-petunjuk {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #f0fdf4;
+    border: 2px solid #86efac;
+    border-radius: var(--radius-sedang);
+    padding: 16px 20px;
+    margin-bottom: 22px;
+}
+
+.grid-petunjuk {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.kartu-petunjuk {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: var(--radius-sedang);
+    padding: 16px;
+}
+
+.info-kartu-petunjuk h3 {
+    font-size: 1.1rem;
+    color: var(--warna-utama-gelap);
+    margin-bottom: 4px;
+}
+
+.pilar-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: #fef3c7;
+    color: #92400e;
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+}
+
+.info-kartu-petunjuk p {
+    font-size: 0.93rem;
+    color: var(--warna-teks-lembut);
+}
+
+/* Halaman Peta Pulau (peta.html) */
+.ringkasan-penjelajah-peta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: #f8fafc;
+    border: 2px solid #cbd5e1;
+    border-radius: var(--radius-sedang);
+    padding: 14px 20px;
+    margin-bottom: 22px;
+}
+
+.profil-peta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.jalur-peta-pulau {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 18px 0 24px;
+}
+
+.kartu-wilayah-peta {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #ffffff;
+    border: 3px solid var(--warna-utama);
+    border-radius: var(--radius-besar);
+    padding: 20px 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.kartu-wilayah-peta:hover:not(.wilayah-terkunci) {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
+    border-color: var(--warna-aksen);
+}
+
+.kartu-wilayah-peta.wilayah-terkunci {
+    background: #e2e8f0;
+    border-color: #94a3b8;
+    cursor: not-allowed;
+    opacity: 0.78;
+}
+
+.kartu-wilayah-peta.wilayah-selesai {
+    border-color: var(--warna-sukses);
+    background: #f0fdf4;
+}
+
+.nomor-wilayah-peta {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--warna-teks-lembut);
+    margin-bottom: 8px;
+}
+
+.bungkus-ikon-wilayah {
+    margin: 8px 0 12px;
+}
+
+.judul-wilayah-peta {
+    font-size: 1.2rem;
+    color: var(--warna-utama-gelap);
+    margin-bottom: 4px;
+}
+
+.pilar-wilayah-peta {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #b45309;
+    margin-bottom: 10px;
+}
+
+.status-wilayah-peta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: auto;
+    padding: 6px 12px;
+    border-radius: var(--radius-kecil);
+    font-size: 0.85rem;
+    font-weight: 700;
+    width: 100%;
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.kartu-wilayah-peta.wilayah-terkunci .status-wilayah-peta {
+    background: #cbd5e1;
+    color: #334155;
+}
+
+.kartu-wilayah-peta.wilayah-selesai .status-wilayah-peta {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+@media (max-width: 860px) {
+    .panggung-narasi {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-petunjuk {
+        grid-template-columns: 1fr;
+    }
+
+    .jalur-peta-pulau {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .jalur-peta-pulau {
+        grid-template-columns: 1fr;
+    }
+}

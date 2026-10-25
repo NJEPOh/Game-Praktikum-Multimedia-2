@@ -1,0 +1,205 @@
+/**
+ * File: css/kastil.css
+ * Deskripsi: Gaya tampilan untuk wilayah Kastil (kastil.html) - Misi Algoritma.
+ */
+
+/* Gambar 6: background-7.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-7.png */
+body.latar-kastil {
+    background-color: #311042;
+    background-image: url("../assets/images/backgrounds/background-7.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.kotak-instruksi-kastil {
+    background: #f5f3ff;
+    border: 2px solid #c4b5fd;
+    border-radius: var(--radius-sedang);
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.arena-algoritma {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 24px;
+    align-items: start;
+    margin: 16px 0;
+}
+
+.panel-papan-grid,
+.panel-penyusun-instruksi {
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: var(--radius-sedang);
+    padding: 18px;
+}
+
+/* Papan Grid 4 x 4 */
+.papan-grid-kastil {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    max-width: 360px;
+    margin: 12px auto;
+    background: #334155;
+    padding: 10px;
+    border-radius: var(--radius-sedang);
+}
+
+.sel-grid-kastil {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    min-height: 74px;
+    background: #f8fafc;
+    border: 2px solid #94a3b8;
+    border-radius: var(--radius-kecil);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    overflow: hidden;
+}
+
+.sel-grid-kastil.sel-awal {
+    background: #e0f2fe;
+    border-color: #0284c7;
+}
+
+.sel-grid-kastil.sel-tujuan {
+    background: #dcfce7;
+    border-color: #16a34a;
+}
+
+.sel-grid-kastil.sel-rintangan {
+    background: #fee2e2;
+    border-color: #dc2626;
+}
+
+.sel-grid-kastil.sel-jejak {
+    background: #fef9c3;
+    border-color: #eab308;
+}
+
+.sel-grid-kastil.sel-tabrakan {
+    background: #fecaca;
+    border-color: #b91c1c;
+}
+
+.label-kecil-sel {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #334155;
+    margin-top: 2px;
+}
+
+.lapisan-token-pemain {
+    position: absolute;
+    inset: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.88);
+    border: 2px solid var(--warna-utama);
+    border-radius: var(--radius-kecil);
+    z-index: 2;
+}
+
+.legenda-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: var(--warna-teks-lembut);
+}
+
+/* Tombol Blok Perintah */
+.grid-tombol-arah {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 12px 0 18px;
+}
+
+.tombol-blok-arah {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border: 2px solid #64748b;
+    border-radius: var(--radius-sedang);
+    cursor: pointer;
+    font-weight: 700;
+    color: #0f172a;
+    transition: transform 0.12s ease, border-color 0.12s ease, background-color 0.12s ease;
+}
+
+.tombol-blok-arah:hover:not(:disabled) {
+    transform: translateY(-2px);
+    border-color: var(--warna-utama);
+    background: #f0fdf4;
+}
+
+.tombol-blok-arah:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Daftar Susunan Instruksi */
+.wadah-antrean-instruksi {
+    min-height: 110px;
+    background: #f1f5f9;
+    border: 2px dashed #64748b;
+    border-radius: var(--radius-sedang);
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.chip-instruksi {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ffffff;
+    border: 2px solid var(--warna-sekunder);
+    color: #1e3a8a;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    border-radius: var(--radius-kecil);
+}
+
+.chip-instruksi.sedang-dieksekusi {
+    background: #fef3c7;
+    border-color: var(--warna-aksen);
+    color: #92400e;
+    transform: scale(1.06);
+}
+
+.teks-antrean-kosong {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin: auto;
+    text-align: center;
+}
+
+.baris-kontrol-algoritma {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 840px) {
+    .arena-algoritma {
+        grid-template-columns: 1fr;
+    }
+}

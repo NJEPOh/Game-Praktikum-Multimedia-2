@@ -1,0 +1,355 @@
+/**
+ * File: css/style.css
+ * Deskripsi: Gaya tampilan global untuk seluruh halaman game edukasi "Misi Pulau Logika".
+ * Tidak menggunakan emoji; seluruh visual menggunakan elemen <img> dan CSS background-image
+ * disertai fallback placeholder HTML/CSS apabila aset gambar belum ditaruh di folder assets.
+ */
+
+:root {
+    --warna-utama: #1e6f5c;
+    --warna-utama-gelap: #134e40;
+    --warna-aksen: #f59e0b;
+    --warna-aksen-gelap: #d97706;
+    --warna-sekunder: #2563eb;
+    --warna-sekunder-gelap: #1d4ed8;
+    --warna-bahaya: #dc2626;
+    --warna-sukses: #16a34a;
+    --warna-panel: rgba(255, 252, 242, 0.95);
+    --warna-teks: #1e293b;
+    --warna-teks-lembut: #475569;
+    --warna-garis: #cbd5e1;
+    --radius-besar: 18px;
+    --radius-sedang: 12px;
+    --radius-kecil: 8px;
+    --bayangan-panel: 0 12px 30px rgba(15, 23, 42, 0.28);
+    --bayangan-tombol: 0 4px 0 rgba(15, 23, 42, 0.25);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+    color: var(--warna-teks);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #0f172a;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    line-height: 1.5;
+}
+
+/* Lapisan overlay agar teks dan kartu tetap mudah dibaca di atas gambar background */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.65) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Bilah Navigasi Atas */
+.bilah-atas {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 24px;
+    background: rgba(15, 23, 42, 0.82);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.lencana-wilayah {
+    background: var(--warna-aksen);
+    color: #1e293b;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+}
+
+.info-pemain-header {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.aksi-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Kontainer Utama Halaman */
+.wadah-utama {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1060px;
+    margin: 24px auto;
+    padding: 0 20px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Panel Kartu Konten */
+.panel-game {
+    background: var(--warna-panel);
+    border: 3px solid #e2d9c5;
+    border-radius: var(--radius-besar);
+    box-shadow: var(--bayangan-panel);
+    padding: 28px 32px;
+}
+
+.judul-halaman {
+    font-size: 2rem;
+    color: var(--warna-utama-gelap);
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.subjudul-halaman {
+    font-size: 1.05rem;
+    color: var(--warna-teks-lembut);
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+/* Tombol Standar */
+.tombol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: var(--radius-sedang);
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
+    box-shadow: var(--bayangan-tombol);
+    user-select: none;
+}
+
+.tombol:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.tombol:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.25);
+}
+
+.tombol:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.tombol-utama {
+    background-color: var(--warna-utama);
+    color: #ffffff;
+    border-color: var(--warna-utama-gelap);
+}
+
+.tombol-utama:hover:not(:disabled) {
+    background-color: var(--warna-utama-gelap);
+}
+
+.tombol-aksen {
+    background-color: var(--warna-aksen);
+    color: #1e293b;
+    border-color: var(--warna-aksen-gelap);
+}
+
+.tombol-aksen:hover:not(:disabled) {
+    background-color: var(--warna-aksen-gelap);
+    color: #ffffff;
+}
+
+.tombol-sekunder {
+    background-color: var(--warna-sekunder);
+    color: #ffffff;
+    border-color: var(--warna-sekunder-gelap);
+}
+
+.tombol-sekunder:hover:not(:disabled) {
+    background-color: var(--warna-sekunder-gelap);
+}
+
+.tombol-netral {
+    background-color: #e2e8f0;
+    color: #1e293b;
+    border-color: #94a3b8;
+}
+
+.tombol-netral:hover:not(:disabled) {
+    background-color: #cbd5e1;
+}
+
+.tombol-bahaya {
+    background-color: var(--warna-bahaya);
+    color: #ffffff;
+    border-color: #991b1b;
+}
+
+.tombol-kecil {
+    padding: 8px 14px;
+    font-size: 0.88rem;
+}
+
+/* Baris Tombol */
+.baris-tombol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Umpan Balik / Pesan Status */
+.kotak-pesan {
+    padding: 12px 16px;
+    border-radius: var(--radius-sedang);
+    font-weight: 600;
+    margin: 14px 0;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.kotak-pesan.tersembunyi {
+    display: none;
+}
+
+.kotak-pesan.pesan-info {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border-color: #7dd3fc;
+}
+
+.kotak-pesan.pesan-sukses {
+    background-color: #dcfce7;
+    color: #15803d;
+    border-color: #86efac;
+}
+
+.kotak-pesan.pesan-peringatan {
+    background-color: #fef3c7;
+    color: #b45309;
+    border-color: #fcd34d;
+}
+
+.kotak-pesan.pesan-kesalahan {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border-color: #fca5a5;
+}
+
+/* Indikator Tahap & Skor di Dalam Wilayah */
+.baris-status-misi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #f1f5f9;
+    border: 2px solid #cbd5e1;
+    border-radius: var(--radius-sedang);
+    padding: 12px 18px;
+    margin-bottom: 20px;
+}
+
+.item-status-misi {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 0.98rem;
+}
+
+.item-status-misi span {
+    color: var(--warna-utama);
+}
+
+/* Placeholder HTML/CSS untuk elemen <img> ketika file aset belum tersedia (Tanpa Emoji) */
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+img.gambar-belum-tersedia {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: repeating-linear-gradient(
+        135deg,
+        #e2e8f0,
+        #e2e8f0 10px,
+        #f8fafc 10px,
+        #f8fafc 20px
+    );
+    border: 2px dashed #64748b;
+    border-radius: var(--radius-kecil);
+    color: #1e293b;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px;
+    overflow: hidden;
+}
+
+img.gambar-belum-tersedia::before {
+    content: attr(alt);
+    display: block;
+    width: 100%;
+    line-height: 1.25;
+    color: #0f172a;
+}
+
+img.gambar-belum-tersedia::after {
+    content: attr(data-nama-file);
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: #475569;
+    margin-top: 2px;
+}
+
+.tersembunyi {
+    display: none !important;
+}
+
+@media (max-width: 680px) {
+    .panel-game {
+        padding: 20px 16px;
+    }
+
+    .judul-halaman {
+        font-size: 1.55rem;
+    }
+}

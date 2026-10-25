@@ -1,0 +1,226 @@
+/**
+ * File: css/hasil.css
+ * Deskripsi: Gaya tampilan untuk Halaman Hasil Petualangan (hasil.html)
+ * dan Halaman Detail Kemampuan (detail.html).
+ */
+
+/* Gambar 7: background-9.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-9.png */
+body.latar-hasil {
+    background-color: #1e293b;
+    background-image: url("../assets/images/backgrounds/background-9.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.spanduk-pencapaian {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 3px solid var(--warna-aksen);
+    border-radius: var(--radius-besar);
+    padding: 22px 26px;
+    margin-bottom: 24px;
+}
+
+.info-utama-hasil {
+    text-align: left;
+    max-width: 520px;
+}
+
+.label-penjelajah-hasil {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #92400e;
+    text-transform: uppercase;
+}
+
+.nama-pemain-besar {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #78350f;
+    margin-bottom: 6px;
+}
+
+.predikat-pencapaian {
+    display: inline-block;
+    background: var(--warna-utama);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+}
+
+.ringkasan-teks-pencapaian {
+    font-size: 0.96rem;
+    color: #451a03;
+}
+
+.kotak-total-skor {
+    background: #ffffff;
+    border: 3px solid var(--warna-utama);
+    border-radius: var(--radius-besar);
+    padding: 16px 24px;
+    text-align: center;
+    min-width: 170px;
+}
+
+.label-total-skor {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--warna-teks-lembut);
+    text-transform: uppercase;
+}
+
+.angka-total-skor {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--warna-utama-gelap);
+    line-height: 1.15;
+}
+
+.sub-total-poin {
+    font-size: 0.85rem;
+    color: var(--warna-teks-lembut);
+    font-weight: 600;
+}
+
+/* Grid 4 Pilar pada hasil.html */
+.grid-skor-pilar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.kartu-skor-pilar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: var(--radius-sedang);
+    padding: 16px;
+}
+
+.isi-kartu-skor {
+    flex: 1;
+}
+
+.judul-pilar-skor {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--warna-utama-gelap);
+}
+
+.wilayah-pilar-skor {
+    font-size: 0.83rem;
+    color: var(--warna-teks-lembut);
+    margin-bottom: 8px;
+}
+
+.batang-progres-luar {
+    width: 100%;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.batang-progres-dalam {
+    height: 100%;
+    background: var(--warna-utama);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+
+.angka-skor-pilar {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+/* Halaman Detail Kemampuan (detail.html) */
+.daftar-detail-pilar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.kartu-detail-kemampuan {
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: var(--radius-sedang);
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: 72px 1fr 130px;
+    gap: 18px;
+    align-items: center;
+}
+
+.lencana-level-kemampuan {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-left: 8px;
+}
+
+.level-mahir {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.level-cakap {
+    background: #e0f2fe;
+    color: #075985;
+}
+
+.level-berkembang {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.deskripsi-capaian-detail {
+    font-size: 0.94rem;
+    color: #334155;
+    margin-top: 6px;
+}
+
+.kotak-nilai-detail {
+    background: #f8fafc;
+    border: 2px solid #cbd5e1;
+    border-radius: var(--radius-sedang);
+    padding: 12px;
+    text-align: center;
+}
+
+.nilai-besar-detail {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--warna-utama-gelap);
+}
+
+@media (max-width: 760px) {
+    .grid-skor-pilar {
+        grid-template-columns: 1fr;
+    }
+
+    .kartu-detail-kemampuan {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+    }
+
+    .info-utama-hasil {
+        text-align: center;
+    }
+}

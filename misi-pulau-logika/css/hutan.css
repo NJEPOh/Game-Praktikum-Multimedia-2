@@ -1,0 +1,159 @@
+/**
+ * File: css/hutan.css
+ * Deskripsi: Gaya tampilan untuk wilayah Hutan (hutan.html) - Misi Dekomposisi.
+ */
+
+/* Gambar 3: background-3.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-3.png */
+body.latar-hutan {
+    background-color: #14532d;
+    background-image: url("../assets/images/backgrounds/background-3.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.instruksi-hutan {
+    background: #f0fdf4;
+    border: 2px solid #86efac;
+    border-radius: var(--radius-sedang);
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    color: #14532d;
+}
+
+.arena-dekomposisi {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 24px;
+    align-items: start;
+    margin: 16px 0;
+}
+
+.panel-rangka-rumah,
+.panel-gudang-material {
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: var(--radius-sedang);
+    padding: 18px;
+}
+
+.judul-panel-sub {
+    font-size: 1.12rem;
+    color: var(--warna-utama-gelap);
+    margin-bottom: 6px;
+}
+
+.subteks-panel {
+    font-size: 0.9rem;
+    color: var(--warna-teks-lembut);
+    margin-bottom: 14px;
+}
+
+.daftar-slot-rumah {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.slot-komponen-rumah {
+    min-height: 150px;
+    border: 3px dashed #64748b;
+    border-radius: var(--radius-sedang);
+    background: #f8fafc;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+    cursor: pointer;
+}
+
+.slot-komponen-rumah.sorot-drop {
+    border-color: var(--warna-aksen);
+    background: #fffbeb;
+    transform: scale(1.02);
+}
+
+.slot-komponen-rumah.terisi {
+    border-style: solid;
+    border-color: var(--warna-sukses);
+    background: #dcfce7;
+    cursor: default;
+}
+
+.slot-komponen-rumah.salah-drop {
+    border-color: var(--warna-bahaya);
+    background: #fee2e2;
+}
+
+.label-target-slot {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1e293b;
+}
+
+.petunjuk-slot {
+    font-size: 0.8rem;
+    color: #475569;
+}
+
+.daftar-material-hutan {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.kartu-material {
+    background: #f8fafc;
+    border: 2px solid #94a3b8;
+    border-radius: var(--radius-sedang);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    cursor: grab;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    user-select: none;
+}
+
+.kartu-material:hover:not(.sudah-dipakai) {
+    transform: translateY(-3px);
+    border-color: var(--warna-utama);
+    box-shadow: 0 6px 12px rgba(15, 23, 42, 0.12);
+}
+
+.kartu-material.terpilih {
+    border-color: var(--warna-aksen);
+    background: #fffbeb;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.35);
+}
+
+.kartu-material.sudah-dipakai {
+    opacity: 0.38;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.nama-material {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #0f172a;
+}
+
+@media (max-width: 820px) {
+    .arena-dekomposisi {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .daftar-slot-rumah,
+    .daftar-material-hutan {
+        grid-template-columns: 1fr;
+    }
+}

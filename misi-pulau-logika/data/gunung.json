@@ -1,0 +1,604 @@
+{
+  "soal": [
+    {
+      "id": "gunung-001",
+      "konteks": "Mendaki Puncak Gunung yang Dingin",
+      "instruksi": "Pilih dan pisahkan perlengkapan yang PENTING dan TIDAK PENTING untuk mendaki gunung dingin!",
+      "objek": [
+        { "nama": "Jaket Tebal", "kategori": "penting" },
+        { "nama": "Kompas Penunjuk Arah", "kategori": "penting" },
+        { "nama": "Mainan Mobil Remote", "kategori": "tidak_penting" },
+        { "nama": "Bantal Sofa Besar", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Jaket tebal dan kompas penting untuk keselamatan di gunung, sedangkan mainan dan bantal sofa tidak relevan."
+    },
+    {
+      "id": "gunung-002",
+      "konteks": "Menyeberangi Gua yang Gelap Gulita",
+      "instruksi": "Pilah benda yang PENTING dan TIDAK PENTING saat menyusuri gua yang gelap!",
+      "objek": [
+        { "nama": "Senter Kepala", "kategori": "penting" },
+        { "nama": "Peta Jalur Gua", "kategori": "penting" },
+        { "nama": "Kacamata Hitam Pantai", "kategori": "tidak_penting" },
+        { "nama": "Raket Bulu Tangkis", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Senter dan peta gua dibutuhkan untuk navigasi di tempat gelap."
+    },
+    {
+      "id": "gunung-003",
+      "konteks": "Membuat Teh Hangat di Perkemahan",
+      "instruksi": "Pisahkan bahan yang PENTING dan TIDAK PENTING untuk menyeduh teh hangat!",
+      "objek": [
+        { "nama": "Air Panas", "kategori": "penting" },
+        { "nama": "Kantung Teh Celup", "kategori": "penting" },
+        { "nama": "Kuas Lukis", "kategori": "tidak_penting" },
+        { "nama": "Kapur Tulis", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Air panas dan kantung teh adalah komponen utama membuat teh hangat."
+    },
+    {
+      "id": "gunung-004",
+      "konteks": "Menanam Bibit Bunga di Taman Desa",
+      "instruksi": "Kelompokkan benda yang PENTING dan TIDAK PENTING untuk menanam bibit bunga!",
+      "objek": [
+        { "nama": "Bibit Tanaman", "kategori": "penting" },
+        { "nama": "Sekop Kecil & Air", "kategori": "penting" },
+        { "nama": "Stik Konsol Game", "kategori": "tidak_penting" },
+        { "nama": "Helm Sepeda Balap", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Menanam membutuhkan bibit, sekop, dan air; alat bermain game dan helm balap tidak diperlukan."
+    },
+    {
+      "id": "gunung-005",
+      "konteks": "Menghitung Luas Persegi Panjang",
+      "instruksi": "Informasi manakah yang PENTING dan TIDAK PENTING untuk menghitung luas papan persegi panjang?",
+      "objek": [
+        { "nama": "Ukuran Panjang Papan", "kategori": "penting" },
+        { "nama": "Ukuran Lebar Papan", "kategori": "penting" },
+        { "nama": "Warna Cat Papan", "kategori": "tidak_penting" },
+        { "nama": "Nama Pemilik Toko Kayu", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Rumus luas persegi panjang hanya memerlukan panjang dan lebar; warna cat dan nama toko tidak memengaruhi luas."
+    },
+    {
+      "id": "gunung-006",
+      "konteks": "Berjalan Kaki Saat Hujan Deras",
+      "instruksi": "Pisahkan barang yang PENTING dan TIDAK PENTING agar tidak basah saat hujan!",
+      "objek": [
+        { "nama": "Jas Hujan", "kategori": "penting" },
+        { "nama": "Payung Kuat", "kategori": "penting" },
+        { "nama": "Layang-layang Kertas", "kategori": "tidak_penting" },
+        { "nama": "Kipas Angin Meja", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Jas hujan dan payung melindungi tubuh dari air hujan."
+    },
+    {
+      "id": "gunung-007",
+      "konteks": "Mengobati Luka Gores Kecil di Jari",
+      "instruksi": "Pilah perlengkapan P3K yang PENTING dan TIDAK PENTING untuk merawat luka gores!",
+      "objek": [
+        { "nama": "Cairan Antiseptik", "kategori": "penting" },
+        { "nama": "Plester Luka", "kategori": "penting" },
+        { "nama": "Garpu Makan", "kategori": "tidak_penting" },
+        { "nama": "Kelereng Kaca", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Antiseptik dan plester digunakan untuk membersihkan dan menutup luka."
+    },
+    {
+      "id": "gunung-008",
+      "konteks": "Menggambar Sketsa Peta di Kertas",
+      "instruksi": "Pilih alat yang PENTING dan TIDAK PENTING untuk menggambar sketsa di kertas!",
+      "objek": [
+        { "nama": "Pensil Gambar", "kategori": "penting" },
+        { "nama": "Kertas Gambar Putih", "kategori": "penting" },
+        { "nama": "Panci Masak", "kategori": "tidak_penting" },
+        { "nama": "Sabun Cuci Piring", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Menggambar sketsa memerlukan pensil dan kertas, bukan peralatan dapur."
+    },
+    {
+      "id": "gunung-009",
+      "konteks": "Menentukan Waktu Tempuh Perjalanan",
+      "instruksi": "Informasi apa yang PENTING dan TIDAK PENTING untuk menghitung waktu tempuh perjalanan sepeda?",
+      "objek": [
+        { "nama": "Jarak Tempuh Jalan", "kategori": "penting" },
+        { "nama": "Kecepatan Kayuhan Sepeda", "kategori": "penting" },
+        { "nama": "Warna Bel Sepeda", "kategori": "tidak_penting" },
+        { "nama": "Merek Botol Minum", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Waktu tempuh dihitung dari jarak dan kecepatan; warna bel dan merek botol tidak berpengaruh."
+    },
+    {
+      "id": "gunung-010",
+      "konteks": "Mendirikan Tenda di Padang Rumput",
+      "instruksi": "Pisahkan komponen yang PENTING dan TIDAK PENTING untuk mendirikan tenda kemah!",
+      "objek": [
+        { "nama": "Kain & Rangka Tenda", "kategori": "penting" },
+        { "nama": "Pasak & Tali Pengikat", "kategori": "penting" },
+        { "nama": "Akuarium Ikan Kaca", "kategori": "tidak_penting" },
+        { "nama": "Setrika Listrik", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Kain tenda, rangka, pasak, dan tali adalah bagian utama agar tenda berdiri kokoh."
+    },
+    {
+      "id": "gunung-011",
+      "konteks": "Membersihkan Gigi Sebelum Tidur",
+      "instruksi": "Pilah benda yang PENTING dan TIDAK PENTING untuk menyikat gigi!",
+      "objek": [
+        { "nama": "Sikat Gigi", "kategori": "penting" },
+        { "nama": "Pasta Gigi", "kategori": "penting" },
+        { "nama": "Sisir Rambut", "kategori": "tidak_penting" },
+        { "nama": "Kaos Kaki Tebal", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Menyikat gigi membutuhkan sikat gigi dan pasta gigi."
+    },
+    {
+      "id": "gunung-012",
+      "konteks": "Mencari Buku di Perpustakaan Sekolah",
+      "instruksi": "Informasi manakah yang PENTING dan TIDAK PENTING saat mencari buku di rak perpustakaan?",
+      "objek": [
+        { "nama": "Judul Buku", "kategori": "penting" },
+        { "nama": "Kode Kategori Rak", "kategori": "penting" },
+        { "nama": "Warna Sepatu Pustakawan", "kategori": "tidak_penting" },
+        { "nama": "Jumlah Jendela Ruangan", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Judul buku dan kode rak membantu menemukan lokasi buku dengan cepat."
+    },
+    {
+      "id": "gunung-013",
+      "konteks": "Membuat Jus Jeruk Segar",
+      "instruksi": "Pisahkan bahan dan alat yang PENTING dan TIDAK PENTING untuk membuat jus jeruk!",
+      "objek": [
+        { "nama": "Buah Jeruk Segar", "kategori": "penting" },
+        { "nama": "Alat Pemeras & Gelas", "kategori": "penting" },
+        { "nama": "Obeng Besi", "kategori": "tidak_penting" },
+        { "nama": "Bola Sepak", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Buah jeruk dan alat pemeras adalah kebutuhan utama membuat jus jeruk."
+    },
+    {
+      "id": "gunung-014",
+      "konteks": "Bersepeda dengan Aman di Jalan Desa",
+      "instruksi": "Pilah hal yang PENTING dan TIDAK PENTING untuk keselamatan bersepeda!",
+      "objek": [
+        { "nama": "Helm Pelindung Kepala", "kategori": "penting" },
+        { "nama": "Rem Sepeda yang Berfungsi", "kategori": "penting" },
+        { "nama": "Stiker Hiasan Roda", "kategori": "tidak_penting" },
+        { "nama": "Boneka Beruang Besar", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Helm dan rem yang berfungsi menjaga keselamatan pengendara sepeda."
+    },
+    {
+      "id": "gunung-015",
+      "konteks": "Menghitung Kembalian Belanja di Koperasi",
+      "instruksi": "Data apa yang PENTING dan TIDAK PENTING untuk menghitung uang kembalian?",
+      "objek": [
+        { "nama": "Total Harga Barang", "kategori": "penting" },
+        { "nama": "Jumlah Uang yang Dibayar", "kategori": "penting" },
+        { "nama": "Warna Kantong Belanja", "kategori": "tidak_penting" },
+        { "nama": "Cuaca di Luar Toko", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Kembalian dihitung dari selisih uang yang dibayar dengan total harga barang."
+    },
+    {
+      "id": "gunung-016",
+      "konteks": "Memperbaiki Kancing Baju yang Lepas",
+      "instruksi": "Pisahkan alat yang PENTING dan TIDAK PENTING untuk menjahit kancing baju!",
+      "objek": [
+        { "nama": "Jarum & Benang Jahit", "kategori": "penting" },
+        { "nama": "Kancing Pengganti", "kategori": "penting" },
+        { "nama": "Sendok Sayur", "kategori": "tidak_penting" },
+        { "nama": "Peluit Olahraga", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Jarum, benang, dan kancing diperlukan untuk memasang kembali kancing baju."
+    },
+    {
+      "id": "gunung-017",
+      "konteks": "Menyeberang Sungai Menggunakan Perahu Dayung",
+      "instruksi": "Pilah perlengkapan yang PENTING dan TIDAK PENTING saat mendayung perahu!",
+      "objek": [
+        { "nama": "Dayung Kayu", "kategori": "penting" },
+        { "nama": "Rompi Pelampung", "kategori": "penting" },
+        { "nama": "Sapu Lidi Halaman", "kategori": "tidak_penting" },
+        { "nama": "Jam Dinding Besar", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Dayung menggerakkan perahu dan pelampung menjaga keselamatan di air."
+    },
+    {
+      "id": "gunung-018",
+      "konteks": "Mengirim Surat Pos ke Teman",
+      "instruksi": "Informasi apa yang PENTING dan TIDAK PENTING pada amplop surat?",
+      "objek": [
+        { "nama": "Alamat Lengkap Penerima", "kategori": "penting" },
+        { "nama": "Perangko Pengiriman", "kategori": "penting" },
+        { "nama": "Makanan Favorit Kurir", "kategori": "tidak_penting" },
+        { "nama": "Merk Pena yang Dipakai", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Alamat penerima dan perangko diperlukan agar surat sampai ke tujuan."
+    },
+    {
+      "id": "gunung-019",
+      "konteks": "Mencuci Tangan Agar Bersih dari Kuman",
+      "instruksi": "Pilih benda yang PENTING dan TIDAK PENTING untuk mencuci tangan!",
+      "objek": [
+        { "nama": "Air Mengalir Bersih", "kategori": "penting" },
+        { "nama": "Sabun Cuci Tangan", "kategori": "penting" },
+        { "nama": "Penggaris Plastik", "kategori": "tidak_penting" },
+        { "nama": "Topi Pantai", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Air mengalir dan sabun dibutuhkan untuk membersihkan tangan dari kuman."
+    },
+    {
+      "id": "gunung-020",
+      "konteks": "Menentukan Pemenang Lomba Lari Cepat",
+      "instruksi": "Informasi manakah yang PENTING dan TIDAK PENTING untuk menentukan juara lomba lari?",
+      "objek": [
+        { "nama": "Waktu Mencapai Garis Finis", "kategori": "penting" },
+        { "nama": "Urutan Masuk Garis Finis", "kategori": "penting" },
+        { "nama": "Warna Tali Sepatu Pelari", "kategori": "tidak_penting" },
+        { "nama": "Gaya Rambut Pelari", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Pemenang lomba lari ditentukan oleh catatan waktu dan urutan mencapai garis finis."
+    },
+    {
+      "id": "gunung-021",
+      "konteks": "Membuat Roti Lapis (Sandwich) untuk Bekal",
+      "instruksi": "Pisahkan bahan yang PENTING dan TIDAK PENTING untuk membuat roti lapis!",
+      "objek": [
+        { "nama": "Roti Tawar", "kategori": "penting" },
+        { "nama": "Isian Keju & Sayur", "kategori": "penting" },
+        { "nama": "Batu Baterai", "kategori": "tidak_penting" },
+        { "nama": "Kapur Barus", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Roti tawar serta isian makanan adalah bahan utama roti lapis."
+    },
+    {
+      "id": "gunung-022",
+      "konteks": "Mengukur Suhu Tubuh Saat Demam",
+      "instruksi": "Pilah hal yang PENTING dan TIDAK PENTING saat memeriksa suhu tubuh!",
+      "objek": [
+        { "nama": "Termometer Suhu", "kategori": "penting" },
+        { "nama": "Angka Hasil Pengukuran", "kategori": "penting" },
+        { "nama": "Warna Sprei Kasur", "kategori": "tidak_penting" },
+        { "nama": "Judul Film di Televisi", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Termometer dan angka hasil ukur menunjukkan suhu tubuh secara akurat."
+    },
+    {
+      "id": "gunung-023",
+      "konteks": "Menyiram Tanaman Kebun Saat Kemarau",
+      "instruksi": "Pilih alat yang PENTING dan TIDAK PENTING untuk menyiram kebun!",
+      "objek": [
+        { "nama": "Gembor / Selang Air", "kategori": "penting" },
+        { "nama": "Sumber Air Bersih", "kategori": "penting" },
+        { "nama": "Bantal Leher", "kategori": "tidak_penting" },
+        { "nama": "Kacamata Renang", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Gembor/selang dan sumber air dibutuhkan untuk menyiram tanaman."
+    },
+    {
+      "id": "gunung-024",
+      "konteks": "Membuka Pintu Gerbang yang Terkunci Gembok",
+      "instruksi": "Pisahkan benda yang PENTING dan TIDAK PENTING untuk membuka gembok gerbang!",
+      "objek": [
+        { "nama": "Kunci Gembok yang Sesuai", "kategori": "penting" },
+        { "nama": "Lubang Kunci Gembok", "kategori": "penting" },
+        { "nama": "Kemoceng Bulu", "kategori": "tidak_penting" },
+        { "nama": "Piring Keramik", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Kunci yang tepat dan lubang gembok adalah fokus utama untuk membuka gerbang."
+    },
+    {
+      "id": "gunung-025",
+      "konteks": "Menghitung Keliling Lapangan Segitiga",
+      "instruksi": "Data apa yang PENTING dan TIDAK PENTING untuk menghitung keliling segitiga?",
+      "objek": [
+        { "nama": "Panjang Ketiga Sisi Segitiga", "kategori": "penting" },
+        { "nama": "Satuan Ukuran Panjang (Meter)", "kategori": "penting" },
+        { "nama": "Jenis Rumput Lapangan", "kategori": "tidak_penting" },
+        { "nama": "Jumlah Burung di Pohon", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Keliling segitiga dihitung dengan menjumlahkan panjang ketiga sisinya."
+    },
+    {
+      "id": "gunung-026",
+      "konteks": "Belajar Menghadapi Ujian Matematika",
+      "instruksi": "Pilah barang yang PENTING dan TIDAK PENTING di meja belajar!",
+      "objek": [
+        { "nama": "Buku Materi & Latihan Soal", "kategori": "penting" },
+        { "nama": "Alat Tulis & Buku Catatan", "kategori": "penting" },
+        { "nama": "Mainan Gasing Berisik", "kategori": "tidak_penting" },
+        { "nama": "Komik Cerita Lucu", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Buku materi dan alat tulis mendukung fokus belajar matematika."
+    },
+    {
+      "id": "gunung-027",
+      "konteks": "Membuat Layang-layang Sederhana",
+      "instruksi": "Pisahkan bahan yang PENTING dan TIDAK PENTING untuk merakit layang-layang!",
+      "objek": [
+        { "nama": "Kerangka Bambu & Kertas", "kategori": "penting" },
+        { "nama": "Benang & Lem Perekat", "kategori": "penting" },
+        { "nama": "Batu Bata Berat", "kategori": "tidak_penting" },
+        { "nama": "Gelas Kaca Tebal", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Kerangka bambu, kertas, lem, dan benang adalah komponen pembuat layang-layang."
+    },
+    {
+      "id": "gunung-028",
+      "konteks": "Menentukan Jadwal Keberangkatan Kereta",
+      "instruksi": "Informasi manakah yang PENTING dan TIDAK PENTING pada tiket kereta api?",
+      "objek": [
+        { "nama": "Jam Keberangkatan Kereta", "kategori": "penting" },
+        { "nama": "Nomor Jalur & Stasiun", "kategori": "penting" },
+        { "nama": "Warna Dinding Stasiun", "kategori": "tidak_penting" },
+        { "nama": "Nama Masinis Cadangan", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Jam keberangkatan dan nomor jalur stasiun penting agar tidak tertinggal kereta."
+    },
+    {
+      "id": "gunung-029",
+      "konteks": "Membersihkan Lantai Kamar yang Berdebu",
+      "instruksi": "Pilih alat yang PENTING dan TIDAK PENTING untuk membersihkan lantai!",
+      "objek": [
+        { "nama": "Sapu Lantai", "kategori": "penting" },
+        { "nama": "Pengki & Alat Pel", "kategori": "penting" },
+        { "nama": "Rautan Pensil", "kategori": "tidak_penting" },
+        { "nama": "Topi Ulang Tahun", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Sapu, pengki, dan alat pel digunakan untuk membersihkan debu di lantai."
+    },
+    {
+      "id": "gunung-030",
+      "konteks": "Menanak Nasi dengan Penanak Nasi (Rice Cooker)",
+      "instruksi": "Pisahkan hal yang PENTING dan TIDAK PENTING untuk menanak nasi!",
+      "objek": [
+        { "nama": "Beras yang Sudah Dicuci", "kategori": "penting" },
+        { "nama": "Takaran Air yang Tepat", "kategori": "penting" },
+        { "nama": "Kelereng Warna-warni", "kategori": "tidak_penting" },
+        { "nama": "Koran Bekas", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Beras dan takaran air yang sesuai adalah syarat utama menanak nasi."
+    },
+    {
+      "id": "gunung-031",
+      "konteks": "Melakukan Pengamatan Bintang di Malam Hari",
+      "instruksi": "Pilah hal yang PENTING dan TIDAK PENTING untuk mengamati bintang!",
+      "objek": [
+        { "nama": "Teleskop / Teropong Bintang", "kategori": "penting" },
+        { "nama": "Langit Malam yang Cerah", "kategori": "penting" },
+        { "nama": "Kacamata Selam", "kategori": "tidak_penting" },
+        { "nama": "Payung Pantai Besar", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Teleskop dan langit malam yang cerah diperlukan untuk melihat bintang."
+    },
+    {
+      "id": "gunung-032",
+      "konteks": "Menentukan Ukuran Baju Seragam",
+      "instruksi": "Data apa yang PENTING dan TIDAK PENTING saat memilih ukuran seragam sekolah?",
+      "objek": [
+        { "nama": "Lebar Bahu & Dada", "kategori": "penting" },
+        { "nama": "Panjang Badan / Tinggi", "kategori": "penting" },
+        { "nama": "Hobi Olahraga Siswa", "kategori": "tidak_penting" },
+        { "nama": "Nama Hewan Peliharaan", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Ukuran baju ditentukan dari ukuran tubuh, bukan hobi atau nama peliharaan."
+    },
+    {
+      "id": "gunung-033",
+      "konteks": "Menyimpan Makanan Mudah Basi",
+      "instruksi": "Pilih hal yang PENTING dan TIDAK PENTING agar makanan tidak cepat basi!",
+      "objek": [
+        { "nama": "Wadah Tertutup Rapat", "kategori": "penting" },
+        { "nama": "Lemari Pendingin (Kulkas)", "kategori": "penting" },
+        { "nama": "Rak Sepatu Luar", "kategori": "tidak_penting" },
+        { "nama": "Mainan Balok Kayu", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Wadah tertutup dan suhu dingin kulkas menjaga kesegaran makanan."
+    },
+    {
+      "id": "gunung-034",
+      "konteks": "Membeli Tiket Masuk Museum",
+      "instruksi": "Informasi apa yang PENTING dan TIDAK PENTING saat membeli tiket di loket?",
+      "objek": [
+        { "nama": "Jumlah Pengunjung", "kategori": "penting" },
+        { "nama": "Harga Tiket per Orang", "kategori": "penting" },
+        { "nama": "Warna Mobil di Parkiran", "kategori": "tidak_penting" },
+        { "nama": "Merk Jam Tangan Penjaga", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Jumlah pengunjung dan harga tiket per orang menentukan biaya tiket."
+    },
+    {
+      "id": "gunung-035",
+      "konteks": "Bermain Bulu Tangkis Bersama Teman",
+      "instruksi": "Pisahkan peralatan yang PENTING dan TIDAK PENTING untuk bermain bulu tangkis!",
+      "objek": [
+        { "nama": "Raket Bulu Tangkis", "kategori": "penting" },
+        { "nama": "Kok (Shuttlecock)", "kategori": "penting" },
+        { "nama": "Dayung Perahu", "kategori": "tidak_penting" },
+        { "nama": "Bola Basket Berat", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Bermain bulu tangkis membutuhkan raket dan kok."
+    },
+    {
+      "id": "gunung-036",
+      "konteks": "Mengisi Daya Baterai Tablet Belajar",
+      "instruksi": "Pilah benda yang PENTING dan TIDAK PENTING untuk mengisi baterai tablet!",
+      "objek": [
+        { "nama": "Kabel & Adaptor Charger", "kategori": "penting" },
+        { "nama": "Sumber Listrik / Stopkontak", "kategori": "penting" },
+        { "nama": "Gunting Kertas", "kategori": "tidak_penting" },
+        { "nama": "Botol Kecap", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Charger dan sumber listrik diperlukan untuk mengisi daya perangkat."
+    },
+    {
+      "id": "gunung-037",
+      "konteks": "Menyeberang Jalan Raya di Zebra Cross",
+      "instruksi": "Informasi apa yang PENTING dan TIDAK PENTING saat hendak menyeberang jalan?",
+      "objek": [
+        { "nama": "Warna Lampu Penyeberangan", "kategori": "penting" },
+        { "nama": "Kondisi Lalu Lintas Kiri-Kanan", "kategori": "penting" },
+        { "nama": "Iklan di Papan Reklame", "kategori": "tidak_penting" },
+        { "nama": "Warna Jaket Pejalan Lain", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Lampu penyeberangan dan kondisi arus kendaraan adalah informasi keselamatan utama."
+    },
+    {
+      "id": "gunung-038",
+      "konteks": "Membuat Kolase Kertas di Kelas Seni",
+      "instruksi": "Pilih alat yang PENTING dan TIDAK PENTING untuk menempel kolase kertas!",
+      "objek": [
+        { "nama": "Kertas Warna & Gunting", "kategori": "penting" },
+        { "nama": "Lem Kertas & Kertas Dasar", "kategori": "penting" },
+        { "nama": "Palu Besi", "kategori": "tidak_penting" },
+        { "nama": "Wajan Penggorengan", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Kertas warna, gunting, lem, dan kertas dasar adalah bahan membuat kolase."
+    },
+    {
+      "id": "gunung-039",
+      "konteks": "Menghitung Rata-rata Nilai Ulangan",
+      "instruksi": "Data manakah yang PENTING dan TIDAK PENTING untuk menghitung rata-rata nilai?",
+      "objek": [
+        { "nama": "Daftar Nilai Setiap Ulangan", "kategori": "penting" },
+        { "nama": "Banyaknya Ulangan yang Diikuti", "kategori": "penting" },
+        { "nama": "Nomor Bangku Duduk Siswa", "kategori": "tidak_penting" },
+        { "nama": "Warna Sampul Buku Tulis", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Rata-rata dihitung dari jumlah seluruh nilai dibagi banyaknya ulangan."
+    },
+    {
+      "id": "gunung-040",
+      "konteks": "Berenang di Kolam Renang Olahraga",
+      "instruksi": "Pisahkan perlengkapan yang PENTING dan TIDAK PENTING saat berenang!",
+      "objek": [
+        { "nama": "Pakaian Renang", "kategori": "penting" },
+        { "nama": "Kacamata Renang", "kategori": "penting" },
+        { "nama": "Sepatu Boot Lumpur", "kategori": "tidak_penting" },
+        { "nama": "Selimut Wol Tebal", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Pakaian renang dan kacamata renang memudahkan bergerak dan melihat di air."
+    },
+    {
+      "id": "gunung-041",
+      "konteks": "Membuat Jembatan Darurat dari Batang Kayu",
+      "instruksi": "Informasi apa yang PENTING dan TIDAK PENTING sebelum memasang batang kayu di sungai?",
+      "objek": [
+        { "nama": "Lebar Sungai", "kategori": "penting" },
+        { "nama": "Panjang & Kekuatan Kayu", "kategori": "penting" },
+        { "nama": "Jumlah Ikan di Sungai", "kategori": "tidak_penting" },
+        { "nama": "Bentuk Awan di Langit", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Batang kayu harus lebih panjang dari lebar sungai dan cukup kuat menahan beban."
+    },
+    {
+      "id": "gunung-042",
+      "konteks": "Merawat Ikan Hias di Akuarium",
+      "instruksi": "Pilah hal yang PENTING dan TIDAK PENTING untuk menjaga ikan tetap sehat!",
+      "objek": [
+        { "nama": "Air Bersih & Filter Oksigen", "kategori": "penting" },
+        { "nama": "Pakan Ikan Teratur", "kategori": "penting" },
+        { "nama": "Kapur Tulis Papan", "kategori": "tidak_penting" },
+        { "nama": "Tali Sepatu", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Air bersih beroksigen dan pakan teratur adalah kebutuhan hidup ikan."
+    },
+    {
+      "id": "gunung-043",
+      "konteks": "Membungkus Kado Ulang Tahun",
+      "instruksi": "Pilih benda yang PENTING dan TIDAK PENTING untuk membungkus kotak kado!",
+      "objek": [
+        { "nama": "Kertas Kado", "kategori": "penting" },
+        { "nama": "Gunting & Selotip", "kategori": "penting" },
+        { "nama": "Saringan Santan", "kategori": "tidak_penting" },
+        { "nama": "Cangkul Kebun", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Kertas kado, gunting, dan selotip digunakan untuk membungkus kado dengan rapi."
+    },
+    {
+      "id": "gunung-044",
+      "konteks": "Mencari Lokasi Kelas Baru di Sekolah",
+      "instruksi": "Informasi apa yang PENTING dan TIDAK PENTING untuk menemukan ruang kelas?",
+      "objek": [
+        { "nama": "Nama / Nomor Ruang Kelas", "kategori": "penting" },
+        { "nama": "Denah Gedung Sekolah", "kategori": "penting" },
+        { "nama": "Jumlah Anak Tangga Kantin", "kategori": "tidak_penting" },
+        { "nama": "Warna Pot Bunga Gerbang", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Nomor ruangan dan denah gedung membantu menemukan lokasi kelas secara tepat."
+    },
+    {
+      "id": "gunung-045",
+      "konteks": "Membuat Telur Dadar di Dapur",
+      "instruksi": "Pisahkan benda yang PENTING dan TIDAK PENTING untuk memasak telur dadar!",
+      "objek": [
+        { "nama": "Telur Ayam & Sedikit Garam", "kategori": "penting" },
+        { "nama": "Wajan & Kompor", "kategori": "penting" },
+        { "nama": "Jangka Gambar Besi", "kategori": "tidak_penting" },
+        { "nama": "Bola Pingpong", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Telur, garam, wajan, dan kompor adalah bahan serta alat memasak telur dadar."
+    },
+    {
+      "id": "gunung-046",
+      "konteks": "Menimbang Berat Buah di Pasar",
+      "instruksi": "Data apa yang PENTING dan TIDAK PENTING saat menimbang buah?",
+      "objek": [
+        { "nama": "Alat Timbangan yang Tepat", "kategori": "penting" },
+        { "nama": "Angka Berat pada Timbangan", "kategori": "penting" },
+        { "nama": "Warna Baju Penjual Buah", "kategori": "tidak_penting" },
+        { "nama": "Lagu yang Diputar di Pasar", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Alat timbangan dan angka berat yang tertera adalah informasi utama saat menimbang."
+    },
+    {
+      "id": "gunung-047",
+      "konteks": "Menyusun Buku Berdasarkan Urutan Abjad",
+      "instruksi": "Informasi manakah yang PENTING dan TIDAK PENTING untuk mengurutkan buku sesuai abjad?",
+      "objek": [
+        { "nama": "Huruf Awal Judul Buku", "kategori": "penting" },
+        { "nama": "Urutan Abjad A sampai Z", "kategori": "penting" },
+        { "nama": "Ketebalan Halaman Buku", "kategori": "tidak_penting" },
+        { "nama": "Harga Beli Buku", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Mengurutkan berdasarkan abjad hanya memerlukan huruf judul dan urutan A-Z."
+    },
+    {
+      "id": "gunung-048",
+      "konteks": "Menjemur Pakaian Basah Agar Cepat Kering",
+      "instruksi": "Pilih hal yang PENTING dan TIDAK PENTING saat menjemur pakaian!",
+      "objek": [
+        { "nama": "Sinar Matahari & Angin", "kategori": "penting" },
+        { "nama": "Tiang Jemuran & Jepitan", "kategori": "penting" },
+        { "nama": "Lampu Tidur Kamar", "kategori": "tidak_penting" },
+        { "nama": "Kamus Bahasa Tebal", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Panas matahari, angin, dan jemuran dibutuhkan untuk mengeringkan pakaian."
+    },
+    {
+      "id": "gunung-049",
+      "konteks": "Membuat Sandi Rahasia dengan Geseran Huruf",
+      "instruksi": "Informasi apa yang PENTING dan TIDAK PENTING untuk memecahkan sandi geser?",
+      "objek": [
+        { "nama": "Teks Pesan Bersandi", "kategori": "penting" },
+        { "nama": "Jumlah Geseran Huruf (Kunci)", "kategori": "penting" },
+        { "nama": "Jenis Kertas Catatan", "kategori": "tidak_penting" },
+        { "nama": "Warna Tinta Pena", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Pesan bersandi dan kunci jumlah geseran adalah inti untuk membaca pesan rahasia."
+    },
+    {
+      "id": "gunung-050",
+      "konteks": "Menyiapkan Tas Sekolah untuk Hari Senin",
+      "instruksi": "Pilah barang yang PENTING dan TIDAK PENTING untuk dimasukkan ke tas sekolah!",
+      "objek": [
+        { "nama": "Buku Pelajaran Jadwal Senin", "kategori": "penting" },
+        { "nama": "Kotak Pensil & Alat Tulis", "kategori": "penting" },
+        { "nama": "Bantal Guling Tidur", "kategori": "tidak_penting" },
+        { "nama": "Pot Tanaman Tanah Liat", "kategori": "tidak_penting" }
+      ],
+      "penjelasan": "Buku sesuai jadwal dan alat tulis adalah barang penting yang harus dibawa ke sekolah."
+    }
+  ]
+}

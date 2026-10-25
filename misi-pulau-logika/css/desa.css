@@ -1,0 +1,169 @@
+/**
+ * File: css/desa.css
+ * Deskripsi: Gaya tampilan untuk wilayah Desa (desa.html) - Misi Pengenalan Pola.
+ */
+
+/* Gambar 4: background-4.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-4.png */
+body.latar-desa {
+    background-color: #3f3cbb;
+    background-image: url("../assets/images/backgrounds/background-4.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.kotak-instruksi-desa {
+    background: #eff6ff;
+    border: 2px solid #93c5fd;
+    border-radius: var(--radius-sedang);
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.jenis-pola-badge {
+    display: inline-block;
+    background: var(--warna-sekunder);
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.teks-instruksi-desa {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
+/* Jalur Ubin Jalan Desa */
+.jalur-ubin-jalan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    background: #f8fafc;
+    border: 3px solid #94a3b8;
+    border-radius: var(--radius-besar);
+    padding: 24px 18px;
+    margin: 18px 0;
+}
+
+.kartu-ubin-pola {
+    width: 112px;
+    min-height: 128px;
+    background: #ffffff;
+    border: 3px solid #cbd5e1;
+    border-radius: var(--radius-sedang);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    position: relative;
+}
+
+.kartu-ubin-pola.ubin-kosong {
+    border-style: dashed;
+    border-color: var(--warna-aksen);
+    background: #fffbeb;
+}
+
+.kartu-ubin-pola.ubin-terjawab {
+    border-style: solid;
+    border-color: var(--warna-sukses);
+    background: #dcfce7;
+}
+
+.bungkus-gambar-ubin {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+}
+
+.angka-di-atas-ubin {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.78);
+    border-radius: var(--radius-kecil);
+    pointer-events: none;
+}
+
+.label-ubin-pola {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #334155;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+/* Pilihan Opsi Jawaban */
+.area-opsi-desa {
+    margin: 20px 0 10px;
+    text-align: center;
+}
+
+.judul-opsi-desa {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--warna-teks-lembut);
+    margin-bottom: 12px;
+}
+
+.daftar-opsi-desa {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.tombol-opsi-ubin {
+    width: 135px;
+    min-height: 140px;
+    background: #ffffff;
+    border: 3px solid #64748b;
+    border-radius: var(--radius-sedang);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.tombol-opsi-ubin:hover:not(:disabled) {
+    transform: translateY(-4px);
+    border-color: var(--warna-sekunder);
+    background: #eff6ff;
+}
+
+.tombol-opsi-ubin.opsi-benar {
+    border-color: var(--warna-sukses);
+    background: #dcfce7;
+}
+
+.tombol-opsi-ubin.opsi-salah {
+    border-color: var(--warna-bahaya);
+    background: #fee2e2;
+}
+
+.tombol-opsi-ubin:disabled {
+    cursor: not-allowed;
+    opacity: 0.75;
+}

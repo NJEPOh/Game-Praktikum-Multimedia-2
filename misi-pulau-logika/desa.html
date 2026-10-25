@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Pulau Logika - Wilayah Desa (Pengenalan Pola)</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/desa.css">
+</head>
+<!--
+    Daftar Aset Gambar pada desa.html:
+    - Gambar 4: background-4.png | Lokasi: assets/images/backgrounds/background-4.png | Ukuran disarankan: 1920x1080 px | Fungsi: Latar belakang wilayah Desa (melalui css/desa.css)
+    - Gambar 13: ikon_desa.png | Lokasi: assets/images/icons/ikon_desa.png | Ukuran tampilan: 56x56 px | Fungsi: Ikon identitas wilayah Desa
+    - Gambar 34: ubin_rumpang.png | Lokasi: assets/images/tiles/ubin_rumpang.png | Ukuran tampilan: 80x80 px | Fungsi: Ubin jalan rumpang (?)
+    - Gambar 35: ubin_lingkaran.png | Lokasi: assets/images/tiles/ubin_lingkaran.png | Ukuran tampilan: 80x80 px | Fungsi: Ubin bentuk lingkaran
+    - Gambar 36: ubin_persegi.png | Lokasi: assets/images/tiles/ubin_persegi.png | Ukuran tampilan: 80x80 px | Fungsi: Ubin bentuk persegi
+    - Gambar 37: ubin_segitiga.png | Lokasi: assets/images/tiles/ubin_segitiga.png | Ukuran tampilan: 80x80 px | Fungsi: Ubin bentuk segitiga
+    - Gambar 38: ubin_bintang.png | Lokasi: assets/images/tiles/ubin_bintang.png | Ukuran tampilan: 80x80 px | Fungsi: Ubin bentuk bintang
+    - Gambar 39: ubin_belah_ketupat.png | Lokasi: assets/images/tiles/ubin_belah_ketupat.png | Ukuran tampilan: 80x80 px | Fungsi: Ubin bentuk belah ketupat
+    - Gambar 40: ubin_merah.png | Lokasi: assets/images/tiles/ubin_merah.png | Ukuran tampilan: 80x80 px | Fungsi: Ubin warna merah
+    - Gambar 41: ubin_biru.png | Lokasi: assets/images/tiles/ubin_biru.png | Ukuran tampilan: 80x80 px | Fungsi: Ubin warna biru
+    - Gambar 42: ubin_kuning.png | Lokasi: assets/images/tiles/ubin_kuning.png | Ukuran tampilan: 80x80 px | Fungsi: Ubin warna kuning
+    - Gambar 43: ubin_hijau.png | Lokasi: assets/images/tiles/ubin_hijau.png | Ukuran tampilan: 80x80 px | Fungsi: Ubin warna hijau
+    - Gambar 44: ubin_ungu.png | Lokasi: assets/images/tiles/ubin_ungu.png | Ukuran tampilan: 80x80 px | Fungsi: Ubin warna ungu
+    - Gambar 45: ubin_angka.png | Lokasi: assets/images/tiles/ubin_angka.png | Ukuran tampilan: 80x80 px | Fungsi: Ubin dasar deret angka
+-->
+<body class="latar-desa" data-bgm="music-background-4.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">Wilayah 2: Desa (Pengenalan Pola)</span>
+            <span class="info-pemain-header">Penjelajah: <strong id="nama-pemain-desa">Penjelajah</strong></span>
+        </div>
+        <div class="aksi-header">
+            <button
+                type="button"
+                class="tombol tombol-netral tombol-kecil"
+                data-sfx-hover
+                data-sfx-click
+                onclick="pindahHalaman('peta.html', true)"
+            >
+                Kembali ke Peta
+            </button>
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game" aria-labelledby="judul-desa">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 8px;">
+                <!-- Gambar 13: ikon_desa.png | Ukuran tampilan: 56x56 px | Aset: assets/images/icons/ikon_desa.png -->
+                <img
+                    src="assets/images/icons/ikon_desa.png"
+                    alt="Ikon wilayah Desa"
+                    width="56"
+                    height="56"
+                >
+                <h1 id="judul-desa" class="judul-halaman" style="margin-bottom: 0;">Misi Desa: Melengkapi Pola Jalan</h1>
+            </div>
+
+            <div class="baris-status-misi">
+                <div class="item-status-misi">Tahap: <span id="indikator-tahap-desa">1/5</span></div>
+                <div class="item-status-misi">Skor Pengenalan Pola: <span id="indikator-skor-desa">0</span> / 100</div>
+            </div>
+
+            <div class="kotak-instruksi-desa">
+                <span id="jenis-pola-desa" class="jenis-pola-badge">Pola</span>
+                <p id="instruksi-soal-desa" class="teks-instruksi-desa">Memuat soal pola...</p>
+            </div>
+
+            <div id="pesan-umpan-balik-desa" class="kotak-pesan pesan-info" role="status"></div>
+
+            <!-- Deret Ubin Jalan -->
+            <div id="wadah-pola-jalan" class="jalur-ubin-jalan" aria-label="Urutan pola ubin jalan"></div>
+
+            <!-- Pilihan Opsi Jawaban -->
+            <div class="area-opsi-desa">
+                <p class="judul-opsi-desa">Pilih ubin yang tepat untuk melengkapi tanda tanya (?):</p>
+                <div id="wadah-opsi-desa" class="daftar-opsi-desa"></div>
+            </div>
+
+            <div class="baris-tombol">
+                <button
+                    type="button"
+                    id="tombol-next-desa"
+                    class="tombol tombol-aksen tersembunyi"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Next Stage
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/desa.js"></script>
+</body>
+</html>
