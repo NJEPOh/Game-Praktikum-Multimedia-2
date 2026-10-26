@@ -612,6 +612,103 @@ Jangan menggunakan satu nama file untuk gambar yang berbeda. Jika aset belum ter
 4. Jika ada gambar dekoratif tambahan di atas background, gunakan elemen `<img>` dan beri komentar tersendiri.
 5. Pastikan teks dan tombol tetap terbaca di atas background. Gunakan overlay CSS bila diperlukan tanpa mengganti gambar dengan emoji.
 
+
+## 13. Panduan Gaya Visual: Cozy Pixel Art (WAJIB)
+
+Seluruh tampilan "Misi Pulau Logika" harus menggunakan gaya **cozy pixel art** seperti game petualangan 2D klasik. Visual harus terasa hangat, nyaman, ramah anak, dan imersif, tetapi tetap memiliki kontras warna yang jelas. Gunakan dominasi warna gelap dengan aksen warna lebih terang untuk membangun kedalaman dan menjaga elemen penting mudah terlihat.
+
+### 13.1. Arah Visual Utama
+
+1. Terapkan gaya pixel art secara konsisten pada seluruh halaman, termasuk menu, dialog, peta, tombol, panel skor, objek permainan, karakter, dan latar belakang.
+2. Gunakan bentuk piksel yang tegas dan terstruktur. Hindari ilustrasi vektor yang terlalu halus, efek 3D realistis, foto, atau gaya glossy modern yang tidak sesuai dengan pixel art.
+3. Bangun suasana cozy melalui lingkungan yang hidup, pencahayaan hangat, detail kecil seperti rumput, dedaunan, jamur, bunga, batu, jendela bercahaya, dan dekorasi pixel art secukupnya. Jangan sampai dekorasi mengganggu keterbacaan atau permainan.
+4. Gunakan palet dengan dominasi warna gelap hingga menengah, lalu kombinasikan dengan warna terang sebagai highlight. Jangan membuat semua elemen gelap; objek interaktif, teks, jalur, dan tujuan harus tetap mudah dibedakan.
+5. Terapkan gaya visual yang konsisten di sepuluh halaman. Setiap wilayah boleh memiliki palet khas, tetapi bentuk piksel, outline, pencahayaan, tekstur, dan gaya antarmuka harus tetap seragam.
+
+### 13.2. Palet Warna per Lingkungan
+
+Gunakan warna berikut sebagai acuan awal. Warna boleh disesuaikan selama prinsip kontras gelap-terang tetap dipertahankan.
+
+| Elemen | Warna gelap / dasar | Warna terang / aksen |
+|---|---|---|
+| Hutan | Hijau pinus `#173B2F`, hijau daun gelap `#24513A` | Hijau daun `#5FAE58`, lumut terang `#A8D878` |
+| Langit | Biru malam `#172B49`, biru gelap `#23466B` | Biru langit `#65B7E8`, awan `#D8F0F2` |
+| Desa | Cokelat kayu `#4A3028`, cokelat tanah `#704832` | Kayu terang `#C58A52`, jerami `#F0D58A` |
+| Gunung | Biru batu `#29394D`, abu-abu gelap `#454F5B` | Abu-abu terang `#B7C6D0`, salju `#EAF3F5` |
+| Kastil | Ungu malam `#30264F`, batu gelap `#414052` | Ungu terang `#9C8AE8`, emas `#F2C96D` |
+| UI / panel | Hijau arang `#17251F`, cokelat gelap `#302820` | Krem `#F3E6C8`, hijau muda `#B8D98A` |
+| Status | Merah gelap `#6F3038` | Merah terang `#E87979` |
+| Status berhasil | Hijau gelap `#24513A` | Hijau terang `#8FD694` |
+
+- Utamakan latar belakang gelap dan elemen lingkungan berlapis dari gelap ke terang untuk menciptakan kedalaman.
+- Gunakan warna terang pada teks utama, garis tepi, objek yang dapat dipilih, jalur penting, item yang bisa diseret, dan indikator progres.
+- Pastikan teks dan tombol memiliki kontras yang cukup dengan latarnya. Jika diperlukan, gunakan panel gelap atau outline terang di belakang teks.
+- Hindari penggunaan warna neon berlebihan, warna pastel pucat sebagai palet utama, atau terlalu banyak warna aksen sekaligus.
+
+### 13.3. Font Pixelated
+
+1. Gunakan font pixel / bitmap untuk judul, tombol, label, angka skor, indikator tahap, dan elemen UI utama.
+2. Pilih font pixel yang tetap terbaca pada ukuran kecil. Contoh pilihan: **Press Start 2P** untuk judul atau aksen pendek, dan **Silkscreen** atau **Pixelify Sans** untuk teks UI yang lebih panjang.
+3. Jangan memakai font pixel yang sangat dekoratif untuk paragraf panjang atau instruksi yang harus mudah dibaca anak. Jika perlu, gunakan font pixel yang lebih terbaca untuk isi teks, tetapi seluruh tampilan tetap harus terasa pixelated.
+4. Muat font melalui berkas lokal di folder aset proyek jika tersedia. Jika menggunakan font eksternal, sediakan fallback yang sesuai dan jangan sampai halaman rusak ketika font gagal dimuat.
+5. Tetapkan font secara konsisten melalui CSS variables, misalnya `--font-pixel-title` dan `--font-pixel-ui`, lalu gunakan pada seluruh halaman.
+6. Perhatikan spasi huruf dan tinggi baris. Hindari teks panjang dengan huruf terlalu rapat, dan jangan mengorbankan keterbacaan demi efek pixel.
+
+### 13.4. Aturan Implementasi Pixel Art di CSS
+
+- Gunakan sudut tegas atau border bergaya pixel untuk panel, tombol, kartu, dialog, dan kotak soal. Hindari radius besar, glassmorphism, bayangan blur lembut, dan gradasi modern yang menghilangkan nuansa pixel art.
+- Buat bayangan berlapis dengan offset tegas, misalnya `box-shadow: 4px 4px 0 #0B1712`, bukan bayangan blur besar.
+- Gunakan outline atau border kontras untuk menunjukkan batas objek dan keadaan interaktif.
+- Jika gambar pixel art diperbesar, gunakan `image-rendering: pixelated;` agar piksel tetap tajam dan tidak kabur. Terapkan hanya pada gambar pixel art, bukan pada semua gambar tanpa pengecualian.
+- Hindari animasi yang terlalu halus atau kompleks. Utamakan animasi sederhana bergaya game retro, seperti kedipan, perubahan frame, lompatan kecil, atau perubahan warna yang singkat.
+- Gunakan transisi singkat dan jelas pada tombol. Jangan menggunakan hover animation yang berlebihan sehingga merusak tampilan pixel art.
+- Antarmuka harus tetap responsif di desktop dan layar kecil tanpa membuat teks, tombol, atau area interaksi terlalu kecil.
+
+Contoh variabel CSS yang dapat dijadikan dasar:
+
+```css
+:root {
+    --color-bg-dark: #17251F;
+    --color-panel-dark: #24372C;
+    --color-forest: #24513A;
+    --color-forest-light: #5FAE58;
+    --color-sky-dark: #172B49;
+    --color-sky-light: #65B7E8;
+    --color-text-light: #F3E6C8;
+    --color-highlight: #F2C96D;
+    --color-border: #0B1712;
+
+    --font-pixel-title: "Press Start 2P", "Courier New", monospace;
+    --font-pixel-ui: "Silkscreen", "Courier New", monospace;
+}
+
+body {
+    color: var(--color-text-light);
+    background-color: var(--color-bg-dark);
+    font-family: var(--font-pixel-ui);
+}
+
+.pixel-panel {
+    border: 4px solid var(--color-border);
+    box-shadow: 4px 4px 0 var(--color-border);
+}
+
+.pixel-art {
+    image-rendering: pixelated;
+}
+```
+
+Contoh tersebut merupakan acuan, bukan kewajiban untuk menggunakan nama class yang sama. Sesuaikan dengan struktur CSS proyek tanpa membuat kerangka kerja baru.
+
+### 13.5. Konsistensi Aset Gambar
+
+1. Semua aset karakter, objek, ikon, ubin, dan background harus menggunakan pixel art yang konsisten. Jangan mencampur aset pixel art dengan emoji, foto, atau ilustrasi halus yang berbeda gaya.
+2. Background tetap menggunakan file gambar melalui CSS `background-image`, sedangkan gambar karakter dan objek konten menggunakan elemen `<img>` sesuai aturan pada bagian 12.
+3. Pertahankan ukuran piksel dan proporsi aset saat digunakan ulang. Jangan mengubah ukuran dengan cara yang membuat gambar menjadi blur.
+4. Gunakan pencahayaan dan kontras sesuai lingkungan: Hutan menggunakan lapisan hijau gelap hingga hijau terang; langit menggunakan biru gelap hingga biru terang; Desa, Gunung, dan Kastil mengikuti palet pada tabel.
+5. Tombol, ikon, panel, dan elemen UI yang dibuat menggunakan CSS juga harus mengikuti gaya pixel art meskipun bukan gambar eksternal.
+6. Jika aset pixel art belum tersedia, gunakan placeholder HTML/CSS sederhana dengan bentuk tegas dan warna palet yang sesuai. Tetap ikuti aturan komentar aset pada bagian 12 dan jangan menggunakan emoji sebagai pengganti gambar.
+
 ## 12. Instruksi untuk AI
 
 Ketika membantu mengembangkan game ini:
@@ -635,5 +732,9 @@ Ketika membantu mengembangkan game ini:
 - Untuk background CSS, tulis komentar CSS di dekat aturan `background-image` yang menyebutkan nama file dan ukuran aset yang disarankan.
 - Jika aset gambar belum tersedia, gunakan placeholder HTML/CSS tanpa emoji dan beri nama file aset yang direncanakan pada komentar.
 - Pastikan semua jalur gambar sesuai dengan struktur folder `assets/images/` dan konsisten saat gambar digunakan ulang di beberapa halaman.
+- Terapkan gaya **cozy pixel art** secara konsisten di seluruh halaman, dengan dominasi warna gelap dan kontras gelap-terang yang jelas sesuai panduan bagian 13.
+- Gunakan font pixelated yang terbaca untuk judul dan UI, serta tetapkan font melalui CSS variables agar konsisten.
+- Pastikan tombol, panel, dialog, border, bayangan, animasi, dan seluruh aset mengikuti gaya pixel art; hindari emoji, visual realistis, glassmorphism, dan efek blur modern.
+- Untuk gambar pixel art yang diperbesar, gunakan `image-rendering: pixelated;` agar piksel tetap tajam.
 
 **Tujuan akhir:** menghasilkan game edukasi web yang memiliki sepuluh halaman terpisah, empat wilayah permainan, audio yang dikelola dengan baik, minimal 50 variasi soal untuk setiap wilayah Desa, Gunung, dan Kastil, serta sistem skor dan progres yang sederhana dan mudah dipelihara oleh pemula.

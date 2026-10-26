@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Pulau Logika - Wilayah Hutan (Dekomposisi)</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hutan.css">
+</head>
+<!--
+    Daftar Aset Gambar pada hutan.html:
+    - Gambar 3: background-3.png | Lokasi: assets/images/backgrounds/background-3.png | Ukuran disarankan: 1920x1080 px | Fungsi: Latar belakang wilayah Hutan (melalui css/hutan.css)
+    - Gambar 12: ikon_hutan.png | Lokasi: assets/images/icons/ikon_hutan.png | Ukuran tampilan: 56x56 px | Fungsi: Ikon identitas wilayah Hutan
+    - Gambar 19: rumah_pondasi.png | Lokasi: assets/images/objects/rumah_pondasi.png | Ukuran tampilan: 100x80 px | Fungsi: Komponen Pondasi Batu (Tahap 1)
+    - Gambar 20: rumah_lantai.png | Lokasi: assets/images/objects/rumah_lantai.png | Ukuran tampilan: 100x80 px | Fungsi: Komponen Lantai Kayu (Tahap 1)
+    - Gambar 21: rumah_tiang.png | Lokasi: assets/images/objects/rumah_tiang.png | Ukuran tampilan: 100x80 px | Fungsi: Komponen Tiang Kayu (Tahap 1)
+    - Gambar 22: pengecoh_ban.png | Lokasi: assets/images/objects/pengecoh_ban.png | Ukuran tampilan: 100x80 px | Fungsi: Material Pengecoh Ban Bekas (Tahap 1)
+    - Gambar 23: rumah_dinding_kiri.png | Lokasi: assets/images/objects/rumah_dinding_kiri.png | Ukuran tampilan: 100x80 px | Fungsi: Komponen Dinding Papan Kiri (Tahap 2)
+    - Gambar 24: rumah_dinding_kanan.png | Lokasi: assets/images/objects/rumah_dinding_kanan.png | Ukuran tampilan: 100x80 px | Fungsi: Komponen Dinding Papan Kanan (Tahap 2)
+    - Gambar 25: rumah_pintu.png | Lokasi: assets/images/objects/rumah_pintu.png | Ukuran tampilan: 100x80 px | Fungsi: Komponen Pintu Utama (Tahap 2)
+    - Gambar 26: rumah_jendela.png | Lokasi: assets/images/objects/rumah_jendela.png | Ukuran tampilan: 100x80 px | Fungsi: Komponen Jendela Kayu (Tahap 2)
+    - Gambar 27: pengecoh_payung.png | Lokasi: assets/images/objects/pengecoh_payung.png | Ukuran tampilan: 100x80 px | Fungsi: Material Pengecoh Payung Rusak (Tahap 2)
+    - Gambar 28: rumah_rangka_atap.png | Lokasi: assets/images/objects/rumah_rangka_atap.png | Ukuran tampilan: 100x80 px | Fungsi: Komponen Rangka Atap Kayu (Tahap 3)
+    - Gambar 29: rumah_genteng.png | Lokasi: assets/images/objects/rumah_genteng.png | Ukuran tampilan: 100x80 px | Fungsi: Komponen Atap Genteng (Tahap 3)
+    - Gambar 30: rumah_cerobong.png | Lokasi: assets/images/objects/rumah_cerobong.png | Ukuran tampilan: 100x80 px | Fungsi: Komponen Cerobong Bata (Tahap 3)
+    - Gambar 31: rumah_tangga.png | Lokasi: assets/images/objects/rumah_tangga.png | Ukuran tampilan: 100x80 px | Fungsi: Komponen Tangga Kayu (Tahap 3)
+    - Gambar 32: rumah_pagar.png | Lokasi: assets/images/objects/rumah_pagar.png | Ukuran tampilan: 100x80 px | Fungsi: Komponen Pagar Kayu (Tahap 3)
+    - Gambar 33: pengecoh_ember.png | Lokasi: assets/images/objects/pengecoh_ember.png | Ukuran tampilan: 100x80 px | Fungsi: Material Pengecoh Ember Bocor (Tahap 3)
+-->
+<body class="latar-hutan" data-bgm="music-background-3.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">Wilayah 1: Hutan (Dekomposisi)</span>
+            <span class="info-pemain-header">Penjelajah: <strong id="nama-pemain-hutan">Penjelajah</strong></span>
+        </div>
+        <div class="aksi-header">
+            <button
+                type="button"
+                class="tombol tombol-netral tombol-kecil"
+                data-sfx-hover
+                data-sfx-click
+                onclick="pindahHalaman('peta.html', true)"
+            >
+                Kembali ke Peta
+            </button>
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game" aria-labelledby="judul-hutan">
+            <div class="kepala-judul-wilayah">
+                <!-- Gambar 12: ikon_hutan.png | Ukuran tampilan: 56x56 px | Aset: assets/images/icons/ikon_hutan.png -->
+                <img
+                    src="assets/images/icons/ikon_hutan.png"
+                    alt="Ikon wilayah Hutan"
+                    width="56"
+                    height="56"
+                >
+                <h1 id="judul-hutan" class="judul-halaman" style="margin-bottom: 0;">Misi Hutan: Membangun Rumah Pos</h1>
+            </div>
+
+            <div class="baris-status-misi">
+                <div class="item-status-misi">Tahap: <span id="indikator-tahap-hutan">1/3</span></div>
+                <div class="item-status-misi">Komponen Terpasang: <span id="indikator-komponen-hutan">0/3</span></div>
+                <div class="item-status-misi">Skor Dekomposisi: <span id="indikator-skor-hutan">100</span></div>
+            </div>
+
+            <div class="instruksi-hutan">
+                <h2 id="judul-tahap-hutan" class="judul-panel-sub">Tahap 1: Rangka Bawah &amp; Pondasi Rumah</h2>
+                <p id="deskripsi-tahap-hutan"></p>
+            </div>
+
+            <div id="pesan-umpan-balik-hutan" class="kotak-pesan pesan-info" role="status"></div>
+
+            <div class="arena-dekomposisi">
+                <div class="panel-rangka-rumah">
+                    <h3 class="judul-panel-sub">Bagian Rumah yang Dibutuhkan</h3>
+                    <p class="subteks-panel">Tempatkan material yang tepat pada setiap kotak bagian rumah berikut:</p>
+                    <div id="wadah-slot-rumah" class="daftar-slot-rumah"></div>
+                </div>
+
+                <div class="panel-gudang-material">
+                    <h3 class="judul-panel-sub">Material yang Tersedia (Diacak)</h3>
+                    <p class="subteks-panel">Awas, terdapat 1 material pengecoh di setiap tahap!</p>
+                    <div id="wadah-material-hutan" class="daftar-material-hutan"></div>
+                </div>
+            </div>
+
+            <div class="baris-tombol">
+                <button
+                    type="button"
+                    id="tombol-next-hutan"
+                    class="tombol tombol-aksen tersembunyi"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Next Stage
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/hutan.js"></script>
+</body>
+</html>
