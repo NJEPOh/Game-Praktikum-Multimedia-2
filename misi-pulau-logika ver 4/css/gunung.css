@@ -1,0 +1,237 @@
+/**
+ * File: css/gunung.css
+ * Deskripsi: Gaya tampilan Child-Friendly Cozy Pixel Art untuk wilayah Gunung (gunung.html).
+ * Menggunakan palet Gunung (abu terang, biru dingin, putih) dengan kartu objek dan tombol besar.
+ */
+
+/* Gambar 5: background-5.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-5.png */
+body.latar-gunung {
+    background-color: var(--gunung-dasar);
+    background-image:
+        url("../assets/images/backgrounds/background-5.png"),
+        linear-gradient(180deg, #2b3a4a 0%, #3b4f66 60%, #334155 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body.latar-gunung .panel-game {
+    background-color: #2f4054;
+    outline-color: var(--gunung-biru-dingin);
+}
+
+body.latar-gunung .lencana-wilayah {
+    background-color: var(--gunung-biru-dingin);
+    color: #131c2b;
+}
+
+.kotak-konteks-gunung {
+    background-color: #3b5068;
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--gunung-biru-dingin);
+    outline-offset: -6px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.label-konteks-gunung {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--gunung-biru-dingin);
+    color: #131c2b;
+    border: 2px solid var(--ui-garis-pixel);
+    font-size: 18px;
+    font-weight: 700;
+    padding: 4px 12px;
+    margin-bottom: 10px;
+}
+
+.judul-konteks-gunung {
+    font-family: var(--font-pixel-ui);
+    font-size: var(--ukuran-pertanyaan);
+    color: var(--warna-kuning-hangat);
+    margin-bottom: 8px;
+}
+
+.instruksi-konteks-gunung {
+    font-size: var(--ukuran-instruksi);
+    color: var(--gunung-putih);
+}
+
+/* Daftar Objek (2 Kolom Besar agar Mudah Dibaca & Ditekan Anak) */
+.panel-daftar-objek-gunung {
+    background-color: #243344;
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--gunung-abu-terang);
+    outline-offset: -6px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 22px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.grid-objek-gunung {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 14px;
+}
+
+.kartu-objek-gunung {
+    background-color: #364960;
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--gunung-biru-dingin);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    cursor: grab;
+}
+
+.kartu-objek-gunung.sudah-diklasifikasi {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: default;
+}
+
+.nama-objek-gunung {
+    font-family: var(--font-pixel-ui);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--gunung-putih);
+    min-height: 2.4em;
+    display: flex;
+    align-items: center;
+}
+
+.aksi-cepat-objek {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.tombol-pilih-kategori {
+    font-family: var(--font-pixel-ui);
+    flex: 1;
+    min-height: 48px;
+    padding: 10px 12px;
+    font-size: 18px;
+    font-weight: 700;
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-tombol);
+    cursor: pointer;
+    transition: transform 0.08s steps(2, end);
+}
+
+.tombol-pilih-kategori:active {
+    transform: translateY(3px);
+    box-shadow: var(--bayangan-tombol-tekan);
+}
+
+.tombol-pilih-penting {
+    background-color: var(--warna-hijau-tombol);
+    color: #ffffff;
+}
+
+.tombol-pilih-penting:hover {
+    background-color: #45c900;
+}
+
+.tombol-pilih-tidak-penting {
+    background-color: #4a627d;
+    color: var(--gunung-putih);
+}
+
+.tombol-pilih-tidak-penting:hover {
+    background-color: #5b7694;
+}
+
+/* Kotak Kategori Drop Zone (Penting & Tidak Penting) */
+.arena-kategori-gunung {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.kotak-kategori-abstraksi {
+    min-height: 230px;
+    border: 4px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.kotak-kategori-penting {
+    background-color: #1f4b38;
+    outline: 3px dashed #74c69d;
+    outline-offset: -7px;
+}
+
+.kotak-kategori-tidak-penting {
+    background-color: #364559;
+    outline: 3px dashed var(--gunung-biru-dingin);
+    outline-offset: -7px;
+}
+
+.kotak-kategori-abstraksi.sorot-drop {
+    outline-style: solid;
+    outline-color: var(--warna-kuning-hangat);
+}
+
+.kepala-kotak-kategori {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid rgba(19, 28, 43, 0.45);
+}
+
+.judul-kotak-kategori {
+    font-family: var(--font-pixel-ui);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.kotak-kategori-penting .judul-kotak-kategori {
+    color: #95d5b2;
+}
+
+.kotak-kategori-tidak-penting .judul-kotak-kategori {
+    color: var(--gunung-biru-dingin);
+}
+
+.isi-kotak-kategori {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.item-terklasifikasi {
+    font-family: var(--font-pixel-ui);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #253547;
+    border: 2px solid var(--gunung-biru-dingin);
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--gunung-putih);
+}
+
+@media (max-width: 780px) {
+    .grid-objek-gunung,
+    .arena-kategori-gunung {
+        grid-template-columns: 1fr;
+    }
+}

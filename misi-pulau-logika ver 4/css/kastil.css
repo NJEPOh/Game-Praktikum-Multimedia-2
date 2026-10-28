@@ -1,0 +1,250 @@
+/**
+ * File: css/kastil.css
+ * Deskripsi: Gaya tampilan Child-Friendly Cozy Pixel Art untuk wilayah Kastil (kastil.html).
+ * Menggunakan palet Kastil (ungu lembut, emas hangat) dengan grid 4x4 dan tombol langkah besar.
+ */
+
+/* Gambar 6: background-7.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-7.png */
+body.latar-kastil {
+    background-color: var(--kastil-ungu-dasar);
+    background-image:
+        url("../assets/images/backgrounds/background-7.png"),
+        linear-gradient(180deg, #322449 0%, #463366 60%, #3b2d54 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body.latar-kastil .panel-game {
+    background-color: #3d2c59;
+    outline-color: var(--kastil-emas-hangat);
+}
+
+body.latar-kastil .lencana-wilayah {
+    background-color: var(--kastil-emas-hangat);
+    color: #1f1630;
+}
+
+.kotak-instruksi-kastil {
+    background-color: var(--kastil-ungu-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--kastil-emas-hangat);
+    outline-offset: -6px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.badge-soal-kastil {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--kastil-emas-hangat);
+    color: #1f1630;
+    border: 2px solid var(--ui-garis-pixel);
+    font-size: 18px;
+    font-weight: 700;
+    padding: 4px 14px;
+    margin-bottom: 10px;
+}
+
+.teks-instruksi-kastil {
+    font-family: var(--font-pixel-baca);
+    font-size: var(--ukuran-pertanyaan);
+    font-weight: 700;
+    color: var(--ui-teks-utama);
+}
+
+.arena-algoritma {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 24px;
+    align-items: start;
+    margin: 18px 0;
+}
+
+.panel-papan-grid,
+.panel-penyusun-instruksi {
+    background-color: #2f2246;
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--kastil-emas-hangat);
+    outline-offset: -6px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 22px;
+}
+
+/* Papan Grid 4 x 4 Besar & Jelas */
+.papan-grid-kastil {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 396px;
+    margin: 14px auto;
+    background-color: #211733;
+    border: 4px solid var(--ui-garis-pixel);
+    padding: 14px;
+}
+
+.sel-grid-kastil {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    min-height: 82px;
+    background-color: var(--kastil-ungu-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    overflow: hidden;
+}
+
+.sel-grid-kastil.sel-awal {
+    background-color: #254b7c;
+    border-color: var(--langit-biru);
+}
+
+.sel-grid-kastil.sel-tujuan {
+    background-color: #1f5c3a;
+    border-color: #74c69d;
+}
+
+.sel-grid-kastil.sel-rintangan {
+    background-color: #5c252b;
+    border-color: var(--warna-oranye-ramah);
+}
+
+.sel-grid-kastil.sel-jejak {
+    background-color: #6b5322;
+    border-color: var(--kastil-emas-hangat);
+}
+
+.sel-grid-kastil.sel-tabrakan {
+    background-color: #7a2832;
+    border-color: var(--warna-oranye-ramah);
+    animation: getarSalahPixel 0.25s steps(4, end);
+}
+
+.label-kecil-sel {
+    font-family: var(--font-pixel-ui);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ui-teks-utama);
+    margin-top: 2px;
+}
+
+.lapisan-token-pemain {
+    position: absolute;
+    inset: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(47, 34, 70, 0.92);
+    border: 3px solid var(--kastil-emas-hangat);
+    z-index: 2;
+}
+
+.legenda-grid {
+    font-family: var(--font-pixel-baca);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 14px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ui-teks-lembut);
+}
+
+/* Tombol Blok Perintah Besar (Area Klik >= 56px) */
+.grid-tombol-arah {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 14px 0 22px;
+}
+
+.tombol-blok-arah {
+    font-family: var(--font-pixel-ui);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 58px;
+    padding: 12px 16px;
+    background-color: var(--kastil-ungu-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--kastil-emas-hangat);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-tombol);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--ui-teks-utama);
+    transition: transform 0.08s steps(2, end);
+}
+
+.tombol-blok-arah:hover:not(:disabled) {
+    background-color: #654c8f;
+}
+
+.tombol-blok-arah:active:not(:disabled) {
+    transform: translateY(4px);
+    box-shadow: var(--bayangan-tombol-tekan);
+}
+
+.tombol-blok-arah:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* Daftar Susunan Instruksi */
+.wadah-antrean-instruksi {
+    min-height: 124px;
+    background-color: #211733;
+    border: 3px dashed var(--kastil-emas-hangat);
+    padding: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.chip-instruksi {
+    font-family: var(--font-pixel-ui);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--kastil-ungu-lembut);
+    border: 2px solid var(--kastil-emas-hangat);
+    color: var(--kastil-emas-hangat);
+    font-weight: 700;
+    font-size: 18px;
+    padding: 8px 14px;
+}
+
+.chip-instruksi.sedang-dieksekusi {
+    background-color: var(--kastil-emas-hangat);
+    border-color: #ffffff;
+    color: #1f1630;
+}
+
+.teks-antrean-kosong {
+    color: var(--ui-teks-lembut);
+    font-size: 18px;
+    margin: auto;
+    text-align: center;
+}
+
+.baris-kontrol-algoritma {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 860px) {
+    .arena-algoritma {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,169 @@
+/**
+ * File: css/hutan.css
+ * Deskripsi: Gaya tampilan Child-Friendly Cozy Pixel Art untuk wilayah Hutan (hutan.html).
+ * Menggunakan palet Hutan (hijau pinus, hijau daun, hijau muda, kuning hangat)
+ * dan tata letak fokus tunggal: indikator di atas, rumah di tengah, material di bawah.
+ */
+
+/* Gambar 3: background-3.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-3.png */
+body.latar-hutan {
+    background-color: var(--hutan-pinus);
+    background-image:
+        url("../assets/images/backgrounds/background-3.png"),
+        linear-gradient(180deg, #1b4332 0%, #2d6a4f 65%, #1b4332 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body.latar-hutan .panel-game {
+    background-color: #214e3a;
+    outline-color: var(--hutan-muda);
+}
+
+body.latar-hutan .lencana-wilayah {
+    background-color: var(--hutan-kuning);
+    color: #131c2b;
+}
+
+.instruksi-hutan {
+    background-color: var(--hutan-daun);
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--hutan-kuning);
+    outline-offset: -6px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--ui-teks-utama);
+}
+
+.instruksi-hutan .judul-panel-sub {
+    color: var(--hutan-kuning);
+    font-size: var(--ukuran-pertanyaan);
+}
+
+.instruksi-hutan p {
+    font-size: var(--ukuran-instruksi);
+}
+
+/* Fokus Satu Aktivitas: Rumah di Tengah (Atas), Material di Bawah */
+.arena-dekomposisi {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 18px 0;
+}
+
+.panel-rangka-rumah,
+.panel-gudang-material {
+    background-color: #183a2b;
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--hutan-muda);
+    outline-offset: -6px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 22px;
+    text-align: center;
+}
+
+.daftar-slot-rumah {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin-top: 14px;
+}
+
+.slot-komponen-rumah {
+    min-height: 170px;
+    border: 3px dashed var(--hutan-muda);
+    background-color: #24553f;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.slot-komponen-rumah.sorot-drop {
+    border-style: solid;
+    border-color: var(--hutan-kuning);
+    background-color: #2f6f52;
+}
+
+.slot-komponen-rumah.terisi {
+    border: 3px solid var(--hutan-kuning);
+    background-color: #2d6a4f;
+    box-shadow: var(--bayangan-kartu);
+    cursor: default;
+    animation: kilauBenarPixel 0.25s steps(2, end);
+}
+
+.slot-komponen-rumah.salah-drop {
+    border-style: solid;
+    border-color: var(--warna-oranye-ramah);
+    background-color: var(--warna-merah-gelap);
+    animation: getarSalahPixel 0.25s steps(4, end);
+}
+
+.label-target-slot {
+    font-family: var(--font-pixel-ui);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--hutan-kuning);
+}
+
+.petunjuk-slot {
+    font-size: 18px;
+    color: var(--ui-teks-utama);
+}
+
+/* Kartu Material di Bawah dengan Ukuran Besar & Mudah Ditekan */
+.daftar-material-hutan {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 18px;
+    margin-top: 14px;
+}
+
+.kartu-material {
+    min-height: 160px;
+    background-color: var(--hutan-daun);
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--hutan-muda);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-tombol);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    cursor: grab;
+    user-select: none;
+}
+
+.kartu-material:active:not(.sudah-dipakai) {
+    transform: translateY(4px);
+}
+
+.kartu-material.terpilih {
+    outline: 3px solid var(--hutan-kuning);
+    background-color: #3b8563;
+}
+
+.kartu-material.sudah-dipakai {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.nama-material {
+    font-family: var(--font-pixel-ui);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--ui-teks-utama);
+}

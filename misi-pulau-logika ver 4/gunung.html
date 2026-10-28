@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Pulau Logika - Wilayah Gunung (Abstraksi)</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gunung.css">
+</head>
+<!--
+    Daftar Aset Gambar pada gunung.html:
+    - Gambar 5: background-5.png | Lokasi: assets/images/backgrounds/background-5.png | Ukuran disarankan: 1920x1080 px | Fungsi: Latar belakang wilayah Gunung (melalui css/gunung.css)
+    - Gambar 14: ikon_gunung.png | Lokasi: assets/images/icons/ikon_gunung.png | Ukuran tampilan: 56x56 px | Fungsi: Ikon identitas wilayah Gunung
+    - Gambar 46: objek_penting.png | Lokasi: assets/images/objects/objek_penting.png | Ukuran tampilan: 72x72 px & 40x40 px | Fungsi: Ilustrasi objek/informasi penting
+    - Gambar 47: objek_tidak_penting.png | Lokasi: assets/images/objects/objek_tidak_penting.png | Ukuran tampilan: 40x40 px | Fungsi: Ilustrasi objek/informasi tidak penting (gangguan)
+    - Gambar 48: kotak_penting.png | Lokasi: assets/images/objects/kotak_penting.png | Ukuran tampilan: 56x56 px | Fungsi: Ikon wadah kategori Penting
+    - Gambar 49: kotak_tidak_penting.png | Lokasi: assets/images/objects/kotak_tidak_penting.png | Ukuran tampilan: 56x56 px | Fungsi: Ikon wadah kategori Tidak Penting
+-->
+<body class="latar-gunung" data-bgm="music-background-5.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">3. Gunung</span>
+            <span class="info-pemain-header">Penjelajah: <strong id="nama-pemain-gunung">Penjelajah</strong></span>
+        </div>
+        <div class="aksi-header">
+            <button
+                type="button"
+                class="tombol tombol-netral tombol-kecil"
+                data-sfx-hover
+                data-sfx-click
+                onclick="pindahHalaman('peta.html', true)"
+            >
+                Kembali
+            </button>
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game" aria-labelledby="judul-gunung">
+            <div class="kepala-judul-wilayah">
+                <!-- Gambar 14: ikon_gunung.png | Ukuran tampilan: 56x56 px | Aset: assets/images/icons/ikon_gunung.png -->
+                <img
+                    src="assets/images/icons/ikon_gunung.png"
+                    alt="Ikon wilayah Gunung"
+                    width="56"
+                    height="56"
+                >
+                <h1 id="judul-gunung" class="judul-halaman" style="margin-bottom: 0;">Misi Gunung</h1>
+            </div>
+
+            <div class="baris-status-misi">
+                <div class="item-status-misi">Stage <span id="indikator-tahap-gunung">1/5</span></div>
+                <div class="item-status-misi">Benda <span id="indikator-objek-gunung">0/4</span></div>
+                <div class="item-status-misi">Skor <span id="indikator-skor-gunung">0</span></div>
+            </div>
+
+            <div class="kotak-konteks-gunung">
+                <span id="id-soal-gunung" class="label-konteks-gunung">Tujuan Misi</span>
+                <h2 id="judul-konteks-gunung" class="judul-konteks-gunung">Memuat misi...</h2>
+                <p id="instruksi-soal-gunung" class="instruksi-konteks-gunung"></p>
+            </div>
+
+            <div id="pesan-umpan-balik-gunung" class="kotak-pesan pesan-info" role="status"></div>
+
+            <div class="panel-daftar-objek-gunung">
+                <h3 class="judul-panel-sub">Pilih Benda</h3>
+                <div id="wadah-objek-gunung" class="grid-objek-gunung"></div>
+            </div>
+
+            <div class="arena-kategori-gunung">
+                <!-- Kategori Penting -->
+                <div id="kotak-drop-penting" class="kotak-kategori-abstraksi kotak-kategori-penting">
+                    <div class="kepala-kotak-kategori">
+                        <!-- Gambar 48: kotak_penting.png | Ukuran tampilan: 56x56 px | Aset: assets/images/objects/kotak_penting.png -->
+                        <img
+                            src="assets/images/objects/kotak_penting.png"
+                            alt="Ikon kategori Penting"
+                            width="56"
+                            height="56"
+                        >
+                        <div>
+                            <h3 class="judul-kotak-kategori">PENTING</h3>
+                            <p class="subteks-panel" style="margin-bottom: 0;">Benda yang dibutuhkan</p>
+                        </div>
+                    </div>
+                    <div id="daftar-isi-penting" class="isi-kotak-kategori"></div>
+                </div>
+
+                <!-- Kategori Tidak Penting -->
+                <div id="kotak-drop-tidak-penting" class="kotak-kategori-abstraksi kotak-kategori-tidak-penting">
+                    <div class="kepala-kotak-kategori">
+                        <!-- Gambar 49: kotak_tidak_penting.png | Ukuran tampilan: 56x56 px | Aset: assets/images/objects/kotak_tidak_penting.png -->
+                        <img
+                            src="assets/images/objects/kotak_tidak_penting.png"
+                            alt="Ikon kategori Tidak Penting"
+                            width="56"
+                            height="56"
+                        >
+                        <div>
+                            <h3 class="judul-kotak-kategori">TIDAK PENTING</h3>
+                            <p class="subteks-panel" style="margin-bottom: 0;">Benda yang tidak perlu</p>
+                        </div>
+                    </div>
+                    <div id="daftar-isi-tidak-penting" class="isi-kotak-kategori"></div>
+                </div>
+            </div>
+
+            <div class="baris-tombol">
+                <button
+                    type="button"
+                    id="tombol-next-gunung"
+                    class="tombol tombol-aksen tersembunyi"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Lanjut
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/gunung.js"></script>
+</body>
+</html>

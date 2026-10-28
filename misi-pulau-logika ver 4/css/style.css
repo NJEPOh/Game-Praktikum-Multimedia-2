@@ -1,0 +1,636 @@
+/**
+ * File: css/style.css
+ * Deskripsi: Sistem Desain Child-Friendly Cozy Pixel Art untuk "Misi Pulau Logika" (Usia 7-12 Tahun).
+ * Fokus pada keterbacaan tinggi (font besar), warna ceria yang nyaman di mata,
+ * tombol besar (minimal 48x48 px), ruang kosong lega, dan minim distraksi.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap");
+
+:root {
+    /* Tipografi Pixel Art yang Mudah Dibaca Anak */
+    --font-pixel-judul: "Press Start 2P", "Silkscreen", monospace;
+    --font-pixel-ui: "Silkscreen", "Pixelify Sans", monospace;
+    --font-pixel-baca: "Pixelify Sans", "Trebuchet MS", "Segoe UI", sans-serif;
+
+    /* Ukuran Font Ramah Anak (Sesuai Standar Keterbacaan 7-12 Tahun) */
+    --ukuran-judul-halaman: clamp(32px, 3.6vw, 40px);
+    --ukuran-nama-wilayah: clamp(28px, 3vw, 32px);
+    --ukuran-pertanyaan: clamp(22px, 2.5vw, 28px);
+    --ukuran-tombol: 22px;
+    --ukuran-instruksi: 20px;
+    --ukuran-dialog: 20px;
+    --ukuran-label: 18px;
+
+    /* Palet UI Child-Friendly (Latar Gelap Lembut, Panel Terang Nyaman, Teks Putih/Krem) */
+    --ui-latar-gelap: #1f2d42;
+    --ui-panel-utama: #2b3d59;
+    --ui-panel-terang: #364b6d;
+    --ui-kartu: #25364f;
+    --ui-teks-utama: #fffdf7;
+    --ui-teks-krem: #fef3c7;
+    --ui-teks-lembut: #e2e8f0;
+    --ui-garis-pixel: #131c2b;
+    --ui-garis-terang: #64748b;
+
+    /* Warna Tombol & Status yang Ceria dan Jelas */
+    --warna-hijau-cerah: #2ec4b6;
+    --warna-hijau-tombol: #38b000;
+    --warna-hijau-gelap: #1b4332;
+    --warna-kuning-hangat: #ffd166;
+    --warna-emas-cerah: #ffbe0b;
+    --warna-biru-cerah: #3a86ff;
+    --warna-biru-muda: #bae6fd;
+    --warna-oranye-ramah: #f4a261;
+    --warna-merah-lembut: #e76f51;
+    --warna-merah-gelap: #5c252b;
+
+    /* Palet Lingkungan 1: Langit (Biru Langit, Biru Muda, Putih Lembut) */
+    --langit-dasar: #23406e;
+    --langit-panel: #2c4f82;
+    --langit-biru: #38bdf8;
+    --langit-muda: #bae6fd;
+    --langit-putih: #f8fafc;
+
+    /* Palet Lingkungan 2: Hutan (Hijau Pinus, Hijau Daun, Hijau Muda, Kuning Hangat) */
+    --hutan-pinus: #1b4332;
+    --hutan-daun: #2d6a4f;
+    --hutan-muda: #74c69d;
+    --hutan-kuning: #ffd166;
+
+    /* Palet Lingkungan 3: Desa (Cokelat Kayu, Krem, Kuning Jerami) */
+    --desa-kayu-gelap: #4a3222;
+    --desa-kayu: #6f4e37;
+    --desa-krem: #f5ebe0;
+    --desa-jerami: #ffd166;
+
+    /* Palet Lingkungan 4: Gunung (Abu Terang, Biru Dingin, Putih) */
+    --gunung-dasar: #334155;
+    --gunung-abu-terang: #64748b;
+    --gunung-biru-dingin: #7dd3fc;
+    --gunung-putih: #f8fafc;
+
+    /* Palet Lingkungan 5: Kastil (Ungu Lembut, Emas Hangat) */
+    --kastil-ungu-dasar: #3b2d54;
+    --kastil-ungu-lembut: #533e75;
+    --kastil-emas-hangat: #ffd166;
+
+    /* Bayangan Pixel Art Tegas (Tanpa Blur) */
+    --bayangan-panel:
+        inset 3px 3px 0px rgba(255, 255, 255, 0.16),
+        inset -3px -3px 0px rgba(0, 0, 0, 0.32),
+        6px 6px 0px var(--ui-garis-pixel);
+    --bayangan-kartu:
+        inset 2px 2px 0px rgba(255, 255, 255, 0.14),
+        inset -2px -2px 0px rgba(0, 0, 0, 0.28),
+        4px 4px 0px var(--ui-garis-pixel);
+    --bayangan-tombol:
+        inset 3px 3px 0px rgba(255, 255, 255, 0.32),
+        inset -3px -3px 0px rgba(0, 0, 0, 0.3),
+        0 5px 0px var(--ui-garis-pixel);
+    --bayangan-tombol-tekan:
+        inset 2px 2px 0px rgba(0, 0, 0, 0.35),
+        0 1px 0px var(--ui-garis-pixel);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-pixel-baca);
+    font-size: var(--ukuran-instruksi);
+    color: var(--ui-teks-utama);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--ui-latar-gelap);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    line-height: 1.5;
+}
+
+/* Lapisan lembut agar latar tidak menyilaukan dan fokus tetap pada panel tengah */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(23, 34, 52, 0.48) 0%, rgba(23, 34, 52, 0.65) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Bilah Atas Sederhana & Bersih */
+.bilah-atas {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 14px 28px;
+    background-color: #1a2639;
+    border-bottom: 4px solid var(--ui-garis-pixel);
+    color: var(--ui-teks-utama);
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.lencana-wilayah {
+    font-family: var(--font-pixel-ui);
+    background-color: var(--warna-kuning-hangat);
+    color: #131c2b;
+    font-weight: 700;
+    padding: 8px 16px;
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: 3px 3px 0 var(--ui-garis-pixel);
+    font-size: 20px;
+}
+
+.info-pemain-header {
+    font-family: var(--font-pixel-baca);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--langit-muda);
+}
+
+.info-pemain-header strong {
+    color: var(--warna-kuning-hangat);
+}
+
+.aksi-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Kontainer Utama dengan Ruang Kosong (White Space) yang Lega */
+.wadah-utama {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1020px;
+    margin: 28px auto;
+    padding: 0 24px 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Panel Utama Sederhana dengan Sudut Pixel */
+.panel-game {
+    position: relative;
+    background-color: var(--ui-panel-utama);
+    border: 4px solid var(--ui-garis-pixel);
+    outline: 3px solid var(--warna-kuning-hangat);
+    outline-offset: -8px;
+    box-shadow: var(--bayangan-panel);
+    padding: 36px 36px;
+    color: var(--ui-teks-utama);
+    animation: munculPanelPixel 0.18s steps(3, end);
+}
+
+/* Dekorasi Pixel Kecil di Sudut Panel */
+.panel-game::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--warna-kuning-hangat);
+    box-shadow: -14px 0 0 var(--warna-kuning-hangat);
+    pointer-events: none;
+}
+
+.kepala-judul-wilayah {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+/* Tipografi Sesuai Aturan Ukuran */
+.judul-halaman {
+    font-family: var(--font-pixel-judul);
+    font-size: var(--ukuran-judul-halaman);
+    line-height: 1.35;
+    color: var(--warna-kuning-hangat);
+    text-shadow: 3px 3px 0px var(--ui-garis-pixel);
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.subjudul-halaman {
+    font-family: var(--font-pixel-baca);
+    font-size: var(--ukuran-instruksi);
+    color: var(--ui-teks-lembut);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.judul-panel-sub {
+    font-family: var(--font-pixel-ui);
+    font-size: var(--ukuran-nama-wilayah);
+    line-height: 1.3;
+    color: var(--warna-kuning-hangat);
+    text-shadow: 2px 2px 0px var(--ui-garis-pixel);
+    margin-bottom: 10px;
+}
+
+.subteks-panel {
+    font-size: var(--ukuran-instruksi);
+    color: var(--ui-teks-lembut);
+    margin-bottom: 16px;
+}
+
+/* Tombol Ramah Anak (Besar, Area Klik Minimal 48x48 px, Turun Saat Ditekan) */
+.tombol {
+    font-family: var(--font-pixel-ui);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 54px;
+    min-width: 54px;
+    padding: 14px 28px;
+    font-size: var(--ukuran-tombol);
+    font-weight: 700;
+    border: 3px solid var(--ui-garis-pixel);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: var(--bayangan-tombol);
+    user-select: none;
+    position: relative;
+    transition: transform 0.08s steps(2, end), background-color 0.08s steps(2, end);
+}
+
+.tombol:hover:not(:disabled) {
+    filter: brightness(1.08);
+}
+
+/* Efek tombol turun saat ditekan */
+.tombol:active:not(:disabled) {
+    transform: translateY(4px);
+    box-shadow: var(--bayangan-tombol-tekan);
+}
+
+.tombol:focus-visible {
+    outline: 3px dashed var(--warna-kuning-hangat);
+    outline-offset: 4px;
+}
+
+.tombol:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.tombol-utama {
+    background-color: var(--warna-hijau-tombol);
+    color: #ffffff;
+    text-shadow: 2px 2px 0 var(--ui-garis-pixel);
+}
+
+.tombol-utama:hover:not(:disabled) {
+    background-color: #45c900;
+}
+
+.tombol-aksen {
+    background-color: var(--warna-kuning-hangat);
+    color: #131c2b;
+}
+
+.tombol-aksen:hover:not(:disabled) {
+    background-color: #ffe082;
+}
+
+.tombol-sekunder {
+    background-color: var(--warna-biru-cerah);
+    color: #ffffff;
+    text-shadow: 2px 2px 0 var(--ui-garis-pixel);
+}
+
+.tombol-sekunder:hover:not(:disabled) {
+    background-color: #5296ff;
+}
+
+.tombol-netral {
+    background-color: #415a77;
+    color: var(--ui-teks-utama);
+    text-shadow: 1px 1px 0 var(--ui-garis-pixel);
+}
+
+.tombol-netral:hover:not(:disabled) {
+    background-color: #526f91;
+}
+
+.tombol-bahaya {
+    background-color: var(--warna-merah-lembut);
+    color: #ffffff;
+    text-shadow: 2px 2px 0 var(--ui-garis-pixel);
+}
+
+.tombol-bahaya:hover:not(:disabled) {
+    background-color: #f08063;
+}
+
+/* Tombol Reset Progress (Tidak Lebih Dominan dari Tombol Utama, Area Klik >= 48px) */
+.tombol-reset-progres {
+    background-color: var(--warna-merah-gelap);
+    color: #ffe5ec;
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid #f28482;
+    outline-offset: -5px;
+    min-height: 48px;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.tombol-reset-progres:hover:not(:disabled) {
+    background-color: #7a3038;
+    color: #ffffff;
+}
+
+.tombol-kecil {
+    min-height: 48px;
+    padding: 10px 18px;
+    font-size: 18px;
+}
+
+/* Baris Tombol */
+.baris-tombol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 26px;
+}
+
+.baris-reset-bawah {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 3px dashed rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-progres-tersimpan {
+    font-family: var(--font-pixel-baca);
+    font-size: var(--ukuran-instruksi);
+    color: var(--ui-teks-lembut);
+}
+
+.info-progres-tersimpan span {
+    font-weight: 700;
+    color: var(--warna-kuning-hangat);
+}
+
+/* Kotak Umpan Balik / Feedback Jelas */
+.kotak-pesan {
+    font-family: var(--font-pixel-baca);
+    font-size: var(--ukuran-instruksi);
+    padding: 16px 20px;
+    font-weight: 700;
+    margin: 16px 0;
+    text-align: center;
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+}
+
+.kotak-pesan.tersembunyi {
+    display: none;
+}
+
+.kotak-pesan.pesan-info {
+    background-color: #23496d;
+    color: var(--langit-putih);
+    border-color: var(--langit-biru);
+}
+
+.kotak-pesan.pesan-sukses {
+    background-color: #1f5c3a;
+    color: #ecfdf5;
+    border-color: #74c69d;
+    animation: kilauBenarPixel 0.25s steps(2, end);
+}
+
+.kotak-pesan.pesan-peringatan {
+    background-color: #6b4423;
+    color: #fffbeb;
+    border-color: var(--warna-kuning-hangat);
+}
+
+.kotak-pesan.pesan-kesalahan {
+    background-color: #692930;
+    color: #fff1f2;
+    border-color: #f4a261;
+    animation: getarSalahPixel 0.25s steps(4, end);
+}
+
+/* Indikator Progres Sederhana di Atas Area Bermain */
+.baris-status-misi {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    background-color: #1a283d;
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 14px 22px;
+    margin-bottom: 22px;
+}
+
+.item-status-misi {
+    font-family: var(--font-pixel-ui);
+    font-weight: 700;
+    color: var(--ui-teks-lembut);
+    font-size: 20px;
+}
+
+.item-status-misi span {
+    color: var(--warna-kuning-hangat);
+}
+
+/* Dialog Modal Konfirmasi Sederhana & Ramah Anak */
+.lapisan-modal-pixel {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: rgba(19, 28, 43, 0.82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.kotak-modal-pixel {
+    width: 100%;
+    max-width: 520px;
+    background-color: var(--ui-panel-utama);
+    border: 4px solid var(--ui-garis-pixel);
+    outline: 3px solid var(--warna-kuning-hangat);
+    outline-offset: -8px;
+    box-shadow: var(--bayangan-panel);
+    padding: 30px 28px;
+    text-align: center;
+    animation: munculPanelPixel 0.15s steps(3, end);
+}
+
+.lencana-modal-bahaya {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--warna-merah-gelap);
+    color: #ffe5ec;
+    border: 2px solid #f28482;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+}
+
+.judul-modal-pixel {
+    font-family: var(--font-pixel-judul);
+    font-size: 26px;
+    line-height: 1.4;
+    color: var(--warna-kuning-hangat);
+    text-shadow: 2px 2px 0 var(--ui-garis-pixel);
+    margin-bottom: 14px;
+}
+
+.teks-modal-pixel {
+    font-family: var(--font-pixel-baca);
+    font-size: var(--ukuran-dialog);
+    color: var(--ui-teks-utama);
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.aksi-modal-pixel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+/* Gambar Pixel Art & Placeholder Tanpa Emoji */
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+img.gambar-belum-tersedia {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #24354f;
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px dashed var(--warna-kuning-hangat);
+    outline-offset: -5px;
+    box-shadow: 3px 3px 0px var(--ui-garis-pixel);
+    color: var(--ui-teks-utama);
+    font-family: var(--font-pixel-baca);
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    padding: 8px;
+    overflow: hidden;
+}
+
+img.gambar-belum-tersedia::before {
+    content: attr(alt);
+    display: block;
+    width: 100%;
+    line-height: 1.25;
+    color: var(--warna-kuning-hangat);
+}
+
+img.gambar-belum-tersedia::after {
+    content: "";
+    display: none;
+}
+
+.tersembunyi {
+    display: none !important;
+}
+
+/* Animasi Hanya Saat Transisi Level & Umpan Balik (Tanpa Animasi Berulang Tanpa Tujuan) */
+@keyframes munculPanelPixel {
+    0% {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes kilauBenarPixel {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+@keyframes getarSalahPixel {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (max-width: 680px) {
+    .panel-game {
+        padding: 24px 18px;
+    }
+
+    .tombol {
+        width: 100%;
+        justify-content: center;
+    }
+}

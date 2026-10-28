@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Pulau Logika - Peta Pulau</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+<!--
+    Daftar Aset Gambar pada peta.html:
+    - Gambar 2: background-2.png | Lokasi: assets/images/backgrounds/background-2.png | Ukuran disarankan: 1920x1080 px | Fungsi: Latar belakang peta pulau (melalui css/menu.css)
+    - Gambar 8: karakter_pemain.png | Lokasi: assets/images/characters/karakter_pemain.png | Ukuran tampilan: 64x80 px | Fungsi: Avatar penjelajah di informasi profil peta
+    - Gambar 12: ikon_hutan.png | Lokasi: assets/images/icons/ikon_hutan.png | Ukuran tampilan: 120x120 px | Fungsi: Ikon wilayah Hutan
+    - Gambar 13: ikon_desa.png | Lokasi: assets/images/icons/ikon_desa.png | Ukuran tampilan: 120x120 px | Fungsi: Ikon wilayah Desa
+    - Gambar 14: ikon_gunung.png | Lokasi: assets/images/icons/ikon_gunung.png | Ukuran tampilan: 120x120 px | Fungsi: Ikon wilayah Gunung
+    - Gambar 15: ikon_kastil.png | Lokasi: assets/images/icons/ikon_kastil.png | Ukuran tampilan: 120x120 px | Fungsi: Ikon wilayah Kastil
+    - Gambar 16: ikon_gembok.png | Lokasi: assets/images/icons/ikon_gembok.png | Ukuran tampilan: 24x24 px | Fungsi: Penanda wilayah terkunci
+    - Gambar 17: ikon_selesai.png | Lokasi: assets/images/icons/ikon_selesai.png | Ukuran tampilan: 24x24 px | Fungsi: Penanda wilayah selesai
+-->
+<body class="latar-pulau" data-bgm="music-background-2.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">Peta Pulau Logika</span>
+            <span class="info-pemain-header">Pilih Wilayah Petualangan</span>
+        </div>
+        <div class="aksi-header">
+            <button
+                type="button"
+                class="tombol tombol-netral tombol-kecil"
+                data-sfx-hover
+                data-sfx-click
+                onclick="pindahHalaman('petunjuk.html', false)"
+            >
+                Petunjuk
+            </button>
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game" aria-labelledby="judul-peta">
+            <h1 id="judul-peta" class="judul-halaman">Peta Pulau Logika</h1>
+            <p class="subjudul-halaman">
+                Pilih wilayah yang terbuka untuk mulai bermain!
+            </p>
+
+            <div class="ringkasan-penjelajah-peta">
+                <div class="profil-peta">
+                    <!-- Gambar 8: karakter_pemain.png | Ukuran tampilan: 64x80 px | Aset: assets/images/characters/karakter_pemain.png -->
+                    <img
+                        src="assets/images/characters/karakter_pemain.png"
+                        alt="Karakter pemain penjelajah"
+                        width="64"
+                        height="80"
+                    >
+                    <div>
+                        <div>Penjelajah: <strong id="nama-pemain-peta">Penjelajah</strong></div>
+                        <div id="ringkasan-progres-peta" class="subjudul-halaman" style="margin: 0; text-align: left;">
+                            0 / 4 Wilayah Selesai
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aksi-header">
+                    <button
+                        type="button"
+                        class="tombol tombol-netral tombol-kecil"
+                        data-sfx-hover
+                        data-sfx-click
+                        onclick="pindahHalaman('narasi.html', false)"
+                    >
+                        Cerita
+                    </button>
+                    <button
+                        type="button"
+                        id="tombol-lihat-hasil-peta"
+                        class="tombol tombol-aksen tombol-kecil tersembunyi"
+                        data-sfx-hover
+                        data-sfx-click
+                    >
+                        Hasil Akhir
+                    </button>
+                </div>
+            </div>
+
+            <div id="pesan-peta" class="kotak-pesan tersembunyi" role="alert"></div>
+
+            <div class="jalur-peta-pulau">
+                <!-- Wilayah 1: Hutan -->
+                <div
+                    id="wilayah-hutan"
+                    class="kartu-wilayah-peta"
+                    role="button"
+                    tabindex="0"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    <span class="nomor-wilayah-peta">Wilayah 1</span>
+                    <div class="bungkus-ikon-wilayah">
+                        <!-- Gambar 12: ikon_hutan.png | Ukuran tampilan: 120x120 px | Aset: assets/images/icons/ikon_hutan.png -->
+                        <img
+                            src="assets/images/icons/ikon_hutan.png"
+                            alt="Ikon wilayah Hutan"
+                            width="120"
+                            height="120"
+                        >
+                    </div>
+                    <h2 class="judul-wilayah-peta">Hutan</h2>
+                    <span class="pilar-wilayah-peta">Dekomposisi</span>
+                    <div class="status-wilayah-peta">
+                        <!-- Gambar 17: ikon_selesai.png | Ukuran tampilan: 24x24 px | Aset: assets/images/icons/ikon_selesai.png -->
+                        <img
+                            id="ikon-status-hutan"
+                            class="tersembunyi"
+                            src="assets/images/icons/ikon_selesai.png"
+                            alt="Status wilayah Hutan"
+                            width="24"
+                            height="24"
+                        >
+                        <span id="status-teks-hutan">Terbuka - Klik untuk Masuk</span>
+                    </div>
+                </div>
+
+                <!-- Wilayah 2: Desa -->
+                <div
+                    id="wilayah-desa"
+                    class="kartu-wilayah-peta wilayah-terkunci"
+                    role="button"
+                    tabindex="0"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    <span class="nomor-wilayah-peta">Wilayah 2</span>
+                    <div class="bungkus-ikon-wilayah">
+                        <!-- Gambar 13: ikon_desa.png | Ukuran tampilan: 120x120 px | Aset: assets/images/icons/ikon_desa.png -->
+                        <img
+                            src="assets/images/icons/ikon_desa.png"
+                            alt="Ikon wilayah Desa"
+                            width="120"
+                            height="120"
+                        >
+                    </div>
+                    <h2 class="judul-wilayah-peta">Desa</h2>
+                    <span class="pilar-wilayah-peta">Pengenalan Pola</span>
+                    <div class="status-wilayah-peta">
+                        <!-- Gambar 16: ikon_gembok.png | Ukuran tampilan: 24x24 px | Aset: assets/images/icons/ikon_gembok.png -->
+                        <img
+                            id="ikon-status-desa"
+                            src="assets/images/icons/ikon_gembok.png"
+                            alt="Status wilayah terkunci"
+                            width="24"
+                            height="24"
+                        >
+                        <span id="status-teks-desa">Terkunci</span>
+                    </div>
+                </div>
+
+                <!-- Wilayah 3: Gunung -->
+                <div
+                    id="wilayah-gunung"
+                    class="kartu-wilayah-peta wilayah-terkunci"
+                    role="button"
+                    tabindex="0"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    <span class="nomor-wilayah-peta">Wilayah 3</span>
+                    <div class="bungkus-ikon-wilayah">
+                        <!-- Gambar 14: ikon_gunung.png | Ukuran tampilan: 120x120 px | Aset: assets/images/icons/ikon_gunung.png -->
+                        <img
+                            src="assets/images/icons/ikon_gunung.png"
+                            alt="Ikon wilayah Gunung"
+                            width="120"
+                            height="120"
+                        >
+                    </div>
+                    <h2 class="judul-wilayah-peta">Gunung</h2>
+                    <span class="pilar-wilayah-peta">Abstraksi</span>
+                    <div class="status-wilayah-peta">
+                        <!-- Gambar 16: ikon_gembok.png | Ukuran tampilan: 24x24 px | Aset: assets/images/icons/ikon_gembok.png -->
+                        <img
+                            id="ikon-status-gunung"
+                            src="assets/images/icons/ikon_gembok.png"
+                            alt="Status wilayah terkunci"
+                            width="24"
+                            height="24"
+                        >
+                        <span id="status-teks-gunung">Terkunci</span>
+                    </div>
+                </div>
+
+                <!-- Wilayah 4: Kastil -->
+                <div
+                    id="wilayah-kastil"
+                    class="kartu-wilayah-peta wilayah-terkunci"
+                    role="button"
+                    tabindex="0"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    <span class="nomor-wilayah-peta">Wilayah 4</span>
+                    <div class="bungkus-ikon-wilayah">
+                        <!-- Gambar 15: ikon_kastil.png | Ukuran tampilan: 120x120 px | Aset: assets/images/icons/ikon_kastil.png -->
+                        <img
+                            src="assets/images/icons/ikon_kastil.png"
+                            alt="Ikon wilayah Kastil"
+                            width="120"
+                            height="120"
+                        >
+                    </div>
+                    <h2 class="judul-wilayah-peta">Kastil</h2>
+                    <span class="pilar-wilayah-peta">Algoritma</span>
+                    <div class="status-wilayah-peta">
+                        <!-- Gambar 16: ikon_gembok.png | Ukuran tampilan: 24x24 px | Aset: assets/images/icons/ikon_gembok.png -->
+                        <img
+                            id="ikon-status-kastil"
+                            src="assets/images/icons/ikon_gembok.png"
+                            alt="Status wilayah terkunci"
+                            width="24"
+                            height="24"
+                        >
+                        <span id="status-teks-kastil">Terkunci</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="baris-tombol">
+                <button
+                    type="button"
+                    class="tombol tombol-netral"
+                    data-sfx-hover
+                    data-sfx-click
+                    onclick="pindahHalaman('index.html', true)"
+                >
+                    Kembali
+                </button>
+                <button
+                    type="button"
+                    id="tombol-reset-progres"
+                    class="tombol tombol-reset-progres"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Reset Progress
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Dialog Konfirmasi Reset Progress -->
+    <div
+        id="modal-konfirmasi-reset"
+        class="lapisan-modal-pixel tersembunyi"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="judul-modal-reset"
+        aria-describedby="pesan-modal-reset"
+    >
+        <div class="kotak-modal-pixel">
+            <span class="lencana-modal-bahaya">Tindakan Berisiko</span>
+            <h2 id="judul-modal-reset" class="judul-modal-pixel">Reset Progress Pemain</h2>
+            <p id="pesan-modal-reset" class="teks-modal-pixel">
+                Apakah kamu yakin ingin menghapus semua progres permainan? Tindakan ini tidak dapat dibatalkan.
+            </p>
+            <div class="aksi-modal-pixel">
+                <button
+                    type="button"
+                    id="tombol-batal-reset"
+                    class="tombol tombol-netral"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Batal
+                </button>
+                <button
+                    type="button"
+                    id="tombol-konfirmasi-reset"
+                    class="tombol tombol-bahaya"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Ya, Reset Progress
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
