@@ -1,0 +1,273 @@
+/**
+ * File: css/hasil.css
+ * Deskripsi: Gaya tampilan Cozy Pixel Art untuk Halaman Hasil Petualangan (hasil.html)
+ * dan Halaman Detail Kemampuan (detail.html).
+ */
+
+/* Gambar 7: background-9.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-9.png */
+body.latar-hasil {
+    background-color: var(--langit-malam);
+    background-image:
+        url("../assets/images/backgrounds/background-9.png"),
+        radial-gradient(circle at 50% 15%, rgba(247, 184, 1, 0.18) 0%, transparent 45%),
+        linear-gradient(180deg, #0b0e18 0%, #151c30 55%, #1f1735 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.spanduk-pencapaian {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    background-color: #161d2f;
+    border: 4px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--ui-aksen-emas);
+    outline-offset: -6px;
+    box-shadow: var(--bayangan-panel);
+    padding: 22px 24px;
+    margin-bottom: 24px;
+}
+
+.spanduk-pencapaian img {
+    animation: gerakIdlePixel 1.1s steps(2, end) infinite;
+}
+
+.info-utama-hasil {
+    text-align: left;
+    max-width: 500px;
+}
+
+.label-penjelajah-hasil {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--langit-muda);
+    text-transform: uppercase;
+}
+
+.nama-pemain-besar {
+    font-family: var(--font-pixel-judul);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ui-aksen-emas-terang);
+    text-shadow: 3px 3px 0 #07080d;
+    margin: 6px 0 8px;
+}
+
+.predikat-pencapaian {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--warna-sukses-gelap);
+    color: var(--warna-sukses-terang);
+    border: 2px solid var(--warna-sukses-terang);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.ringkasan-teks-pencapaian {
+    font-size: 0.98rem;
+    color: var(--ui-teks-lembut);
+}
+
+.kotak-total-skor {
+    background-color: #0e1320;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--ui-aksen-emas);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 16px 22px;
+    text-align: center;
+    min-width: 180px;
+}
+
+.label-total-skor {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--ui-teks-lembut);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.angka-total-skor {
+    font-family: var(--font-pixel-judul);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--ui-aksen-emas-terang);
+    text-shadow: 3px 3px 0 #07080d;
+    line-height: 1.25;
+}
+
+.sub-total-poin {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.78rem;
+    color: var(--langit-muda);
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* Grid 4 Pilar pada hasil.html */
+.grid-skor-pilar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.kartu-skor-pilar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--ui-kartu-gelap);
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--ui-garis-terang);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 16px;
+}
+
+.isi-kartu-skor {
+    flex: 1;
+}
+
+.judul-pilar-skor {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--ui-aksen-emas-terang);
+    text-transform: uppercase;
+}
+
+.wilayah-pilar-skor {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.76rem;
+    color: var(--ui-teks-lembut);
+    margin-bottom: 8px;
+}
+
+/* Batang Progres Bergaya EXP Bar Pixel RPG */
+.batang-progres-luar {
+    width: 100%;
+    height: 16px;
+    background-color: #0b0e17;
+    border: 2px solid var(--ui-garis-hitam);
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    margin-bottom: 6px;
+    padding: 2px;
+}
+
+.batang-progres-dalam {
+    height: 100%;
+    background-color: var(--warna-sukses);
+    background-image: repeating-linear-gradient(
+        90deg,
+        #52b788 0px,
+        #52b788 8px,
+        #2d6a4f 8px,
+        #2d6a4f 12px
+    );
+    transition: width 0.35s steps(10, end);
+}
+
+.angka-skor-pilar {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--ui-teks-terang);
+}
+
+/* Halaman Detail Kemampuan (detail.html) */
+.daftar-detail-pilar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.kartu-detail-kemampuan {
+    background-color: var(--ui-kartu-gelap);
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--ui-garis-terang);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: 72px 1fr 140px;
+    gap: 18px;
+    align-items: center;
+}
+
+.lencana-level-kemampuan {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    padding: 3px 8px;
+    border: 2px solid var(--ui-garis-hitam);
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-left: 8px;
+    text-transform: uppercase;
+}
+
+.level-mahir {
+    background-color: var(--warna-sukses-gelap);
+    color: var(--warna-sukses-terang);
+    border-color: var(--warna-sukses-terang);
+}
+
+.level-cakap {
+    background-color: var(--warna-info-gelap);
+    color: var(--langit-muda);
+    border-color: var(--langit-biru);
+}
+
+.level-berkembang {
+    background-color: var(--warna-peringatan-gelap);
+    color: #ffe066;
+    border-color: var(--ui-aksen-emas);
+}
+
+.deskripsi-capaian-detail {
+    font-size: 0.96rem;
+    color: var(--ui-teks-lembut);
+    margin-top: 6px;
+}
+
+.kotak-nilai-detail {
+    background-color: #101420;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--ui-aksen-emas);
+    outline-offset: -5px;
+    padding: 12px;
+    text-align: center;
+}
+
+.nilai-besar-detail {
+    font-family: var(--font-pixel-judul);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ui-aksen-emas-terang);
+    text-shadow: 2px 2px 0 #07080d;
+}
+
+@media (max-width: 760px) {
+    .grid-skor-pilar {
+        grid-template-columns: 1fr;
+    }
+
+    .kartu-detail-kemampuan {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+    }
+
+    .info-utama-hasil {
+        text-align: center;
+    }
+}

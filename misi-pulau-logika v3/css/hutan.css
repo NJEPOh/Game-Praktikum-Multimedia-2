@@ -1,0 +1,179 @@
+/**
+ * File: css/hutan.css
+ * Deskripsi: Gaya tampilan Cozy Pixel Art untuk wilayah Hutan (hutan.html) - Misi Dekomposisi.
+ * Menggunakan palet lingkungan Hutan: hijau pinus gelap, hijau daun, hijau lumut, dan hijau muda.
+ */
+
+/* Gambar 3: background-3.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-3.png */
+body.latar-hutan {
+    background-color: var(--hutan-pinus);
+    background-image:
+        url("../assets/images/backgrounds/background-3.png"),
+        radial-gradient(circle at 20% 25%, rgba(82, 183, 136, 0.16) 0%, transparent 40%),
+        linear-gradient(180deg, #0b1911 0%, #112419 55%, #193324 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body.latar-hutan .panel-game {
+    background-color: #13281c;
+    outline-color: var(--hutan-lumut);
+}
+
+body.latar-hutan .lencana-wilayah {
+    background-color: var(--hutan-lumut);
+    color: #09140e;
+    box-shadow: inset 2px 2px 0 var(--hutan-muda), 3px 3px 0 #07080d;
+}
+
+.instruksi-hutan {
+    background-color: #193626;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--hutan-lumut);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    color: var(--ui-teks-terang);
+}
+
+.instruksi-hutan .judul-panel-sub {
+    color: var(--hutan-muda);
+}
+
+.arena-dekomposisi {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 22px;
+    align-items: start;
+    margin: 16px 0;
+}
+
+.panel-rangka-rumah,
+.panel-gudang-material {
+    background-color: #0e1e15;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--hutan-daun);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px;
+}
+
+.daftar-slot-rumah {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.slot-komponen-rumah {
+    min-height: 156px;
+    border: 3px dashed var(--hutan-lumut);
+    background-color: #162e21;
+    box-shadow: inset 3px 3px 0px rgba(0, 0, 0, 0.45);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    transition: transform 0.1s steps(2, end), background-color 0.1s steps(2, end), border-color 0.1s steps(2, end);
+    cursor: pointer;
+}
+
+.slot-komponen-rumah.sorot-drop {
+    border-style: solid;
+    border-color: var(--ui-aksen-emas-terang);
+    background-color: #264733;
+    transform: translate(-2px, -2px);
+}
+
+.slot-komponen-rumah.terisi {
+    border: 3px solid var(--warna-sukses-terang);
+    background-color: #1b4332;
+    box-shadow: var(--bayangan-kartu);
+    cursor: default;
+}
+
+.slot-komponen-rumah.salah-drop {
+    border-style: solid;
+    border-color: var(--warna-bahaya-terang);
+    background-color: var(--warna-bahaya-gelap);
+    animation: getarSalahPixel 0.25s steps(4, end);
+}
+
+.label-target-slot {
+    font-family: var(--font-pixel-ui);
+    font-weight: 700;
+    font-size: 0.86rem;
+    color: var(--hutan-muda);
+    text-transform: uppercase;
+}
+
+.petunjuk-slot {
+    font-size: 0.84rem;
+    color: var(--ui-teks-lembut);
+}
+
+.daftar-material-hutan {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.kartu-material {
+    background-color: #1c3829;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--hutan-lumut);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    cursor: grab;
+    transition: transform 0.1s steps(2, end), outline-color 0.1s steps(2, end);
+    user-select: none;
+}
+
+.kartu-material:hover:not(.sudah-dipakai) {
+    transform: translate(-2px, -2px);
+    outline-color: var(--ui-aksen-emas-terang);
+    background-color: #244734;
+}
+
+.kartu-material.terpilih {
+    outline-color: var(--ui-aksen-emas-terang);
+    background-color: #2c4a27;
+    box-shadow: 0 0 0 3px var(--ui-aksen-emas), 4px 4px 0 #07080d;
+}
+
+.kartu-material.sudah-dipakai {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+    filter: grayscale(0.8);
+}
+
+.nama-material {
+    font-family: var(--font-pixel-ui);
+    font-weight: 700;
+    font-size: 0.84rem;
+    color: var(--ui-teks-terang);
+}
+
+@media (max-width: 820px) {
+    .arena-dekomposisi {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .daftar-slot-rumah,
+    .daftar-material-hutan {
+        grid-template-columns: 1fr;
+    }
+}

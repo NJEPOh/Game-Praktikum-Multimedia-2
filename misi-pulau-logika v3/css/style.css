@@ -1,0 +1,688 @@
+/**
+ * File: css/style.css
+ * Deskripsi: Sistem Desain Cozy Pixel Art Retro 2D untuk seluruh halaman "Misi Pulau Logika".
+ * Memuat design tokens (palet lingkungan Hutan, Langit, Desa, Gunung, Kastil, dan UI gelap),
+ * tipografi pixelated, komponen UI bergaya retro 2D, animasi steps(), dan aksesibilitas.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap");
+
+:root {
+    /* Tipografi Pixel Art dengan Fallback Aman */
+    --font-pixel-judul: "Press Start 2P", "Silkscreen", "Courier New", monospace;
+    --font-pixel-ui: "Silkscreen", "Pixelify Sans", "Courier New", monospace;
+    --font-pixel-baca: "Pixelify Sans", "Trebuchet MS", "Segoe UI", sans-serif;
+
+    /* Palet UI Dasar (Dark Cozy Pixel Art) */
+    --ui-latar-gelap: #0d0f17;
+    --ui-panel-gelap: #181c28;
+    --ui-panel-sedang: #23293a;
+    --ui-panel-terang: #2e364d;
+    --ui-kartu-gelap: #1e2332;
+    --ui-teks-terang: #f6f1df;
+    --ui-teks-lembut: #c5cce0;
+    --ui-teks-redup: #8e97b2;
+    --ui-garis-hitam: #07080d;
+    --ui-garis-terang: #546080;
+    --ui-aksen-emas: #f7b801;
+    --ui-aksen-emas-terang: #ffe066;
+
+    /* Status & Feedback */
+    --warna-sukses: #38b000;
+    --warna-sukses-gelap: #1b4332;
+    --warna-sukses-terang: #9ef01a;
+    --warna-bahaya: #e63946;
+    --warna-bahaya-gelap: #4a1219;
+    --warna-bahaya-terang: #ff8fa3;
+    --warna-peringatan: #f4a261;
+    --warna-peringatan-gelap: #432818;
+    --warna-info-gelap: #162a45;
+    --warna-info-terang: #72efdd;
+
+    /* Palet Lingkungan 1: Langit (Menu, Narasi, Petunjuk, Peta) */
+    --langit-malam: #0f172a;
+    --langit-tua: #1b2a4a;
+    --langit-biru: #38bdf8;
+    --langit-muda: #bae6fd;
+
+    /* Palet Lingkungan 2: Hutan (Dekomposisi) */
+    --hutan-pinus: #112419;
+    --hutan-panel: #193324;
+    --hutan-daun: #2d6a4f;
+    --hutan-lumut: #52b788;
+    --hutan-muda: #b7e4c7;
+
+    /* Palet Lingkungan 3: Desa (Pengenalan Pola) */
+    --desa-tanah: #261910;
+    --desa-kayu: #432d1d;
+    --desa-kayu-terang: #6f4e37;
+    --desa-krem: #eeddd3;
+    --desa-jerami: #f4c430;
+
+    /* Palet Lingkungan 4: Gunung (Abstraksi) */
+    --gunung-batu-gelap: #181d24;
+    --gunung-batu-panel: #252c37;
+    --gunung-batu-terang: #768390;
+    --gunung-putih-biru: #d8ecff;
+
+    /* Palet Lingkungan 5: Kastil (Algoritma) */
+    --kastil-ungu-gelap: #160f24;
+    --kastil-biru-malam: #24193c;
+    --kastil-ungu-terang: #5a3e85;
+    --kastil-emas: #f5b700;
+    --kastil-kuning: #ffe680;
+
+    /* Kompatibilitas Variabel Umum */
+    --warna-utama: #2d6a4f;
+    --warna-utama-gelap: #1b4332;
+    --warna-aksen: #f7b801;
+    --warna-aksen-gelap: #c99300;
+    --warna-sekunder: #2563eb;
+    --warna-sekunder-gelap: #1d4ed8;
+    --warna-panel: var(--ui-panel-gelap);
+    --warna-teks: var(--ui-teks-terang);
+    --warna-teks-lembut: var(--ui-teks-lembut);
+    --warna-garis: var(--ui-garis-terang);
+
+    /* Sudut & Bayangan Pixel Art (Tanpa Blur) */
+    --radius-besar: 0px;
+    --radius-sedang: 0px;
+    --radius-kecil: 0px;
+    --border-tebal: 3px solid var(--ui-garis-hitam);
+    --bayangan-panel:
+        inset 3px 3px 0px rgba(255, 255, 255, 0.12),
+        inset -3px -3px 0px rgba(0, 0, 0, 0.45),
+        6px 6px 0px #07080d;
+    --bayangan-kartu:
+        inset 2px 2px 0px rgba(255, 255, 255, 0.1),
+        inset -2px -2px 0px rgba(0, 0, 0, 0.4),
+        4px 4px 0px #07080d;
+    --bayangan-tombol:
+        inset 2px 2px 0px rgba(255, 255, 255, 0.28),
+        inset -2px -2px 0px rgba(0, 0, 0, 0.38),
+        4px 4px 0px #07080d;
+    --bayangan-tombol-tekan:
+        inset 2px 2px 0px rgba(0, 0, 0, 0.4),
+        1px 1px 0px #07080d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-pixel-baca);
+    font-size: 16px;
+    color: var(--ui-teks-terang);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--ui-latar-gelap);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    line-height: 1.55;
+    letter-spacing: 0.02em;
+}
+
+/* Lapisan tekstur piksel halus & kontras gelap di atas background gambar */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(180deg, rgba(10, 12, 20, 0.62) 0%, rgba(10, 12, 20, 0.78) 100%),
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.14) 0px,
+            rgba(0, 0, 0, 0.14) 2px,
+            transparent 2px,
+            transparent 4px
+        );
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Bilah Navigasi Atas Bergaya HUD Retro */
+.bilah-atas {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 22px;
+    background-color: #10131d;
+    border-bottom: 4px solid var(--ui-garis-hitam);
+    box-shadow: inset 0 -3px 0 var(--ui-garis-terang), 0 4px 0 rgba(0, 0, 0, 0.45);
+    color: var(--ui-teks-terang);
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.lencana-wilayah {
+    font-family: var(--font-pixel-ui);
+    background-color: var(--ui-aksen-emas);
+    color: #11131a;
+    font-weight: 700;
+    padding: 6px 12px;
+    border: 2px solid var(--ui-garis-hitam);
+    box-shadow: inset 2px 2px 0 #fff3b0, 3px 3px 0 #07080d;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.info-pemain-header {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.85rem;
+    color: var(--langit-muda);
+}
+
+.info-pemain-header strong {
+    color: var(--ui-aksen-emas-terang);
+}
+
+.aksi-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Kontainer Utama Halaman */
+.wadah-utama {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1080px;
+    margin: 22px auto;
+    padding: 0 18px 34px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Panel Utama Bergaya Window RPG Klasik */
+.panel-game {
+    background-color: var(--ui-panel-gelap);
+    border: 4px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--ui-garis-terang);
+    outline-offset: -6px;
+    box-shadow: var(--bayangan-panel);
+    padding: 28px 30px;
+    color: var(--ui-teks-terang);
+    animation: munculPanelPixel 0.18s steps(3, end);
+}
+
+.kepala-judul-wilayah {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.judul-halaman {
+    font-family: var(--font-pixel-judul);
+    font-size: 1.35rem;
+    line-height: 1.45;
+    color: var(--ui-aksen-emas-terang);
+    text-shadow: 3px 3px 0px #07080d;
+    margin-bottom: 10px;
+    text-align: center;
+    letter-spacing: 0.03em;
+}
+
+.subjudul-halaman {
+    font-family: var(--font-pixel-baca);
+    font-size: 1.05rem;
+    color: var(--ui-teks-lembut);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.judul-panel-sub {
+    font-family: var(--font-pixel-ui);
+    font-size: 1rem;
+    color: var(--ui-aksen-emas-terang);
+    text-shadow: 2px 2px 0px #07080d;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+}
+
+.subteks-panel {
+    font-size: 0.95rem;
+    color: var(--ui-teks-lembut);
+    margin-bottom: 14px;
+}
+
+/* Tombol Pixel Art Retro 2D */
+.tombol {
+    font-family: var(--font-pixel-ui);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 22px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border: 3px solid var(--ui-garis-hitam);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: var(--bayangan-tombol);
+    user-select: none;
+    position: relative;
+    transition: transform 0.08s steps(2, end), background-color 0.08s steps(2, end);
+}
+
+.tombol:hover:not(:disabled) {
+    transform: translate(-2px, -2px);
+    filter: brightness(1.1);
+}
+
+.tombol:active:not(:disabled) {
+    transform: translate(3px, 3px);
+    box-shadow: var(--bayangan-tombol-tekan);
+}
+
+.tombol:focus-visible {
+    outline: 3px dashed var(--ui-aksen-emas-terang);
+    outline-offset: 3px;
+}
+
+.tombol:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+    filter: grayscale(0.5);
+}
+
+.tombol-utama {
+    background-color: #2d8a4e;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #07080d;
+}
+
+.tombol-utama:hover:not(:disabled) {
+    background-color: #38b000;
+}
+
+.tombol-aksen {
+    background-color: var(--ui-aksen-emas);
+    color: #11131a;
+}
+
+.tombol-aksen:hover:not(:disabled) {
+    background-color: var(--ui-aksen-emas-terang);
+    color: #07080d;
+}
+
+.tombol-sekunder {
+    background-color: #2563eb;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #07080d;
+}
+
+.tombol-sekunder:hover:not(:disabled) {
+    background-color: #3b82f6;
+}
+
+.tombol-netral {
+    background-color: #333c57;
+    color: var(--ui-teks-terang);
+    text-shadow: 1px 1px 0 #07080d;
+}
+
+.tombol-netral:hover:not(:disabled) {
+    background-color: #465275;
+}
+
+.tombol-bahaya {
+    background-color: var(--warna-bahaya);
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #07080d;
+}
+
+.tombol-bahaya:hover:not(:disabled) {
+    background-color: #ff4d5a;
+}
+
+/* Tombol Reset Progress (Merah Gelap dengan Aksen Merah Terang, Tidak Lebih Dominan dari Tombol Utama) */
+.tombol-reset-progres {
+    background-color: var(--warna-bahaya-gelap);
+    color: #ffe5ec;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--warna-bahaya-terang);
+    outline-offset: -5px;
+    padding: 9px 16px;
+    font-size: 0.78rem;
+    text-shadow: 1px 1px 0 #07080d;
+}
+
+.tombol-reset-progres:hover:not(:disabled) {
+    background-color: #7a1c28;
+    outline-color: #ffffff;
+    color: #ffffff;
+}
+
+.baris-reset-bawah {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 2px dashed rgba(197, 204, 224, 0.22);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-progres-tersimpan {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.75rem;
+    color: var(--ui-teks-lembut);
+}
+
+.info-progres-tersimpan span {
+    color: var(--ui-aksen-emas-terang);
+}
+
+/* Dialog Modal Konfirmasi Bergaya Cozy Pixel Art Retro */
+.lapisan-modal-pixel {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: rgba(7, 8, 13, 0.84);
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.22) 0px,
+        rgba(0, 0, 0, 0.22) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.kotak-modal-pixel {
+    width: 100%;
+    max-width: 480px;
+    background-color: #1a1420;
+    border: 4px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--warna-bahaya-terang);
+    outline-offset: -6px;
+    box-shadow:
+        inset 3px 3px 0px rgba(255, 255, 255, 0.12),
+        inset -3px -3px 0px rgba(0, 0, 0, 0.5),
+        8px 8px 0px #07080d;
+    padding: 24px 26px;
+    text-align: center;
+    animation: munculPanelPixel 0.15s steps(3, end);
+}
+
+.lencana-modal-bahaya {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--warna-bahaya-gelap);
+    color: var(--warna-bahaya-terang);
+    border: 2px solid var(--warna-bahaya-terang);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.judul-modal-pixel {
+    font-family: var(--font-pixel-judul);
+    font-size: 1.05rem;
+    line-height: 1.45;
+    color: #ffe5ec;
+    text-shadow: 2px 2px 0 #07080d;
+    margin-bottom: 12px;
+}
+
+.teks-modal-pixel {
+    font-family: var(--font-pixel-baca);
+    font-size: 1.02rem;
+    color: var(--ui-teks-terang);
+    line-height: 1.55;
+    margin-bottom: 20px;
+}
+
+.aksi-modal-pixel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.tombol-kecil {
+    padding: 7px 13px;
+    font-size: 0.76rem;
+}
+
+/* Baris Tombol */
+.baris-tombol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+}
+
+/* Kotak Pesan / Umpan Balik Bergaya Dialog Retro */
+.kotak-pesan {
+    font-family: var(--font-pixel-baca);
+    font-size: 1rem;
+    padding: 12px 16px;
+    font-weight: 600;
+    margin: 14px 0;
+    text-align: center;
+    border: 3px solid var(--ui-garis-hitam);
+    box-shadow: var(--bayangan-kartu);
+}
+
+.kotak-pesan.tersembunyi {
+    display: none;
+}
+
+.kotak-pesan.pesan-info {
+    background-color: var(--warna-info-gelap);
+    color: var(--langit-muda);
+    border-color: var(--langit-biru);
+}
+
+.kotak-pesan.pesan-sukses {
+    background-color: var(--warna-sukses-gelap);
+    color: #d8f3dc;
+    border-color: var(--warna-sukses-terang);
+    animation: kilauBenarPixel 0.3s steps(2, end);
+}
+
+.kotak-pesan.pesan-peringatan {
+    background-color: var(--warna-peringatan-gelap);
+    color: #ffedd8;
+    border-color: var(--warna-peringatan);
+}
+
+.kotak-pesan.pesan-kesalahan {
+    background-color: var(--warna-bahaya-gelap);
+    color: #ffe5ec;
+    border-color: var(--warna-bahaya-terang);
+    animation: getarSalahPixel 0.25s steps(4, end);
+}
+
+/* Baris Status Misi (HUD Level) */
+.baris-status-misi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background-color: #111520;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--ui-garis-terang);
+    outline-offset: -5px;
+    box-shadow: 4px 4px 0px #07080d;
+    padding: 12px 18px;
+    margin-bottom: 18px;
+}
+
+.item-status-misi {
+    font-family: var(--font-pixel-ui);
+    font-weight: 700;
+    color: var(--ui-teks-lembut);
+    font-size: 0.86rem;
+    text-transform: uppercase;
+}
+
+.item-status-misi span {
+    color: var(--ui-aksen-emas-terang);
+    font-weight: 700;
+}
+
+/* Pengaturan Gambar Pixel Art & Fallback Placeholder Tanpa Emoji */
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+img.gambar-belum-tersedia {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #161b26;
+    background-image:
+        linear-gradient(45deg, #1f2637 25%, transparent 25%),
+        linear-gradient(-45deg, #1f2637 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #1f2637 75%),
+        linear-gradient(-45deg, transparent 75%, #1f2637 75%);
+    background-size: 12px 12px;
+    background-position: 0 0, 0 6px, 6px -6px, -6px 0;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px dashed var(--ui-aksen-emas);
+    outline-offset: -5px;
+    box-shadow: 3px 3px 0px #07080d;
+    color: var(--ui-teks-terang);
+    font-family: var(--font-pixel-ui);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px;
+    overflow: hidden;
+}
+
+img.gambar-belum-tersedia::before {
+    content: attr(alt);
+    display: block;
+    width: 100%;
+    line-height: 1.25;
+    color: var(--ui-aksen-emas-terang);
+    text-shadow: 1px 1px 0 #07080d;
+}
+
+img.gambar-belum-tersedia::after {
+    content: attr(data-nama-file);
+    display: block;
+    font-size: 0.58rem;
+    font-weight: 400;
+    color: var(--ui-teks-lembut);
+    margin-top: 3px;
+}
+
+.tersembunyi {
+    display: none !important;
+}
+
+/* Animasi Pixel Art Berbasis Steps */
+@keyframes munculPanelPixel {
+    0% {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gerakIdlePixel {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes kilauBenarPixel {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes getarSalahPixel {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-4px);
+    }
+    75% {
+        transform: translateX(4px);
+    }
+}
+
+/* Hormati Preferensi Pengguna untuk Mengurangi Animasi */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (max-width: 680px) {
+    .panel-game {
+        padding: 20px 14px;
+    }
+
+    .judul-halaman {
+        font-size: 1.05rem;
+    }
+
+    .tombol {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+    }
+}

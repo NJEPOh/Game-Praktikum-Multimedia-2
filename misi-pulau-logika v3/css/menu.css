@@ -1,0 +1,439 @@
+/**
+ * File: css/menu.css
+ * Deskripsi: Gaya tampilan Cozy Pixel Art untuk Halaman Awal (index.html),
+ * Narasi (narasi.html), Petunjuk (petunjuk.html), dan Peta Pulau (peta.html)
+ * menggunakan palet lingkungan Langit (biru malam, biru tua, biru langit, biru muda).
+ */
+
+/* Gambar 1: background-1.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-1.png */
+body.latar-awal {
+    background-color: var(--langit-malam);
+    background-image:
+        url("../assets/images/backgrounds/background-1.png"),
+        radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.16) 0%, transparent 35%),
+        radial-gradient(circle at 80% 30%, rgba(247, 184, 1, 0.14) 0%, transparent 35%),
+        linear-gradient(180deg, #0b1120 0%, #172554 55%, #112419 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Gambar 2: background-2.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-2.png */
+body.latar-pulau {
+    background-color: var(--langit-tua);
+    background-image:
+        url("../assets/images/backgrounds/background-2.png"),
+        radial-gradient(circle at 75% 18%, rgba(186, 230, 253, 0.15) 0%, transparent 40%),
+        linear-gradient(180deg, #0f172a 0%, #1b2a4a 60%, #16302b 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Halaman Awal (index.html) */
+.panel-awal {
+    max-width: 660px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #161f33;
+    outline-color: var(--langit-biru);
+}
+
+.bungkus-logo-awal {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.bungkus-karakter-awal {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+.bungkus-karakter-awal img {
+    animation: gerakIdlePixel 1.2s steps(2, end) infinite;
+}
+
+.formulir-pemain {
+    max-width: 430px;
+    margin: 18px auto;
+    text-align: left;
+    background-color: #101726;
+    border: 3px solid var(--ui-garis-hitam);
+    box-shadow: var(--bayangan-kartu);
+    padding: 16px 18px;
+}
+
+.label-input {
+    font-family: var(--font-pixel-ui);
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--langit-muda);
+    text-transform: uppercase;
+}
+
+.input-nama {
+    font-family: var(--font-pixel-ui);
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 3px solid var(--ui-garis-hitam);
+    background-color: #0b0f19;
+    color: var(--ui-aksen-emas-terang);
+    box-shadow: inset 3px 3px 0px rgba(0, 0, 0, 0.65);
+    outline: none;
+}
+
+.input-nama::placeholder {
+    color: #64748b;
+}
+
+.input-nama:focus {
+    border-color: var(--langit-biru);
+    outline: 2px dashed var(--ui-aksen-emas);
+    outline-offset: 2px;
+}
+
+/* Halaman Narasi (narasi.html) */
+.panggung-narasi {
+    display: grid;
+    grid-template-columns: 170px 1fr 170px;
+    gap: 18px;
+    align-items: stretch;
+    margin: 20px 0;
+}
+
+.kartu-karakter-narasi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    background-color: #131b2e;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid #334155;
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    opacity: 0.65;
+    transition: transform 0.12s steps(2, end), opacity 0.12s steps(2, end);
+}
+
+.kartu-karakter-narasi.pembicara-aktif {
+    opacity: 1;
+    background-color: #1e2942;
+    outline-color: var(--ui-aksen-emas);
+    transform: translateY(-4px);
+}
+
+.kartu-karakter-narasi.pembicara-aktif img {
+    animation: gerakIdlePixel 1s steps(2, end) infinite;
+}
+
+.nama-karakter-narasi {
+    font-family: var(--font-pixel-ui);
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--ui-aksen-emas-terang);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Kotak Dialog RPG Klasik */
+.kotak-dialog-narasi {
+    background-color: #111827;
+    border: 4px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--langit-biru);
+    outline-offset: -6px;
+    box-shadow: var(--bayangan-panel);
+    padding: 22px 24px;
+    min-height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.label-bagian-narasi {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--langit-tua);
+    color: var(--langit-muda);
+    border: 2px solid var(--langit-biru);
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    text-transform: uppercase;
+}
+
+.nama-pembicara-dialog {
+    font-family: var(--font-pixel-ui);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ui-aksen-emas-terang);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 #07080d;
+}
+
+.teks-dialog-narasi {
+    font-family: var(--font-pixel-baca);
+    font-size: 1.12rem;
+    color: var(--ui-teks-terang);
+    line-height: 1.65;
+}
+
+.indikator-titik-narasi {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.titik-narasi {
+    width: 14px;
+    height: 14px;
+    background-color: #334155;
+    border: 2px solid var(--ui-garis-hitam);
+}
+
+.titik-narasi.aktif {
+    background-color: var(--ui-aksen-emas);
+    box-shadow: 0 0 0 2px var(--ui-aksen-emas-terang);
+}
+
+/* Halaman Petunjuk (petunjuk.html) */
+.kepala-petunjuk {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background-color: #132238;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--langit-biru);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 16px 20px;
+    margin-bottom: 22px;
+    color: var(--ui-teks-terang);
+}
+
+.kepala-petunjuk strong {
+    font-family: var(--font-pixel-ui);
+    color: var(--ui-aksen-emas-terang);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.grid-petunjuk {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.kartu-petunjuk {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background-color: var(--ui-kartu-gelap);
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--ui-garis-terang);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 16px;
+}
+
+.info-kartu-petunjuk h3 {
+    font-family: var(--font-pixel-ui);
+    font-size: 1rem;
+    color: var(--ui-aksen-emas-terang);
+    margin-bottom: 6px;
+}
+
+.pilar-label {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    background-color: #2b2110;
+    color: var(--ui-aksen-emas-terang);
+    border: 2px solid var(--ui-aksen-emas);
+    padding: 2px 8px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.info-kartu-petunjuk p {
+    font-size: 0.96rem;
+    color: var(--ui-teks-lembut);
+}
+
+/* Halaman Peta Pulau (peta.html) */
+.ringkasan-penjelajah-peta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    background-color: #131c2e;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--langit-biru);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 14px 20px;
+    margin-bottom: 22px;
+}
+
+.profil-peta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.profil-peta strong {
+    font-family: var(--font-pixel-ui);
+    color: var(--ui-aksen-emas-terang);
+}
+
+.jalur-peta-pulau {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 18px 0 24px;
+}
+
+.kartu-wilayah-peta {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #1a2438;
+    border: 4px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--langit-biru);
+    outline-offset: -6px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px 14px;
+    cursor: pointer;
+    transition: transform 0.1s steps(2, end), outline-color 0.1s steps(2, end);
+}
+
+/* Aksen warna tema spesifik tiap wilayah di peta */
+#wilayah-hutan:not(.wilayah-terkunci) {
+    background-color: var(--hutan-panel);
+    outline-color: var(--hutan-lumut);
+}
+
+#wilayah-desa:not(.wilayah-terkunci) {
+    background-color: var(--desa-kayu);
+    outline-color: var(--desa-jerami);
+}
+
+#wilayah-gunung:not(.wilayah-terkunci) {
+    background-color: var(--gunung-batu-panel);
+    outline-color: var(--gunung-putih-biru);
+}
+
+#wilayah-kastil:not(.wilayah-terkunci) {
+    background-color: var(--kastil-biru-malam);
+    outline-color: var(--kastil-emas);
+}
+
+.kartu-wilayah-peta:hover:not(.wilayah-terkunci) {
+    transform: translate(-3px, -3px);
+    outline-color: var(--ui-aksen-emas-terang);
+    box-shadow: 7px 7px 0px #07080d;
+}
+
+.kartu-wilayah-peta.wilayah-terkunci {
+    background-color: #141720;
+    outline-color: #3b4254;
+    cursor: not-allowed;
+    opacity: 0.72;
+}
+
+.kartu-wilayah-peta.wilayah-selesai {
+    outline-color: var(--warna-sukses-terang) !important;
+}
+
+.nomor-wilayah-peta {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--langit-muda);
+    background-color: rgba(0, 0, 0, 0.38);
+    padding: 3px 8px;
+    border: 2px solid var(--ui-garis-hitam);
+    margin-bottom: 8px;
+}
+
+.bungkus-ikon-wilayah {
+    margin: 8px 0 12px;
+}
+
+.judul-wilayah-peta {
+    font-family: var(--font-pixel-judul);
+    font-size: 0.95rem;
+    color: var(--ui-teks-terang);
+    text-shadow: 2px 2px 0 #07080d;
+    margin-bottom: 6px;
+}
+
+.pilar-wilayah-peta {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--ui-aksen-emas-terang);
+    margin-bottom: 12px;
+}
+
+.status-wilayah-peta {
+    font-family: var(--font-pixel-ui);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: auto;
+    padding: 7px 10px;
+    border: 2px solid var(--ui-garis-hitam);
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 100%;
+    background-color: #16304d;
+    color: var(--langit-muda);
+}
+
+.kartu-wilayah-peta.wilayah-terkunci .status-wilayah-peta {
+    background-color: #222736;
+    color: #94a3b8;
+}
+
+.kartu-wilayah-peta.wilayah-selesai .status-wilayah-peta {
+    background-color: var(--warna-sukses-gelap);
+    color: var(--warna-sukses-terang);
+    border-color: var(--warna-sukses-terang);
+}
+
+@media (max-width: 860px) {
+    .panggung-narasi {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-petunjuk {
+        grid-template-columns: 1fr;
+    }
+
+    .jalur-peta-pulau {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .jalur-peta-pulau {
+        grid-template-columns: 1fr;
+    }
+}

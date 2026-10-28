@@ -1,0 +1,267 @@
+/**
+ * File: css/kastil.css
+ * Deskripsi: Gaya tampilan Cozy Pixel Art untuk wilayah Kastil (kastil.html) - Misi Algoritma.
+ * Menggunakan palet lingkungan Kastil: ungu gelap, biru malam, serta emas/kuning hangat.
+ */
+
+/* Gambar 6: background-7.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-7.png */
+body.latar-kastil {
+    background-color: var(--kastil-ungu-gelap);
+    background-image:
+        url("../assets/images/backgrounds/background-7.png"),
+        radial-gradient(circle at 80% 15%, rgba(245, 183, 0, 0.16) 0%, transparent 40%),
+        linear-gradient(180deg, #0d0816 0%, #160f24 55%, #24193c 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body.latar-kastil .panel-game {
+    background-color: #19112b;
+    outline-color: var(--kastil-emas);
+}
+
+body.latar-kastil .lencana-wilayah {
+    background-color: var(--kastil-emas);
+    color: #160f24;
+    box-shadow: inset 2px 2px 0 var(--kastil-kuning), 3px 3px 0 #07080d;
+}
+
+.kotak-instruksi-kastil {
+    background-color: var(--kastil-biru-malam);
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--kastil-emas);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.badge-soal-kastil {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--kastil-emas);
+    color: #160f24;
+    border: 2px solid var(--ui-garis-hitam);
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.teks-instruksi-kastil {
+    font-family: var(--font-pixel-baca);
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: var(--kastil-kuning);
+    text-shadow: 2px 2px 0 #07080d;
+}
+
+.arena-algoritma {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 24px;
+    align-items: start;
+    margin: 16px 0;
+}
+
+.panel-papan-grid,
+.panel-penyusun-instruksi {
+    background-color: #130c21;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--kastil-ungu-terang);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px;
+}
+
+/* Papan Grid 4 x 4 Bergaya Dungeon / Kastil Retro */
+.papan-grid-kastil {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    max-width: 364px;
+    margin: 12px auto;
+    background-color: #090610;
+    border: 4px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--kastil-emas);
+    outline-offset: -6px;
+    box-shadow: 5px 5px 0 #07080d;
+    padding: 12px;
+}
+
+.sel-grid-kastil {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    min-height: 74px;
+    background-color: #24193c;
+    border: 3px solid #090610;
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    overflow: hidden;
+}
+
+.sel-grid-kastil.sel-awal {
+    background-color: #163052;
+    border-color: var(--langit-biru);
+}
+
+.sel-grid-kastil.sel-tujuan {
+    background-color: #1b4332;
+    border-color: var(--warna-sukses-terang);
+}
+
+.sel-grid-kastil.sel-rintangan {
+    background-color: #3d121a;
+    border-color: var(--warna-bahaya-terang);
+}
+
+.sel-grid-kastil.sel-jejak {
+    background-color: #3d3112;
+    border-color: var(--kastil-emas);
+}
+
+.sel-grid-kastil.sel-tabrakan {
+    background-color: #6b111b;
+    border-color: #ff4d5a;
+    animation: getarSalahPixel 0.25s steps(4, end);
+}
+
+.label-kecil-sel {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--ui-teks-terang);
+    margin-top: 2px;
+    text-transform: uppercase;
+}
+
+.lapisan-token-pemain {
+    position: absolute;
+    inset: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(22, 15, 36, 0.9);
+    border: 2px solid var(--kastil-emas);
+    box-shadow: 0 0 0 2px #07080d;
+    z-index: 2;
+}
+
+.lapisan-token-pemain img {
+    animation: gerakIdlePixel 0.8s steps(2, end) infinite;
+}
+
+.legenda-grid {
+    font-family: var(--font-pixel-ui);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: var(--ui-teks-lembut);
+}
+
+/* Tombol Blok Perintah */
+.grid-tombol-arah {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 12px 0 18px;
+}
+
+.tombol-blok-arah {
+    font-family: var(--font-pixel-ui);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background-color: var(--kastil-biru-malam);
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--kastil-ungu-terang);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-tombol);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--ui-teks-terang);
+    text-transform: uppercase;
+    transition: transform 0.08s steps(2, end), background-color 0.08s steps(2, end);
+}
+
+.tombol-blok-arah:hover:not(:disabled) {
+    transform: translate(-2px, -2px);
+    outline-color: var(--kastil-emas);
+    background-color: #342454;
+}
+
+.tombol-blok-arah:active:not(:disabled) {
+    transform: translate(2px, 2px);
+}
+
+.tombol-blok-arah:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* Daftar Susunan Instruksi */
+.wadah-antrean-instruksi {
+    min-height: 112px;
+    background-color: #0d0816;
+    border: 3px dashed var(--kastil-ungu-terang);
+    box-shadow: inset 3px 3px 0 rgba(0, 0, 0, 0.6);
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.chip-instruksi {
+    font-family: var(--font-pixel-ui);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--kastil-biru-malam);
+    border: 2px solid var(--kastil-emas);
+    box-shadow: 2px 2px 0 #07080d;
+    color: var(--kastil-kuning);
+    font-weight: 700;
+    font-size: 0.76rem;
+    padding: 6px 10px;
+    text-transform: uppercase;
+}
+
+.chip-instruksi.sedang-dieksekusi {
+    background-color: var(--kastil-emas);
+    border-color: #ffffff;
+    color: #160f24;
+    transform: translate(-2px, -2px);
+}
+
+.teks-antrean-kosong {
+    color: var(--ui-teks-lembut);
+    font-size: 0.92rem;
+    margin: auto;
+    text-align: center;
+}
+
+.baris-kontrol-algoritma {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 840px) {
+    .arena-algoritma {
+        grid-template-columns: 1fr;
+    }
+}

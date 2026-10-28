@@ -1,0 +1,200 @@
+/**
+ * File: css/desa.css
+ * Deskripsi: Gaya tampilan Cozy Pixel Art untuk wilayah Desa (desa.html) - Misi Pengenalan Pola.
+ * Menggunakan palet lingkungan Desa: cokelat kayu, warna tanah, krem, dan kuning jerami.
+ */
+
+/* Gambar 4: background-4.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-4.png */
+body.latar-desa {
+    background-color: var(--desa-tanah);
+    background-image:
+        url("../assets/images/backgrounds/background-4.png"),
+        radial-gradient(circle at 80% 20%, rgba(244, 196, 48, 0.16) 0%, transparent 40%),
+        linear-gradient(180deg, #1b120b 0%, #261910 55%, #3d281a 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body.latar-desa .panel-game {
+    background-color: #24170f;
+    outline-color: var(--desa-jerami);
+}
+
+body.latar-desa .lencana-wilayah {
+    background-color: var(--desa-jerami);
+    color: #1f140c;
+    box-shadow: inset 2px 2px 0 #fff3b0, 3px 3px 0 #07080d;
+}
+
+.kotak-instruksi-desa {
+    background-color: var(--desa-kayu);
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--desa-jerami);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.jenis-pola-badge {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--desa-jerami);
+    color: #1b120b;
+    border: 2px solid var(--ui-garis-hitam);
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.teks-instruksi-desa {
+    font-family: var(--font-pixel-baca);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--desa-krem);
+    text-shadow: 2px 2px 0 #07080d;
+}
+
+/* Jalur Ubin Jalan Desa Bergaya Cobblestone / Papan Kayu Pixel */
+.jalur-ubin-jalan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    background-color: #1a110a;
+    border: 4px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--desa-kayu-terang);
+    outline-offset: -6px;
+    box-shadow: inset 4px 4px 0 rgba(0, 0, 0, 0.55), 4px 4px 0 #07080d;
+    padding: 22px 18px;
+    margin: 18px 0;
+}
+
+.kartu-ubin-pola {
+    width: 114px;
+    min-height: 132px;
+    background-color: #362417;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--desa-kayu-terang);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+}
+
+.kartu-ubin-pola.ubin-kosong {
+    outline: 2px dashed var(--desa-jerami);
+    background-color: #462e1b;
+    animation: gerakIdlePixel 1s steps(2, end) infinite;
+}
+
+.kartu-ubin-pola.ubin-terjawab {
+    outline: 2px solid var(--warna-sukses-terang);
+    background-color: var(--warna-sukses-gelap);
+}
+
+.bungkus-gambar-ubin {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+}
+
+.angka-di-atas-ubin {
+    font-family: var(--font-pixel-judul);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--desa-jerami);
+    text-shadow: 2px 2px 0 #07080d;
+    background-color: rgba(24, 16, 10, 0.85);
+    border: 2px solid var(--desa-jerami);
+    pointer-events: none;
+}
+
+.label-ubin-pola {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--desa-krem);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Pilihan Opsi Jawaban */
+.area-opsi-desa {
+    margin: 20px 0 10px;
+    text-align: center;
+}
+
+.judul-opsi-desa {
+    font-family: var(--font-pixel-ui);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--desa-jerami);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.daftar-opsi-desa {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.tombol-opsi-ubin {
+    width: 138px;
+    min-height: 144px;
+    background-color: #362417;
+    border: 3px solid var(--ui-garis-hitam);
+    outline: 2px solid var(--desa-krem);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-tombol);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.08s steps(2, end), background-color 0.08s steps(2, end);
+}
+
+.tombol-opsi-ubin:hover:not(:disabled) {
+    transform: translate(-3px, -3px);
+    outline-color: var(--desa-jerami);
+    background-color: #4d3320;
+}
+
+.tombol-opsi-ubin.opsi-benar {
+    outline-color: var(--warna-sukses-terang);
+    background-color: var(--warna-sukses-gelap);
+}
+
+.tombol-opsi-ubin.opsi-salah {
+    outline-color: var(--warna-bahaya-terang);
+    background-color: var(--warna-bahaya-gelap);
+    animation: getarSalahPixel 0.25s steps(4, end);
+}
+
+.tombol-opsi-ubin:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
