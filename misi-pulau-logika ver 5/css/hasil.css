@@ -1,0 +1,259 @@
+/**
+ * File: css/hasil.css
+ * Deskripsi: Gaya tampilan Child-Friendly Cozy Pixel Art untuk Halaman Hasil (hasil.html)
+ * dan Halaman Detail Kemampuan (detail.html).
+ */
+
+/* Gambar 7: background-9.png | Ukuran aset yang disarankan: 1920x1080 px | Aset: assets/images/backgrounds/background-9.png */
+body.latar-hasil {
+    background-color: var(--langit-dasar);
+    background-image:
+        url("../assets/images/backgrounds/background-9.png"),
+        linear-gradient(180deg, #1d3557 0%, #2a4d7d 60%, #3b2d54 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.spanduk-pencapaian {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    background-color: #243b5c;
+    border: 4px solid var(--ui-garis-pixel);
+    outline: 3px solid var(--warna-kuning-hangat);
+    outline-offset: -7px;
+    box-shadow: var(--bayangan-panel);
+    padding: 26px;
+    margin-bottom: 26px;
+    animation: kilauBenarPixel 0.35s steps(3, end);
+}
+
+.info-utama-hasil {
+    text-align: left;
+    max-width: 500px;
+}
+
+.label-penjelajah-hasil {
+    font-family: var(--font-pixel-ui);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--langit-muda);
+}
+
+.nama-pemain-besar {
+    font-family: var(--font-pixel-judul);
+    font-size: var(--ukuran-nama-wilayah);
+    font-weight: 700;
+    color: var(--warna-kuning-hangat);
+    text-shadow: 2px 2px 0 var(--ui-garis-pixel);
+    margin: 6px 0 10px;
+}
+
+.predikat-pencapaian {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--warna-hijau-tombol);
+    color: #ffffff;
+    border: 2px solid var(--ui-garis-pixel);
+    font-weight: 700;
+    font-size: 18px;
+    padding: 6px 14px;
+    margin-bottom: 10px;
+}
+
+.ringkasan-teks-pencapaian {
+    font-size: var(--ukuran-instruksi);
+    color: var(--ui-teks-utama);
+}
+
+.kotak-total-skor {
+    background-color: #1b2d48;
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--warna-kuning-hangat);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 20px 26px;
+    text-align: center;
+    min-width: 190px;
+}
+
+.label-total-skor {
+    font-family: var(--font-pixel-ui);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ui-teks-lembut);
+    margin-bottom: 6px;
+}
+
+.angka-total-skor {
+    font-family: var(--font-pixel-judul);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--warna-kuning-hangat);
+    text-shadow: 3px 3px 0 var(--ui-garis-pixel);
+    line-height: 1.25;
+}
+
+.sub-total-poin {
+    font-family: var(--font-pixel-ui);
+    font-size: 18px;
+    color: var(--langit-muda);
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+/* Grid 4 Pilar pada hasil.html */
+.grid-skor-pilar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 26px;
+}
+
+.kartu-skor-pilar {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background-color: #223857;
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--langit-muda);
+    outline-offset: -6px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 20px;
+}
+
+.isi-kartu-skor {
+    flex: 1;
+}
+
+.judul-pilar-skor {
+    font-family: var(--font-pixel-ui);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--warna-kuning-hangat);
+}
+
+.wilayah-pilar-skor {
+    font-family: var(--font-pixel-baca);
+    font-size: 18px;
+    color: var(--ui-teks-lembut);
+    margin-bottom: 10px;
+}
+
+/* Bar Progres Pixel */
+.batang-progres-luar {
+    width: 100%;
+    height: 20px;
+    background-color: #152338;
+    border: 3px solid var(--ui-garis-pixel);
+    overflow: hidden;
+    margin-bottom: 8px;
+    padding: 2px;
+}
+
+.batang-progres-dalam {
+    height: 100%;
+    background-color: var(--warna-hijau-tombol);
+    background-image: repeating-linear-gradient(
+        90deg,
+        #74c69d 0px,
+        #74c69d 12px,
+        #38b000 12px,
+        #38b000 18px
+    );
+    transition: width 0.35s steps(8, end);
+}
+
+.angka-skor-pilar {
+    font-family: var(--font-pixel-ui);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ui-teks-utama);
+}
+
+/* Halaman Detail Kemampuan (detail.html) */
+.daftar-detail-pilar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 26px;
+}
+
+.kartu-detail-kemampuan {
+    background-color: #223857;
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--langit-muda);
+    outline-offset: -6px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 76px 1fr 150px;
+    gap: 20px;
+    align-items: center;
+}
+
+.lencana-level-kemampuan {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    padding: 4px 12px;
+    border: 2px solid var(--ui-garis-pixel);
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 8px;
+}
+
+.level-mahir {
+    background-color: var(--warna-hijau-tombol);
+    color: #ffffff;
+}
+
+.level-cakap {
+    background-color: var(--langit-biru);
+    color: #131c2b;
+}
+
+.level-berkembang {
+    background-color: var(--warna-kuning-hangat);
+    color: #131c2b;
+}
+
+.deskripsi-capaian-detail {
+    font-size: var(--ukuran-instruksi);
+    color: var(--ui-teks-utama);
+    margin-top: 8px;
+}
+
+.kotak-nilai-detail {
+    background-color: #182840;
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--warna-kuning-hangat);
+    outline-offset: -5px;
+    padding: 14px;
+    text-align: center;
+}
+
+.nilai-besar-detail {
+    font-family: var(--font-pixel-judul);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--warna-kuning-hangat);
+}
+
+@media (max-width: 780px) {
+    .grid-skor-pilar {
+        grid-template-columns: 1fr;
+    }
+
+    .kartu-detail-kemampuan {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+    }
+
+    .info-utama-hasil {
+        text-align: center;
+    }
+}

@@ -1,0 +1,454 @@
+{
+  "soal": [
+    {
+      "id": "desa-001",
+      "jenis": "bentuk",
+      "instruksi": "Pilih bentuk yang melengkapi pola jalan!",
+      "pola": ["lingkaran", "persegi", "lingkaran", "persegi", "?"],
+      "opsi": ["segitiga", "lingkaran", "persegi"],
+      "jawaban": "lingkaran",
+      "penjelasan": "Pola bergantian antara lingkaran dan persegi."
+    },
+    {
+      "id": "desa-002",
+      "jenis": "warna",
+      "instruksi": "Pilih warna berikutnya untuk memperbaiki ubin jalan!",
+      "pola": ["merah", "biru", "merah", "biru", "?"],
+      "opsi": ["kuning", "merah", "hijau"],
+      "jawaban": "merah",
+      "penjelasan": "Pola bergantian antara merah dan biru."
+    },
+    {
+      "id": "desa-003",
+      "jenis": "angka",
+      "instruksi": "Pilih angka yang tepat untuk melengkapi ubin jalan!",
+      "pola": ["2", "4", "6", "8", "?"],
+      "opsi": ["9", "10", "12"],
+      "jawaban": "10",
+      "penjelasan": "Setiap ubin bertambah 2 dari angka sebelumnya."
+    },
+    {
+      "id": "desa-004",
+      "jenis": "bentuk",
+      "instruksi": "Amati urutan bentuk ubin, lalu pilih bentuk yang hilang!",
+      "pola": ["segitiga", "segitiga", "bintang", "segitiga", "segitiga", "?"],
+      "opsi": ["bintang", "lingkaran", "persegi"],
+      "jawaban": "bintang",
+      "penjelasan": "Pola berulang setiap tiga ubin: dua segitiga lalu satu bintang."
+    },
+    {
+      "id": "desa-005",
+      "jenis": "warna",
+      "instruksi": "Lengkapi ubin warna yang rumpang pada jalan desa!",
+      "pola": ["kuning", "hijau", "ungu", "kuning", "hijau", "?"],
+      "opsi": ["merah", "ungu", "biru"],
+      "jawaban": "ungu",
+      "penjelasan": "Pola tiga warna berulang: kuning, hijau, lalu ungu."
+    },
+    {
+      "id": "desa-006",
+      "jenis": "angka",
+      "instruksi": "Tentukan angka berikutnya pada deret ubin jembatan!",
+      "pola": ["5", "10", "15", "20", "?"],
+      "opsi": ["22", "25", "30"],
+      "jawaban": "25",
+      "penjelasan": "Pola bilangan loncat 5 (bertambah 5 di setiap langkah)."
+    },
+    {
+      "id": "desa-007",
+      "jenis": "bentuk",
+      "instruksi": "Pilih bentuk yang tepat untuk mengisi tanda tanya!",
+      "pola": ["persegi", "segitiga", "lingkaran", "persegi", "segitiga", "?"],
+      "opsi": ["lingkaran", "bintang", "persegi"],
+      "jawaban": "lingkaran",
+      "penjelasan": "Urutan bentuk berulang: persegi, segitiga, lingkaran."
+    },
+    {
+      "id": "desa-008",
+      "jenis": "warna",
+      "instruksi": "Perhatikan pola warna ubin dan pilih warna yang sesuai!",
+      "pola": ["biru", "biru", "kuning", "biru", "biru", "?"],
+      "opsi": ["merah", "kuning", "hijau"],
+      "jawaban": "kuning",
+      "penjelasan": "Setelah dua ubin biru selalu diikuti satu ubin kuning."
+    },
+    {
+      "id": "desa-009",
+      "jenis": "angka",
+      "instruksi": "Lengkapi angka yang hilang pada urutan ubin!",
+      "pola": ["1", "3", "5", "7", "?"],
+      "opsi": ["8", "9", "11"],
+      "jawaban": "9",
+      "penjelasan": "Pola bilangan ganjil yang bertambah 2 setiap langkah."
+    },
+    {
+      "id": "desa-010",
+      "jenis": "bentuk",
+      "instruksi": "Manakah bentuk ubin yang tepat untuk melengkapi jalan?",
+      "pola": ["bintang", "belah_ketupat", "bintang", "belah_ketupat", "?"],
+      "opsi": ["bintang", "persegi", "segitiga"],
+      "jawaban": "bintang",
+      "penjelasan": "Pola bergantian antara bintang dan belah ketupat."
+    },
+    {
+      "id": "desa-011",
+      "jenis": "warna",
+      "instruksi": "Ubin di tengah jalan hilang! Pilih warna yang benar!",
+      "pola": ["hijau", "merah", "?", "merah", "hijau"],
+      "opsi": ["hijau", "biru", "ungu"],
+      "jawaban": "hijau",
+      "penjelasan": "Pola berselang-seling hijau dan merah."
+    },
+    {
+      "id": "desa-012",
+      "jenis": "angka",
+      "instruksi": "Temukan angka yang hilang di tengah pola!",
+      "pola": ["10", "20", "?", "40", "50"],
+      "opsi": ["25", "30", "35"],
+      "jawaban": "30",
+      "penjelasan": "Setiap ubin bertambah 10 dari ubin sebelumnya."
+    },
+    {
+      "id": "desa-013",
+      "jenis": "bentuk",
+      "instruksi": "Pilih bentuk ubin untuk melengkapi bagian yang kosong!",
+      "pola": ["lingkaran", "lingkaran", "persegi", "persegi", "lingkaran", "lingkaran", "?"],
+      "opsi": ["segitiga", "persegi", "bintang"],
+      "jawaban": "persegi",
+      "penjelasan": "Pola berpasangan dua lingkaran lalu dua persegi."
+    },
+    {
+      "id": "desa-014",
+      "jenis": "warna",
+      "instruksi": "Pilih warna ubin yang tepat untuk urutan terakhir!",
+      "pola": ["ungu", "kuning", "ungu", "kuning", "?"],
+      "opsi": ["ungu", "hijau", "biru"],
+      "jawaban": "ungu",
+      "penjelasan": "Pola warna bergantian ungu dan kuning."
+    },
+    {
+      "id": "desa-015",
+      "jenis": "angka",
+      "instruksi": "Amati pola angka menurun berikut dan pilih angka selanjutnya!",
+      "pola": ["20", "18", "16", "14", "?"],
+      "opsi": ["13", "12", "10"],
+      "jawaban": "12",
+      "penjelasan": "Setiap ubin berkurang 2 dari angka sebelumnya."
+    },
+    {
+      "id": "desa-016",
+      "jenis": "bentuk",
+      "instruksi": "Lengkapi ubin yang hilang pada pola jalan desa!",
+      "pola": ["belah_ketupat", "segitiga", "belah_ketupat", "?", "belah_ketupat"],
+      "opsi": ["lingkaran", "segitiga", "persegi"],
+      "jawaban": "segitiga",
+      "penjelasan": "Pola bergantian antara belah ketupat dan segitiga."
+    },
+    {
+      "id": "desa-017",
+      "jenis": "warna",
+      "instruksi": "Pilih warna yang melengkapi pola tiga warna berikut!",
+      "pola": ["merah", "kuning", "hijau", "merah", "?", "hijau"],
+      "opsi": ["biru", "kuning", "ungu"],
+      "jawaban": "kuning",
+      "penjelasan": "Urutan berulang seperti lampu lalu lintas: merah, kuning, hijau."
+    },
+    {
+      "id": "desa-018",
+      "jenis": "angka",
+      "instruksi": "Pilih angka yang sesuai untuk melanjutkan deret ubin!",
+      "pola": ["3", "6", "9", "12", "?"],
+      "opsi": ["14", "15", "16"],
+      "jawaban": "15",
+      "penjelasan": "Pola kelipatan 3 (bertambah 3 setiap ubin)."
+    },
+    {
+      "id": "desa-019",
+      "jenis": "bentuk",
+      "instruksi": "Pilih bentuk yang tepat untuk ubin terakhir!",
+      "pola": ["bintang", "lingkaran", "persegi", "bintang", "lingkaran", "?"],
+      "opsi": ["persegi", "segitiga", "belah_ketupat"],
+      "jawaban": "persegi",
+      "penjelasan": "Pola tiga bentuk berulang: bintang, lingkaran, persegi."
+    },
+    {
+      "id": "desa-020",
+      "jenis": "warna",
+      "instruksi": "Temukan warna ubin yang tepat untuk mengisi tanda tanya!",
+      "pola": ["hijau", "hijau", "ungu", "hijau", "hijau", "?"],
+      "opsi": ["ungu", "merah", "kuning"],
+      "jawaban": "ungu",
+      "penjelasan": "Setiap dua ubin hijau diikuti oleh satu ubin ungu."
+    },
+    {
+      "id": "desa-021",
+      "jenis": "angka",
+      "instruksi": "Lengkapi pola angka berulang pada jalan batu!",
+      "pola": ["1", "2", "3", "1", "2", "?"],
+      "opsi": ["1", "3", "4"],
+      "jawaban": "3",
+      "penjelasan": "Pola angka berulang 1, 2, 3."
+    },
+    {
+      "id": "desa-022",
+      "jenis": "bentuk",
+      "instruksi": "Pilih bentuk ubin yang hilang pada urutan kedua!",
+      "pola": ["persegi", "?", "persegi", "segitiga", "persegi", "segitiga"],
+      "opsi": ["segitiga", "bintang", "lingkaran"],
+      "jawaban": "segitiga",
+      "penjelasan": "Pola bergantian antara persegi dan segitiga."
+    },
+    {
+      "id": "desa-023",
+      "jenis": "warna",
+      "instruksi": "Pilih warna ubin yang sesuai dengan pola!",
+      "pola": ["biru", "merah", "hijau", "biru", "merah", "?"],
+      "opsi": ["kuning", "hijau", "ungu"],
+      "jawaban": "hijau",
+      "penjelasan": "Urutan warna berulang: biru, merah, hijau."
+    },
+    {
+      "id": "desa-024",
+      "jenis": "angka",
+      "instruksi": "Berapakah angka berikutnya pada pola kelipatan 4 ini?",
+      "pola": ["4", "8", "12", "16", "?"],
+      "opsi": ["18", "20", "24"],
+      "jawaban": "20",
+      "penjelasan": "Setiap langkah bertambah 4."
+    },
+    {
+      "id": "desa-025",
+      "jenis": "bentuk",
+      "instruksi": "Perhatikan pola simetris berikut dan pilih bentuk yang tepat!",
+      "pola": ["lingkaran", "segitiga", "bintang", "segitiga", "?"],
+      "opsi": ["lingkaran", "persegi", "bintang"],
+      "jawaban": "lingkaran",
+      "penjelasan": "Pola cermin (simetris) dengan bintang di tengah dan lingkaran di kedua ujung."
+    },
+    {
+      "id": "desa-026",
+      "jenis": "warna",
+      "instruksi": "Pilih warna yang melengkapi pola warna berpasangan!",
+      "pola": ["merah", "merah", "biru", "biru", "merah", "?"],
+      "opsi": ["merah", "biru", "kuning"],
+      "jawaban": "merah",
+      "penjelasan": "Setiap warna muncul dua kali berturut-turut: dua merah lalu dua biru."
+    },
+    {
+      "id": "desa-027",
+      "jenis": "angka",
+      "instruksi": "Amati pola angka hitung mundur berikut!",
+      "pola": ["50", "40", "30", "20", "?"],
+      "opsi": ["15", "10", "5"],
+      "jawaban": "10",
+      "penjelasan": "Setiap ubin berkurang 10 dari angka sebelumnya."
+    },
+    {
+      "id": "desa-028",
+      "jenis": "bentuk",
+      "instruksi": "Pilih bentuk yang hilang pada deretan ubin!",
+      "pola": ["belah_ketupat", "lingkaran", "belah_ketupat", "lingkaran", "?"],
+      "opsi": ["persegi", "belah_ketupat", "segitiga"],
+      "jawaban": "belah_ketupat",
+      "penjelasan": "Pola bergantian antara belah ketupat dan lingkaran."
+    },
+    {
+      "id": "desa-029",
+      "jenis": "warna",
+      "instruksi": "Lengkapi ubin warna pada posisi keempat!",
+      "pola": ["kuning", "ungu", "kuning", "?", "kuning"],
+      "opsi": ["hijau", "ungu", "merah"],
+      "jawaban": "ungu",
+      "penjelasan": "Pola berselang-seling antara kuning dan ungu."
+    },
+    {
+      "id": "desa-030",
+      "jenis": "angka",
+      "instruksi": "Pilih angka yang tepat untuk pola berlipat dua berikut!",
+      "pola": ["1", "2", "4", "8", "?"],
+      "opsi": ["10", "12", "16"],
+      "jawaban": "16",
+      "penjelasan": "Setiap angka dikalikan 2 dari angka sebelumnya (8 x 2 = 16)."
+    },
+    {
+      "id": "desa-031",
+      "jenis": "bentuk",
+      "instruksi": "Pilih bentuk ubin yang melengkapi pola!",
+      "pola": ["persegi", "persegi", "belah_ketupat", "persegi", "persegi", "?"],
+      "opsi": ["belah_ketupat", "lingkaran", "segitiga"],
+      "jawaban": "belah_ketupat",
+      "penjelasan": "Setelah dua persegi selalu muncul satu belah ketupat."
+    },
+    {
+      "id": "desa-032",
+      "jenis": "warna",
+      "instruksi": "Pilih warna yang tepat untuk menutup urutan jalan!",
+      "pola": ["ungu", "biru", "hijau", "ungu", "biru", "?"],
+      "opsi": ["merah", "hijau", "kuning"],
+      "jawaban": "hijau",
+      "penjelasan": "Pola tiga warna berulang: ungu, biru, hijau."
+    },
+    {
+      "id": "desa-033",
+      "jenis": "angka",
+      "instruksi": "Temukan angka berikutnya pada pola selang-seling!",
+      "pola": ["5", "1", "5", "1", "?"],
+      "opsi": ["1", "5", "10"],
+      "jawaban": "5",
+      "penjelasan": "Pola angka bergantian antara 5 dan 1."
+    },
+    {
+      "id": "desa-034",
+      "jenis": "bentuk",
+      "instruksi": "Bentuk apakah yang seharusnya berada pada tanda tanya?",
+      "pola": ["segitiga", "bintang", "lingkaran", "segitiga", "?", "lingkaran"],
+      "opsi": ["persegi", "bintang", "belah_ketupat"],
+      "jawaban": "bintang",
+      "penjelasan": "Pola berulang: segitiga, bintang, lingkaran."
+    },
+    {
+      "id": "desa-035",
+      "jenis": "warna",
+      "instruksi": "Lengkapi warna pertama yang hilang pada pola jalan!",
+      "pola": ["?", "hijau", "kuning", "hijau", "kuning", "hijau"],
+      "opsi": ["kuning", "merah", "biru"],
+      "jawaban": "kuning",
+      "penjelasan": "Pola berselang-seling dimulai dari kuning lalu hijau."
+    },
+    {
+      "id": "desa-036",
+      "jenis": "angka",
+      "instruksi": "Tentukan angka berikutnya pada deret loncat 6!",
+      "pola": ["6", "12", "18", "24", "?"],
+      "opsi": ["28", "30", "32"],
+      "jawaban": "30",
+      "penjelasan": "Setiap ubin bertambah 6 dari ubin sebelumnya."
+    },
+    {
+      "id": "desa-037",
+      "jenis": "bentuk",
+      "instruksi": "Pilih bentuk yang tepat untuk melanjutkan pola!",
+      "pola": ["bintang", "bintang", "persegi", "bintang", "bintang", "?"],
+      "opsi": ["persegi", "segitiga", "lingkaran"],
+      "jawaban": "persegi",
+      "penjelasan": "Dua bintang selalu diikuti satu persegi."
+    },
+    {
+      "id": "desa-038",
+      "jenis": "warna",
+      "instruksi": "Pilih warna yang hilang pada urutan jalan desa!",
+      "pola": ["merah", "ungu", "biru", "merah", "ungu", "?"],
+      "opsi": ["hijau", "biru", "kuning"],
+      "jawaban": "biru",
+      "penjelasan": "Pola berulang tiga warna: merah, ungu, biru."
+    },
+    {
+      "id": "desa-039",
+      "jenis": "angka",
+      "instruksi": "Amati pertambahan bertingkat dan pilih angka berikutnya!",
+      "pola": ["1", "2", "4", "7", "11", "?"],
+      "opsi": ["15", "16", "17"],
+      "jawaban": "16",
+      "penjelasan": "Selisih bertambah secara berurutan: +1, +2, +3, +4, lalu +5 (11 + 5 = 16)."
+    },
+    {
+      "id": "desa-040",
+      "jenis": "bentuk",
+      "instruksi": "Pilih bentuk ubin yang tepat untuk mengisi tanda tanya!",
+      "pola": ["lingkaran", "belah_ketupat", "segitiga", "lingkaran", "belah_ketupat", "?"],
+      "opsi": ["segitiga", "bintang", "persegi"],
+      "jawaban": "segitiga",
+      "penjelasan": "Urutan tiga bentuk berulang: lingkaran, belah ketupat, segitiga."
+    },
+    {
+      "id": "desa-041",
+      "jenis": "warna",
+      "instruksi": "Pilih warna ubin yang sesuai untuk pola berikut!",
+      "pola": ["kuning", "kuning", "merah", "kuning", "kuning", "?"],
+      "opsi": ["biru", "merah", "hijau"],
+      "jawaban": "merah",
+      "penjelasan": "Setiap dua ubin kuning diikuti satu ubin merah."
+    },
+    {
+      "id": "desa-042",
+      "jenis": "angka",
+      "instruksi": "Berapakah angka yang hilang pada pola hitung mundur 3 ini?",
+      "pola": ["15", "12", "9", "6", "?"],
+      "opsi": ["4", "3", "2"],
+      "jawaban": "3",
+      "penjelasan": "Setiap ubin berkurang 3 dari angka sebelumnya."
+    },
+    {
+      "id": "desa-043",
+      "jenis": "bentuk",
+      "instruksi": "Lengkapi ubin bentuk yang rumpang di tengah jalan!",
+      "pola": ["persegi", "bintang", "?", "bintang", "persegi"],
+      "opsi": ["persegi", "lingkaran", "segitiga"],
+      "jawaban": "persegi",
+      "penjelasan": "Pola bergantian antara persegi dan bintang."
+    },
+    {
+      "id": "desa-044",
+      "jenis": "warna",
+      "instruksi": "Pilih warna yang tepat untuk melengkapi jalan!",
+      "pola": ["hijau", "biru", "hijau", "biru", "?"],
+      "opsi": ["hijau", "ungu", "merah"],
+      "jawaban": "hijau",
+      "penjelasan": "Pola warna bergantian antara hijau dan biru."
+    },
+    {
+      "id": "desa-045",
+      "jenis": "angka",
+      "instruksi": "Pilih angka yang melengkapi pola kelipatan 7!",
+      "pola": ["7", "14", "21", "28", "?"],
+      "opsi": ["34", "35", "36"],
+      "jawaban": "35",
+      "penjelasan": "Setiap ubin bertambah 7 dari angka sebelumnya."
+    },
+    {
+      "id": "desa-046",
+      "jenis": "bentuk",
+      "instruksi": "Pilih bentuk ubin yang tepat untuk urutan terakhir!",
+      "pola": ["segitiga", "persegi", "belah_ketupat", "segitiga", "persegi", "?"],
+      "opsi": ["belah_ketupat", "lingkaran", "bintang"],
+      "jawaban": "belah_ketupat",
+      "penjelasan": "Pola berulang tiga bentuk: segitiga, persegi, belah ketupat."
+    },
+    {
+      "id": "desa-047",
+      "jenis": "warna",
+      "instruksi": "Manakah warna yang tepat untuk mengisi ubin kosong?",
+      "pola": ["ungu", "ungu", "biru", "ungu", "ungu", "?"],
+      "opsi": ["biru", "kuning", "merah"],
+      "jawaban": "biru",
+      "penjelasan": "Dua ubin ungu selalu diikuti satu ubin biru."
+    },
+    {
+      "id": "desa-048",
+      "jenis": "angka",
+      "instruksi": "Lengkapi pola tiga angka berulang berikut!",
+      "pola": ["2", "5", "8", "2", "5", "?"],
+      "opsi": ["2", "7", "8"],
+      "jawaban": "8",
+      "penjelasan": "Kelompok tiga angka (2, 5, 8) berulang kembali."
+    },
+    {
+      "id": "desa-049",
+      "jenis": "bentuk",
+      "instruksi": "Pilih bentuk yang benar untuk melengkapi barisan ubin!",
+      "pola": ["belah_ketupat", "belah_ketupat", "bintang", "belah_ketupat", "belah_ketupat", "?"],
+      "opsi": ["bintang", "persegi", "lingkaran"],
+      "jawaban": "bintang",
+      "penjelasan": "Setelah dua belah ketupat selalu diikuti satu bintang."
+    },
+    {
+      "id": "desa-050",
+      "jenis": "warna",
+      "instruksi": "Pilih warna terakhir untuk menyelesaikan pola jalan desa!",
+      "pola": ["biru", "kuning", "merah", "biru", "kuning", "?"],
+      "opsi": ["hijau", "merah", "ungu"],
+      "jawaban": "merah",
+      "penjelasan": "Pola tiga warna dasar berulang: biru, kuning, merah."
+    }
+  ]
+}

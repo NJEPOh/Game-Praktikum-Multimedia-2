@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Pulau Logika - Halaman Awal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+<!--
+    Daftar Aset Gambar pada index.html:
+    - Gambar 1: background-1.png | Lokasi: assets/images/backgrounds/background-1.png | Ukuran disarankan: 1920x1080 px | Fungsi: Latar belakang halaman awal (melalui css/menu.css)
+    - Gambar 11: logo_game.png | Lokasi: assets/images/icons/logo_game.png | Ukuran tampilan: 320x120 px | Fungsi: Logo judul permainan Misi Pulau Logika
+    - Gambar 8: karakter_pemain.png | Lokasi: assets/images/characters/karakter_pemain.png | Ukuran tampilan: 140x180 px | Fungsi: Ilustrasi karakter penjelajah utama
+-->
+<body class="latar-awal" data-bgm="music-background-1.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">Misi Pulau Logika</span>
+            <span class="info-pemain-header">Game Edukasi Computational Thinking</span>
+        </div>
+        <div class="aksi-header">
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game panel-awal" aria-labelledby="judul-utama">
+            <div class="bungkus-logo-awal">
+                <!-- Gambar 11: logo_game.png | Ukuran tampilan: 320x120 px | Aset: assets/images/icons/logo_game.png -->
+                <img
+                    src="assets/images/icons/logo_game.png"
+                    alt="Logo Misi Pulau Logika"
+                    width="320"
+                    height="120"
+                >
+            </div>
+
+            <h1 id="judul-utama" class="judul-halaman">Misi Pulau Logika</h1>
+            <p class="subjudul-halaman">
+                Ayo bertualang di 4 wilayah dan pecahkan teka-tekinya!
+            </p>
+
+            <div class="bungkus-karakter-awal">
+                <!-- Gambar 8: karakter_pemain.png | Ukuran tampilan: 140x180 px | Aset: assets/images/characters/karakter_pemain.png -->
+                <img
+                    src="assets/images/characters/karakter_pemain.png"
+                    alt="Karakter pemain penjelajah"
+                    width="140"
+                    height="180"
+                >
+            </div>
+
+            <div class="formulir-pemain">
+                <label for="input-nama-pemain" class="label-input">Siapa Namamu?</label>
+                <input
+                    type="text"
+                    id="input-nama-pemain"
+                    class="input-nama"
+                    placeholder="Ketik namamu..."
+                    maxlength="30"
+                    autocomplete="off"
+                >
+                <div id="pesan-validasi-awal" class="kotak-pesan tersembunyi" role="alert"></div>
+            </div>
+
+            <div class="baris-tombol">
+                <button
+                    type="button"
+                    id="tombol-mulai"
+                    class="tombol tombol-utama"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Mulai
+                </button>
+                <button
+                    type="button"
+                    id="tombol-petunjuk"
+                    class="tombol tombol-sekunder"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Petunjuk
+                </button>
+            </div>
+
+            <div class="baris-reset-bawah">
+                <div id="info-progres-awal" class="info-progres-tersimpan">
+                    Status Progres: <span>Belum ada progres tersimpan</span>
+                </div>
+                <button
+                    type="button"
+                    id="tombol-reset-progres"
+                    class="tombol tombol-reset-progres"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Reset Progress
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Dialog Konfirmasi Reset Progress -->
+    <div
+        id="modal-konfirmasi-reset"
+        class="lapisan-modal-pixel tersembunyi"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="judul-modal-reset"
+        aria-describedby="pesan-modal-reset"
+    >
+        <div class="kotak-modal-pixel">
+            <span class="lencana-modal-bahaya">Tindakan Berisiko</span>
+            <h2 id="judul-modal-reset" class="judul-modal-pixel">Reset Progress Pemain</h2>
+            <p id="pesan-modal-reset" class="teks-modal-pixel">
+                Apakah kamu yakin ingin menghapus semua progres permainan? Tindakan ini tidak dapat dibatalkan.
+            </p>
+            <div class="aksi-modal-pixel">
+                <button
+                    type="button"
+                    id="tombol-batal-reset"
+                    class="tombol tombol-netral"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Batal
+                </button>
+                <button
+                    type="button"
+                    id="tombol-konfirmasi-reset"
+                    class="tombol tombol-bahaya"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Ya, Reset Progress
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

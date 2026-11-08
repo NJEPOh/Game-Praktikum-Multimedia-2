@@ -1,0 +1,653 @@
+{
+  "soal": [
+    {
+      "id": "kastil-001",
+      "instruksi": "Susun langkah dari sudut kiri bawah menuju gerbang di kanan bawah sambil menghindari batu rintangan!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 3, "kolom": 0 },
+      "tujuan": { "baris": 3, "kolom": 3 },
+      "rintangan": [
+        { "baris": 3, "kolom": 1 },
+        { "baris": 1, "kolom": 2 }
+      ],
+      "contohSolusi": ["maju", "kanan", "kanan", "mundur", "kanan"]
+    },
+    {
+      "id": "kastil-002",
+      "instruksi": "Arahkan penjelajah dari kiri bawah ke gerbang kanan atas!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 0 },
+      "tujuan": { "baris": 0, "kolom": 3 },
+      "rintangan": [
+        { "baris": 2, "kolom": 0 },
+        { "baris": 1, "kolom": 2 },
+        { "baris": 2, "kolom": 3 }
+      ],
+      "contohSolusi": ["kanan", "maju", "maju", "maju", "kanan", "kanan"]
+    },
+    {
+      "id": "kastil-003",
+      "instruksi": "Temukan rute aman dari pojok kiri atas menuju gerbang di pojok kanan bawah!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 0, "kolom": 0 },
+      "tujuan": { "baris": 3, "kolom": 3 },
+      "rintangan": [
+        { "baris": 0, "kolom": 2 },
+        { "baris": 1, "kolom": 1 },
+        { "baris": 2, "kolom": 2 }
+      ],
+      "contohSolusi": ["mundur", "mundur", "mundur", "kanan", "kanan", "kanan"]
+    },
+    {
+      "id": "kastil-004",
+      "instruksi": "Bantu penjelajah melewati lorong tengah menuju gerbang tujuan!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 1 },
+      "tujuan": { "baris": 0, "kolom": 1 },
+      "rintangan": [
+        { "baris": 2, "kolom": 1 },
+        { "baris": 1, "kolom": 0 },
+        { "baris": 1, "kolom": 3 }
+      ],
+      "contohSolusi": ["kanan", "maju", "maju", "kiri", "maju"]
+    },
+    {
+      "id": "kastil-005",
+      "instruksi": "Susun algoritma untuk mencapai gerbang di sudut kiri atas!",
+      "arahAwal": "kiri",
+      "awal": { "baris": 3, "kolom": 3 },
+      "tujuan": { "baris": 0, "kolom": 0 },
+      "rintangan": [
+        { "baris": 2, "kolom": 3 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 0, "kolom": 1 }
+      ],
+      "contohSolusi": ["kiri", "maju", "maju", "kiri", "kiri", "maju"]
+    },
+    {
+      "id": "kastil-006",
+      "instruksi": "Hindari dua batu penghalang di baris pertama untuk mencapai tujuan!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 0, "kolom": 0 },
+      "tujuan": { "baris": 0, "kolom": 3 },
+      "rintangan": [
+        { "baris": 0, "kolom": 1 },
+        { "baris": 0, "kolom": 2 },
+        { "baris": 2, "kolom": 1 }
+      ],
+      "contohSolusi": ["mundur", "kanan", "kanan", "kanan", "maju"]
+    },
+    {
+      "id": "kastil-007",
+      "instruksi": "Arahkan penjelajah dari baris kedua menuju gerbang kastil di kanan bawah!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 1, "kolom": 0 },
+      "tujuan": { "baris": 3, "kolom": 3 },
+      "rintangan": [
+        { "baris": 1, "kolom": 1 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 2, "kolom": 3 }
+      ],
+      "contohSolusi": ["mundur", "mundur", "kanan", "kanan", "kanan"]
+    },
+    {
+      "id": "kastil-008",
+      "instruksi": "Lewati celah di antara rintangan untuk menuju gerbang di kanan tengah!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 2, "kolom": 0 },
+      "tujuan": { "baris": 1, "kolom": 3 },
+      "rintangan": [
+        { "baris": 1, "kolom": 0 },
+        { "baris": 2, "kolom": 2 },
+        { "baris": 3, "kolom": 2 }
+      ],
+      "contohSolusi": ["kanan", "maju", "kanan", "kanan"]
+    },
+    {
+      "id": "kastil-009",
+      "instruksi": "Mulai dari kanan atas, susun instruksi menuju gerbang di kiri bawah!",
+      "arahAwal": "kiri",
+      "awal": { "baris": 0, "kolom": 3 },
+      "tujuan": { "baris": 3, "kolom": 0 },
+      "rintangan": [
+        { "baris": 0, "kolom": 1 },
+        { "baris": 1, "kolom": 1 },
+        { "baris": 2, "kolom": 3 }
+      ],
+      "contohSolusi": ["kiri", "mundur", "mundur", "kiri", "kiri", "mundur"]
+    },
+    {
+      "id": "kastil-010",
+      "instruksi": "Temukan jalan memutar untuk mencapai gerbang di sebelah kanan!",
+      "arahAwal": "atas",
+      "awal": { "baris": 2, "kolom": 1 },
+      "tujuan": { "baris": 2, "kolom": 3 },
+      "rintangan": [
+        { "baris": 2, "kolom": 2 },
+        { "baris": 3, "kolom": 2 },
+        { "baris": 0, "kolom": 1 }
+      ],
+      "contohSolusi": ["maju", "kanan", "kanan", "mundur"]
+    },
+    {
+      "id": "kastil-011",
+      "instruksi": "Bantu penjelajah bergerak dari tengah atas ke pojok kanan bawah!",
+      "arahAwal": "bawah",
+      "awal": { "baris": 0, "kolom": 1 },
+      "tujuan": { "baris": 3, "kolom": 3 },
+      "rintangan": [
+        { "baris": 1, "kolom": 1 },
+        { "baris": 1, "kolom": 2 },
+        { "baris": 3, "kolom": 1 }
+      ],
+      "contohSolusi": ["kiri", "mundur", "mundur", "kanan", "kanan", "mundur", "kanan"]
+    },
+    {
+      "id": "kastil-012",
+      "instruksi": "Capai gerbang di baris paling atas tanpa menyentuh rintangan!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 2 },
+      "tujuan": { "baris": 0, "kolom": 0 },
+      "rintangan": [
+        { "baris": 2, "kolom": 2 },
+        { "baris": 1, "kolom": 1 },
+        { "baris": 2, "kolom": 3 }
+      ],
+      "contohSolusi": ["kiri", "maju", "kiri", "maju", "maju"]
+    },
+    {
+      "id": "kastil-013",
+      "instruksi": "Susun langkah tepat menuju pintu menara di kanan atas!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 2, "kolom": 0 },
+      "tujuan": { "baris": 0, "kolom": 3 },
+      "rintangan": [
+        { "baris": 1, "kolom": 0 },
+        { "baris": 1, "kolom": 2 },
+        { "baris": 2, "kolom": 3 }
+      ],
+      "contohSolusi": ["kanan", "maju", "maju", "kanan", "kanan"]
+    },
+    {
+      "id": "kastil-014",
+      "instruksi": "Arahkan penjelajah dari kiri atas menuju tengah bawah!",
+      "arahAwal": "bawah",
+      "awal": { "baris": 0, "kolom": 0 },
+      "tujuan": { "baris": 3, "kolom": 2 },
+      "rintangan": [
+        { "baris": 1, "kolom": 0 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 1, "kolom": 3 }
+      ],
+      "contohSolusi": ["kanan", "mundur", "kanan", "mundur", "mundur"]
+    },
+    {
+      "id": "kastil-015",
+      "instruksi": "Hindari tiga batu penghalang dan capai tujuan di kiri bawah!",
+      "arahAwal": "kiri",
+      "awal": { "baris": 1, "kolom": 3 },
+      "tujuan": { "baris": 3, "kolom": 0 },
+      "rintangan": [
+        { "baris": 1, "kolom": 2 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 0, "kolom": 1 }
+      ],
+      "contohSolusi": ["mundur", "mundur", "kiri", "kiri", "kiri"]
+    },
+    {
+      "id": "kastil-016",
+      "instruksi": "Gunakan langkah Maju dan Kanan secara berurutan seperti tangga!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 0 },
+      "tujuan": { "baris": 1, "kolom": 2 },
+      "rintangan": [
+        { "baris": 2, "kolom": 0 },
+        { "baris": 3, "kolom": 2 },
+        { "baris": 1, "kolom": 1 }
+      ],
+      "contohSolusi": ["kanan", "maju", "kanan", "maju"]
+    },
+    {
+      "id": "kastil-017",
+      "instruksi": "Putari dinding batu di tengah papan untuk mencapai gerbang!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 1 },
+      "tujuan": { "baris": 1, "kolom": 1 },
+      "rintangan": [
+        { "baris": 2, "kolom": 1 },
+        { "baris": 2, "kolom": 2 },
+        { "baris": 0, "kolom": 3 }
+      ],
+      "contohSolusi": ["kiri", "maju", "maju", "kanan"]
+    },
+    {
+      "id": "kastil-018",
+      "instruksi": "Temukan jalur dari pojok kanan bawah ke tengah atas!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 3 },
+      "tujuan": { "baris": 0, "kolom": 1 },
+      "rintangan": [
+        { "baris": 2, "kolom": 3 },
+        { "baris": 1, "kolom": 2 },
+        { "baris": 2, "kolom": 0 }
+      ],
+      "contohSolusi": ["kiri", "maju", "kiri", "maju", "maju"]
+    },
+    {
+      "id": "kastil-019",
+      "instruksi": "Bergeraklah dari kiri tengah menuju gerbang di kanan tengah!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 1, "kolom": 0 },
+      "tujuan": { "baris": 1, "kolom": 3 },
+      "rintangan": [
+        { "baris": 1, "kolom": 1 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 2, "kolom": 2 }
+      ],
+      "contohSolusi": ["maju", "kanan", "kanan", "kanan", "mundur"]
+    },
+    {
+      "id": "kastil-020",
+      "instruksi": "Susun algoritma untuk turun dari kanan atas ke kanan bawah!",
+      "arahAwal": "bawah",
+      "awal": { "baris": 0, "kolom": 3 },
+      "tujuan": { "baris": 3, "kolom": 3 },
+      "rintangan": [
+        { "baris": 1, "kolom": 3 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 1, "kolom": 0 }
+      ],
+      "contohSolusi": ["kiri", "mundur", "mundur", "kanan", "mundur"]
+    },
+    {
+      "id": "kastil-021",
+      "instruksi": "Arahkan penjelajah melewati jalur bawah menuju sudut kiri atas!",
+      "arahAwal": "kiri",
+      "awal": { "baris": 2, "kolom": 3 },
+      "tujuan": { "baris": 0, "kolom": 0 },
+      "rintangan": [
+        { "baris": 1, "kolom": 3 },
+        { "baris": 1, "kolom": 2 },
+        { "baris": 2, "kolom": 1 }
+      ],
+      "contohSolusi": ["mundur", "kiri", "kiri", "kiri", "maju", "maju", "maju"]
+    },
+    {
+      "id": "kastil-022",
+      "instruksi": "Capai gerbang di kolom ketiga tanpa menabrak rintangan!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 0, "kolom": 0 },
+      "tujuan": { "baris": 2, "kolom": 2 },
+      "rintangan": [
+        { "baris": 0, "kolom": 1 },
+        { "baris": 2, "kolom": 0 },
+        { "baris": 1, "kolom": 2 }
+      ],
+      "contohSolusi": ["mundur", "kanan", "mundur", "kanan"]
+    },
+    {
+      "id": "kastil-023",
+      "instruksi": "Susun instruksi dari baris paling bawah menuju pojok kanan atas!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 1 },
+      "tujuan": { "baris": 0, "kolom": 3 },
+      "rintangan": [
+        { "baris": 2, "kolom": 1 },
+        { "baris": 2, "kolom": 3 },
+        { "baris": 0, "kolom": 2 }
+      ],
+      "contohSolusi": ["kanan", "maju", "maju", "kanan", "maju"]
+    },
+    {
+      "id": "kastil-024",
+      "instruksi": "Bantu penjelajah mencapai gerbang di sebelah kiri bawah!",
+      "arahAwal": "bawah",
+      "awal": { "baris": 0, "kolom": 2 },
+      "tujuan": { "baris": 3, "kolom": 0 },
+      "rintangan": [
+        { "baris": 1, "kolom": 2 },
+        { "baris": 1, "kolom": 0 },
+        { "baris": 3, "kolom": 2 }
+      ],
+      "contohSolusi": ["kiri", "mundur", "mundur", "mundur", "kiri"]
+    },
+    {
+      "id": "kastil-025",
+      "instruksi": "Susun langkah berliku untuk menembus pertahanan batu kastil!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 3, "kolom": 0 },
+      "tujuan": { "baris": 1, "kolom": 3 },
+      "rintangan": [
+        { "baris": 2, "kolom": 0 },
+        { "baris": 2, "kolom": 2 },
+        { "baris": 3, "kolom": 2 }
+      ],
+      "contohSolusi": ["kanan", "maju", "maju", "kanan", "kanan"]
+    },
+    {
+      "id": "kastil-026",
+      "instruksi": "Mulai dari tengah papan, capai gerbang di sudut kanan bawah!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 1, "kolom": 1 },
+      "tujuan": { "baris": 3, "kolom": 3 },
+      "rintangan": [
+        { "baris": 1, "kolom": 2 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 2, "kolom": 3 }
+      ],
+      "contohSolusi": ["kiri", "mundur", "mundur", "kanan", "kanan", "kanan"]
+    },
+    {
+      "id": "kastil-027",
+      "instruksi": "Cari jalan terdekat dari kiri atas menuju kiri bawah!",
+      "arahAwal": "bawah",
+      "awal": { "baris": 0, "kolom": 0 },
+      "tujuan": { "baris": 3, "kolom": 0 },
+      "rintangan": [
+        { "baris": 1, "kolom": 0 },
+        { "baris": 2, "kolom": 0 },
+        { "baris": 1, "kolom": 2 }
+      ],
+      "contohSolusi": ["kanan", "mundur", "mundur", "mundur", "kiri"]
+    },
+    {
+      "id": "kastil-028",
+      "instruksi": "Susun langkah menuju gerbang di baris pertama kolom ketiga!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 0 },
+      "tujuan": { "baris": 0, "kolom": 2 },
+      "rintangan": [
+        { "baris": 1, "kolom": 0 },
+        { "baris": 2, "kolom": 2 },
+        { "baris": 1, "kolom": 2 }
+      ],
+      "contohSolusi": ["maju", "kanan", "maju", "maju", "kanan"]
+    },
+    {
+      "id": "kastil-029",
+      "instruksi": "Arahkan penjelajah dari kanan bawah menuju kiri tengah!",
+      "arahAwal": "kiri",
+      "awal": { "baris": 3, "kolom": 3 },
+      "tujuan": { "baris": 1, "kolom": 0 },
+      "rintangan": [
+        { "baris": 3, "kolom": 2 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 0, "kolom": 1 }
+      ],
+      "contohSolusi": ["maju", "kiri", "maju", "kiri", "kiri"]
+    },
+    {
+      "id": "kastil-030",
+      "instruksi": "Capai gerbang di tengah bawah dengan menghindari dua batu!",
+      "arahAwal": "bawah",
+      "awal": { "baris": 0, "kolom": 1 },
+      "tujuan": { "baris": 3, "kolom": 1 },
+      "rintangan": [
+        { "baris": 1, "kolom": 1 },
+        { "baris": 2, "kolom": 0 },
+        { "baris": 2, "kolom": 3 }
+      ],
+      "contohSolusi": ["kanan", "mundur", "mundur", "kiri", "mundur"]
+    },
+    {
+      "id": "kastil-031",
+      "instruksi": "Bergeraklah dari kanan atas menuju tengah kiri tanpa menabrak batu!",
+      "arahAwal": "kiri",
+      "awal": { "baris": 0, "kolom": 3 },
+      "tujuan": { "baris": 2, "kolom": 0 },
+      "rintangan": [
+        { "baris": 0, "kolom": 2 },
+        { "baris": 1, "kolom": 1 },
+        { "baris": 3, "kolom": 1 }
+      ],
+      "contohSolusi": ["mundur", "kiri", "mundur", "kiri", "kiri"]
+    },
+    {
+      "id": "kastil-032",
+      "instruksi": "Susun algoritma menuju gerbang kastil di pojok kanan atas!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 1, "kolom": 0 },
+      "tujuan": { "baris": 0, "kolom": 3 },
+      "rintangan": [
+        { "baris": 0, "kolom": 0 },
+        { "baris": 1, "kolom": 2 },
+        { "baris": 2, "kolom": 2 }
+      ],
+      "contohSolusi": ["kanan", "maju", "kanan", "kanan"]
+    },
+    {
+      "id": "kastil-033",
+      "instruksi": "Pandu penjelajah dari kiri bawah ke baris kedua kolom keempat!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 0 },
+      "tujuan": { "baris": 1, "kolom": 3 },
+      "rintangan": [
+        { "baris": 2, "kolom": 0 },
+        { "baris": 1, "kolom": 1 },
+        { "baris": 3, "kolom": 2 }
+      ],
+      "contohSolusi": ["kanan", "maju", "kanan", "maju", "kanan"]
+    },
+    {
+      "id": "kastil-034",
+      "instruksi": "Hindari penghalang di tengah untuk mencapai gerbang di kiri atas!",
+      "arahAwal": "atas",
+      "awal": { "baris": 2, "kolom": 2 },
+      "tujuan": { "baris": 0, "kolom": 0 },
+      "rintangan": [
+        { "baris": 1, "kolom": 2 },
+        { "baris": 1, "kolom": 1 },
+        { "baris": 3, "kolom": 0 }
+      ],
+      "contohSolusi": ["kiri", "kiri", "maju", "maju"]
+    },
+    {
+      "id": "kastil-035",
+      "instruksi": "Susun langkah dari baris pertama menuju gerbang di baris keempat!",
+      "arahAwal": "bawah",
+      "awal": { "baris": 0, "kolom": 2 },
+      "tujuan": { "baris": 3, "kolom": 2 },
+      "rintangan": [
+        { "baris": 1, "kolom": 2 },
+        { "baris": 2, "kolom": 2 },
+        { "baris": 1, "kolom": 0 }
+      ],
+      "contohSolusi": ["kanan", "mundur", "mundur", "mundur", "kiri"]
+    },
+    {
+      "id": "kastil-036",
+      "instruksi": "Temukan rute aman menuju gerbang di pojok kiri bawah!",
+      "arahAwal": "kiri",
+      "awal": { "baris": 0, "kolom": 1 },
+      "tujuan": { "baris": 3, "kolom": 0 },
+      "rintangan": [
+        { "baris": 0, "kolom": 0 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 2, "kolom": 2 }
+      ],
+      "contohSolusi": ["mundur", "kiri", "mundur", "mundur"]
+    },
+    {
+      "id": "kastil-037",
+      "instruksi": "Arahkan penjelajah menuju gerbang di baris ketiga kolom keempat!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 0, "kolom": 0 },
+      "tujuan": { "baris": 2, "kolom": 3 },
+      "rintangan": [
+        { "baris": 0, "kolom": 2 },
+        { "baris": 1, "kolom": 1 },
+        { "baris": 2, "kolom": 1 }
+      ],
+      "contohSolusi": ["mundur", "mundur", "mundur", "kanan", "kanan", "kanan", "maju"]
+    },
+    {
+      "id": "kastil-038",
+      "instruksi": "Dari pojok kiri atas, capai tujuan di baris ketiga kolom keempat!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 0, "kolom": 0 },
+      "tujuan": { "baris": 2, "kolom": 3 },
+      "rintangan": [
+        { "baris": 1, "kolom": 0 },
+        { "baris": 1, "kolom": 2 },
+        { "baris": 3, "kolom": 2 }
+      ],
+      "contohSolusi": ["kanan", "mundur", "mundur", "kanan", "kanan"]
+    },
+    {
+      "id": "kastil-039",
+      "instruksi": "Lewati celah di bagian atas untuk menuju gerbang di sebelah kiri!",
+      "arahAwal": "kiri",
+      "awal": { "baris": 2, "kolom": 3 },
+      "tujuan": { "baris": 2, "kolom": 0 },
+      "rintangan": [
+        { "baris": 2, "kolom": 2 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 0, "kolom": 1 }
+      ],
+      "contohSolusi": ["maju", "kiri", "kiri", "kiri", "mundur"]
+    },
+    {
+      "id": "kastil-040",
+      "instruksi": "Susun langkah dari tengah bawah menuju pojok kiri atas!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 2 },
+      "tujuan": { "baris": 0, "kolom": 0 },
+      "rintangan": [
+        { "baris": 3, "kolom": 1 },
+        { "baris": 1, "kolom": 2 },
+        { "baris": 1, "kolom": 0 }
+      ],
+      "contohSolusi": ["maju", "kiri", "maju", "maju", "kiri"]
+    },
+    {
+      "id": "kastil-041",
+      "instruksi": "Bantu penjelajah mencapai gerbang di pojok kanan atas melalui jalur bawah!",
+      "arahAwal": "bawah",
+      "awal": { "baris": 1, "kolom": 1 },
+      "tujuan": { "baris": 0, "kolom": 3 },
+      "rintangan": [
+        { "baris": 0, "kolom": 1 },
+        { "baris": 1, "kolom": 2 },
+        { "baris": 2, "kolom": 2 }
+      ],
+      "contohSolusi": ["mundur", "mundur", "kanan", "kanan", "maju", "maju", "maju"]
+    },
+    {
+      "id": "kastil-042",
+      "instruksi": "Susun instruksi untuk bergerak dari kanan tengah ke kiri atas!",
+      "arahAwal": "kiri",
+      "awal": { "baris": 1, "kolom": 3 },
+      "tujuan": { "baris": 0, "kolom": 0 },
+      "rintangan": [
+        { "baris": 0, "kolom": 3 },
+        { "baris": 1, "kolom": 1 },
+        { "baris": 2, "kolom": 1 }
+      ],
+      "contohSolusi": ["kiri", "maju", "kiri", "kiri"]
+    },
+    {
+      "id": "kastil-043",
+      "instruksi": "Arahkan penjelajah dari kiri bawah ke tengah atas!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 0 },
+      "tujuan": { "baris": 0, "kolom": 2 },
+      "rintangan": [
+        { "baris": 2, "kolom": 0 },
+        { "baris": 2, "kolom": 2 },
+        { "baris": 0, "kolom": 1 }
+      ],
+      "contohSolusi": ["kanan", "maju", "maju", "kanan", "maju"]
+    },
+    {
+      "id": "kastil-044",
+      "instruksi": "Temukan jalan menuju gerbang di baris keempat kolom kedua!",
+      "arahAwal": "bawah",
+      "awal": { "baris": 0, "kolom": 3 },
+      "tujuan": { "baris": 3, "kolom": 1 },
+      "rintangan": [
+        { "baris": 1, "kolom": 3 },
+        { "baris": 2, "kolom": 2 },
+        { "baris": 1, "kolom": 0 }
+      ],
+      "contohSolusi": ["kiri", "mundur", "kiri", "mundur", "mundur"]
+    },
+    {
+      "id": "kastil-045",
+      "instruksi": "Capai gerbang di kanan bawah dari posisi awal di tengah atas!",
+      "arahAwal": "kanan",
+      "awal": { "baris": 0, "kolom": 1 },
+      "tujuan": { "baris": 3, "kolom": 3 },
+      "rintangan": [
+        { "baris": 0, "kolom": 2 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 2, "kolom": 3 }
+      ],
+      "contohSolusi": ["mundur", "kanan", "mundur", "mundur", "kanan"]
+    },
+    {
+      "id": "kastil-046",
+      "instruksi": "Susun algoritma untuk melewati lorong berliku menuju tujuan!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 3 },
+      "tujuan": { "baris": 0, "kolom": 2 },
+      "rintangan": [
+        { "baris": 2, "kolom": 3 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 1, "kolom": 1 }
+      ],
+      "contohSolusi": ["kiri", "maju", "maju", "maju"]
+    },
+    {
+      "id": "kastil-047",
+      "instruksi": "Bantu penjelajah mencapai gerbang di baris kedua kolom pertama!",
+      "arahAwal": "kiri",
+      "awal": { "baris": 3, "kolom": 2 },
+      "tujuan": { "baris": 1, "kolom": 0 },
+      "rintangan": [
+        { "baris": 3, "kolom": 1 },
+        { "baris": 1, "kolom": 2 },
+        { "baris": 2, "kolom": 0 }
+      ],
+      "contohSolusi": ["maju", "kiri", "maju", "kiri"]
+    },
+    {
+      "id": "kastil-048",
+      "instruksi": "Arahkan penjelajah dari kiri atas menuju gerbang di kanan tengah!",
+      "arahAwal": "bawah",
+      "awal": { "baris": 0, "kolom": 0 },
+      "tujuan": { "baris": 2, "kolom": 3 },
+      "rintangan": [
+        { "baris": 0, "kolom": 1 },
+        { "baris": 2, "kolom": 1 },
+        { "baris": 1, "kolom": 3 }
+      ],
+      "contohSolusi": ["mundur", "kanan", "kanan", "mundur", "kanan"]
+    },
+    {
+      "id": "kastil-049",
+      "instruksi": "Hindari rintangan batu untuk mencapai gerbang di pojok kiri bawah!",
+      "arahAwal": "bawah",
+      "awal": { "baris": 1, "kolom": 2 },
+      "tujuan": { "baris": 3, "kolom": 0 },
+      "rintangan": [
+        { "baris": 2, "kolom": 2 },
+        { "baris": 1, "kolom": 0 },
+        { "baris": 3, "kolom": 2 }
+      ],
+      "contohSolusi": ["kiri", "mundur", "mundur", "kiri"]
+    },
+    {
+      "id": "kastil-050",
+      "instruksi": "Misi terakhir Kastil! Susun langkah dari kiri bawah ke gerbang utama di kanan atas!",
+      "arahAwal": "atas",
+      "awal": { "baris": 3, "kolom": 0 },
+      "tujuan": { "baris": 0, "kolom": 3 },
+      "rintangan": [
+        { "baris": 3, "kolom": 1 },
+        { "baris": 1, "kolom": 0 },
+        { "baris": 1, "kolom": 2 }
+      ],
+      "contohSolusi": ["maju", "kanan", "kanan", "kanan", "maju", "maju"]
+    }
+  ]
+}
